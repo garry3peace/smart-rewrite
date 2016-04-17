@@ -1,3 +1,10 @@
+SMART REWRITE
+=================
+Program pintar untuk menulis ulang kalimat, paragraf dalam sistem.
+Aplikasi ini tidak sekedar mengganti kata per kata. Tetapi juga menulis ulang sebuah kalimat tanpa mengubah konteks terlalu jauh sehingga menciptakan tulisan yang sangat unik.
+
+Sistem ini dibangun dengan Yii 2, framework yang sangat powerful untuk level web.
+
 Yii 2 Basic Project Template
 ============================
 
