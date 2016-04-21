@@ -72,6 +72,47 @@ class Scrapper
 				$longtext= self::findAll($html,'#tab_details span');
 				$shorttext= self::find($html,'.b-pdp-video-text');
 				break;
+			case 'maccosmetics.com':
+				$longtext= self::findAll($html,'.product__description-group-body');
+				$shorttext= self::find($html,'.product__description-short');
+				break;
+			case 'maybelline.com':
+				$longtext= ucfirst(trim(strtolower(self::find($html,'.details')))).self::find($html,'.details','plaintext',1);
+				$shorttext= ucfirst(trim(strtolower(self::find($html,'.details'))));
+				break;
+			case 'thayers.com':
+				$longtext= self::find($html,'.summary div p').self::find($html,'.summary div p','plaintext',1);
+				$shorttext= self::find($html,'#tab-description p','plaintext').self::findAll($html,'#tab-description .greentext3');
+				break;
+			case 'benefitcosmetics.com':
+				$longtext= self::find($html,'.details-product-module-body .field-item','innertext').
+					'<p>Ingredients</p>'.self::find($html,'.field-name-field-ingredients .field-item','innertext').
+					'<p>How to use</p>'.self::find($html,'.field-name-field-how-to-use .field-item','innertext');
+				$shorttext= self::find($html,'.field-name-field-statement-of-id .field-item','outertext');
+				break;
+			case 'mariobadescu.com':
+				$longtext= self::find($html,'td.product_details_text','plaintext',0).
+					'<p>How to Use</p>'.self::find($html,'td.product_details_text','plaintext',10).
+					'<p>Ingredients</p>'.self::find($html,'td.product_details_text','plaintext',11);
+				$shorttext= self::find($html,'td.product_details_text');
+				break;
+			case 'ulta.com':
+				$longtext = self::find($html, '.current-longDescription','innertext');
+				$shorttext = self::find($html, '.current-longDescription p');
+				break;
+			case 'shuuemura-usa.com':
+				$longtext = self::findAll($html, '.product-description p');
+				$shorttext = self::find($html, '.product-description p');
+				break;
+			case 'tatcha.com':
+				$longtext = self::findAll($html, '#description p','outertext');
+				$shorttext = self::find($html, '#description p');
+				break;
+			case 'toofaced.com':
+				$longtext = self::find($html, '.what-it-is').
+					'<p>More to love: </p>'.self::find($html, '.more-to-love ul','outertext');
+				$shorttext = self::find($html, '.description');
+				break;
 			default:
 				$longtext = $shorttext = '';
 				break;
@@ -150,14 +191,15 @@ class Scrapper
 	public static function get($url)
 	{
 		$domain = self::getDomain($url);
-		if($domain=='sephora.com' || $domain=='bobbibrowncosmetics.com'){
+		
+//		if($domain=='sephora.com' || $domain=='bobbibrowncosmetics.com'){
 			$content = self::curlGet($url);
 			$html = SimpleHtml::str_get_html($content);
-		}else{
-			$context = stream_context_create();
-			stream_context_set_params($context, array('user_agent' => 'msnbot/1.1 (+http://search.msn.com/msnbot.htm)'));
-			$html = SimpleHtml::file_get_html($url, 0, $context);
-		}
+//		}else{
+//			$context = stream_context_create();
+//			stream_context_set_params($context, array('user_agent' => 'msnbot/1.1 (+http://search.msn.com/msnbot.htm)'));
+//			$html = SimpleHtml::file_get_html($url, 0, $context);
+//		}
 		
 		return self::retrieve($domain, $html);
 	}
