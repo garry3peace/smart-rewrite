@@ -68,8 +68,8 @@ class PhraseRewriter extends Rewriter
 			
 		},$sentence);
 		
-		var_dump($replacements);
-		print_r($sentence);
+//		var_dump($replacements);
+//		print_r($sentence);
 //		die();
 		$sentence = self::replaceText($sentence, $replacements);
 		
@@ -171,9 +171,13 @@ class PhraseRewriter extends Rewriter
 			if(strpos($sentence, $phrase->name)===false){
 				continue;
 			}
-			$replace = WordHelper::getSpinWord($phrase->name);
 			
-			$sentence = str_replace($phrase->name,$replace, $sentence);
+			if(strpos($sentence, '%')!==false){
+				
+			}else{
+				$replace = WordHelper::getSpinWord($phrase->name);
+				$sentence = str_replace($phrase->name,$replace, $sentence);
+			}
 			
 			//store to cache, so it won't processed further
 			$sentence = Yii::$app->wordCache->store($replace, $sentence);
