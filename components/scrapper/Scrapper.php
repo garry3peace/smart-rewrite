@@ -113,12 +113,19 @@ class Scrapper
 					'<p>More to love: </p>'.self::find($html, '.more-to-love ul','outertext');
 				$shorttext = self::find($html, '.description');
 				break;
+			case 'wowkeren.com':
+				$title =self::find($html, '#JudulHalaman h1');
+				$content = self::find($html, '#IsiBerita .content p');
+				$content = str_replace('WowKeren.com - ','',$content);
+				break;
 			default:
 				$longtext = $shorttext = '';
+				$title= $content = '';
 				break;
 		}
 		
-		return ['longtext'=>$longtext, 'shorttext'=>$shorttext];
+		//return ['longtext'=>$longtext, 'shorttext'=>$shorttext];
+		return ['title'=>$title, 'content'=>$content];
 	}
 	
 	private static function getDomain($url)
@@ -142,9 +149,6 @@ class Scrapper
 		$obj = $html->find($rule,$position);
 		if ($obj){
 			$text = $obj->$label;
-			if($label=='plaintext'){
-				$text = self::toTag($text);
-			}
 			return $text;
 		}	
 	}
@@ -155,9 +159,6 @@ class Scrapper
 		
 		foreach ($html->find($rule) as $element){
 			$text = $element->$label;
-			if($label=='plaintext'){
-				$text = self::toTag($text);
-			}
 			$result .= $text;
 		}
 		return $result;
@@ -178,7 +179,7 @@ class Scrapper
 		curl_setopt($curl, CURLOPT_IPRESOLVE, CURL_IPRESOLVE_V4 );
 		curl_setopt($curl, CURLOPT_POST, false);
 		$data = curl_exec($curl);
-		
+
 		curl_close($curl);
 		
 		return $data;
@@ -200,7 +201,7 @@ class Scrapper
 //			stream_context_set_params($context, array('user_agent' => 'msnbot/1.1 (+http://search.msn.com/msnbot.htm)'));
 //			$html = SimpleHtml::file_get_html($url, 0, $context);
 //		}
-		
+//		var_dump($content, $html);die();
 		return self::retrieve($domain, $html);
 	}
 }
