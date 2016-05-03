@@ -8,10 +8,74 @@ namespace app\components;
 use app\components\SpinFormat;
 use app\components\Rewriter;
 use app\components\WordHelper;
+use app\components\Number;
 use Yii;
 
 class PhraseRewriter extends Rewriter
 {
+	
+	/**
+	 * Finding text containing number and convert into text
+	 * 
+	 * @param type $sentence
+	 */
+	private static function parseNumberPhrase($sentence)
+	{
+		//finding text contain number to convert to number
+		//We wont replace if the text is longer than certain words
+		
+		$replacements = [];
+		$counter = 0;
+		
+		$regexPattern = '%(?:\s|^)((\d)+(\.){0,1}(\d)*(\.){0,1})+(?:\s|$|,|\.)%';
+		$sentence = preg_replace_callback($regexPattern, function ($match) use (&$replacements,&$counter,$sentence){
+			$alternateSentences = [];
+			$realSentence = $match[1];
+
+			$alternateSentences[] = $realSentence;
+
+			$pureNumber = str_replace('.','',$match[0]);
+			$alternateSentences[] = trim(Number::toPhrase($pureNumber));
+			$spinSentence = SpinFormat::generate($alternateSentences);
+
+			$counterLabel = '~'.$counter.'~';
+			$replacements[$counterLabel] = $spinSentence;
+
+			$counter++;
+			return str_replace($realSentence,$counterLabel, $match[0]);
+			
+		},$sentence);
+		
+		
+		//find all text and try to convert them into number if possible
+		$regexPattern = '%(?:\s|^)(((satu|dua|tiga|empat|lima|enam|tujuh|delapan|sembilan|sepuluh|sebelas)(?:\s)*(belas|puluh|ratus|ribu){0,1}(?:\s)*)+)(?:\s|$|,|\.)%i';
+		$sentence = preg_replace_callback($regexPattern, function ($match) use (&$replacements,&$counter,$sentence){
+
+			$alternateSentences = [];
+			$realSentence = $match[1];
+
+			$alternateSentences[] = $realSentence;
+
+			$alternateSentences[] = Number::toNumeric($realSentence);
+
+			$spinSentence = SpinFormat::generate($alternateSentences);
+
+			$counterLabel = '~'.$counter.'~';
+			$replacements[$counterLabel] = $spinSentence.' ';
+
+			$counter++;
+			return str_replace($realSentence,$counterLabel, $match[0]);
+			
+		},$sentence);
+		
+//		var_dump($replacements);
+//		print_r($sentence);
+//		die();
+		$sentence = self::replaceText($sentence, $replacements);
+		
+		return $sentence;
+	}
+	
 	/**
 	 * Parsing text and replace the text that contain phrase like
 	 * "para tetangga" into "tetangga-tetangga"
@@ -24,7 +88,9 @@ class PhraseRewriter extends Rewriter
 		$replacements = [];
 		$counter = 0;
 		if (preg_match_all($regexPattern, $sentence, $matches,  PREG_SET_ORDER)){
+			
 			foreach($matches as $match){
+				$alternateSentences = [];
 				$realSentence = $match[0];
 
 				$alternateSentences[] = $realSentence;
@@ -45,6 +111,8 @@ class PhraseRewriter extends Rewriter
 		$regexPattern = '%(?:^|\.)([\w]*)-([\w]*)%i';
 		if (preg_match_all($regexPattern, $sentence, $matches,  PREG_SET_ORDER)){
 			foreach($matches as $match){
+				$alternateSentences = [];
+				
 				$realSentence = $match[0];
 
 				$alternateSentences[] = $realSentence;
@@ -103,9 +171,13 @@ class PhraseRewriter extends Rewriter
 			if(strpos($sentence, $phrase->name)===false){
 				continue;
 			}
-			$replace = WordHelper::getSpinWord($phrase->name);
 			
-			$sentence = str_replace($phrase->name,$replace, $sentence);
+			if(strpos($sentence, '%')!==false){
+				
+			}else{
+				$replace = WordHelper::getSpinWord($phrase->name);
+				$sentence = str_replace($phrase->name,$replace, $sentence);
+			}
 			
 			//store to cache, so it won't processed further
 			$sentence = Yii::$app->wordCache->store($replace, $sentence);
@@ -116,6 +188,8 @@ class PhraseRewriter extends Rewriter
 	
 	public static function rewrite($sentence)
 	{
+		//processing number
+		$sentence = self::parseNumberPhrase($sentence);
 		//processing a lot (banyak, para) and "buku-buku"
 		$sentence = self::parseReduplicationPhrase($sentence);
 		//processing phrases
