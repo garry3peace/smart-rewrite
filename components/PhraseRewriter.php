@@ -26,23 +26,30 @@ class PhraseRewriter extends Rewriter
 		
 		$replacements = [];
 		$counter = 0;
-		
-		$regexPattern = '%(?:\s|^)((\d)+(\.){0,1}(\d)*(\.){0,1})+(?:\s|$|,|\.)%';
+
+		$regexPattern = '%((?:[\d]+[\.]?[\d]*[\.]?)+)%';
 		$sentence = preg_replace_callback($regexPattern, function ($match) use (&$replacements,&$counter,$sentence){
 			$alternateSentences = [];
 			$realSentence = $match[1];
-
+			
 			$alternateSentences[] = $realSentence;
 
-			$pureNumber = str_replace('.','',$match[0]);
-			$alternateSentences[] = trim(Number::toPhrase($pureNumber));
+			$pureNumber = str_replace('.','',$match[1]);
+			$numberPhrase = trim(Number::toPhrase($pureNumber));
+			
+			//If the string is too long, we'd rather don't change it.
+			if(str_word_count($numberPhrase)>5){
+				return $match[1]; 
+			}
+			
+			$alternateSentences[]= $numberPhrase;
 			$spinSentence = SpinFormat::generate($alternateSentences);
 
 			$counterLabel = '~'.$counter.'~';
 			$replacements[$counterLabel] = $spinSentence;
 
 			$counter++;
-			return str_replace($realSentence,$counterLabel, $match[0]);
+			return str_replace($realSentence,$counterLabel, $match[1]);
 			
 		},$sentence);
 		
@@ -173,14 +180,14 @@ class PhraseRewriter extends Rewriter
 			}
 			
 			if(strpos($sentence, '%')!==false){
-				
+
 			}else{
 				$replace = WordHelper::getSpinWord($phrase->name);
 				$sentence = str_replace($phrase->name,$replace, $sentence);
+				
+				//store to cache, so it won't processed further
+				$sentence = Yii::$app->wordCache->store($replace, $sentence);
 			}
-			
-			//store to cache, so it won't processed further
-			$sentence = Yii::$app->wordCache->store($replace, $sentence);
 		}
 		
 		return $sentence;

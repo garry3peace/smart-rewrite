@@ -49,8 +49,9 @@ class ScrapeController extends Controller
 	
 	public function actionIndex()
 	{
-		
-		$list = ['http://www.wowkeren.com/berita/tampil/00109765.html'];
+		$list = ['http://www.wowkeren.com/berita/tampil/00109982.html',
+			'http://www.wowkeren.com/berita/tampil/00109860.html'
+			];
 		
 		foreach($list as $link){
 			$data = Scrapper::get($link);

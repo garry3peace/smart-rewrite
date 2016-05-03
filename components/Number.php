@@ -87,11 +87,11 @@ class Number
 		elseif ($x < 100){
 			return self::toPhrase($x / 10) . " puluh " . self::toPhrase($x % 10);
 		}elseif ($x < 200)
-			return " seratus" . self::toPhrase($x - 100);
+			return "seratus " . self::toPhrase($x - 100);
 		elseif ($x < 1000)
 			return self::toPhrase($x / 100) . " ratus " . self::toPhrase($x % 100);
 		elseif ($x < 2000)
-			return " seribu" . self::toPhrase($x - 1000);
+			return "seribu " . self::toPhrase($x - 1000);
 		elseif ($x < 1000000)
 			return self::toPhrase($x / 1000) . " ribu " . self::toPhrase($x % 1000);
 		elseif ($x < 1000000000)

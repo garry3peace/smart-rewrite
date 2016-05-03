@@ -193,15 +193,9 @@ class Scrapper
 	{
 		$domain = self::getDomain($url);
 		
-//		if($domain=='sephora.com' || $domain=='bobbibrowncosmetics.com'){
-			$content = self::curlGet($url);
-			$html = SimpleHtml::str_get_html($content);
-//		}else{
-//			$context = stream_context_create();
-//			stream_context_set_params($context, array('user_agent' => 'msnbot/1.1 (+http://search.msn.com/msnbot.htm)'));
-//			$html = SimpleHtml::file_get_html($url, 0, $context);
-//		}
-//		var_dump($content, $html);die();
+		$content = self::curlGet($url);
+		$html = SimpleHtml::str_get_html($content);
+		
 		return self::retrieve($domain, $html);
 	}
 }

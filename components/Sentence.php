@@ -62,8 +62,8 @@ class Sentence
 			$sentence = Yii::$app->wordCache->store($exclusion, $sentence);
 		}
 		
-		//ignore money, time which contain dots in indonesia
-		if (preg_match_all('%[\d]+.[\d]+%', $sentence, $matches)){
+		//ignore  time which contain dots in indonesia
+		if (preg_match_all('%(?:\s|^)[\d]{1,2}\.[\d]{2}(?:\s|$|,|\.)%', $sentence, $matches)){
 			foreach($matches[0] as $match){
 				$sentence = Yii::$app->wordCache->store($match, $sentence);
 			}
