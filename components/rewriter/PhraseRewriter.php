@@ -3,10 +3,10 @@
  * SpinFormat to manage spin text format
  */
 
-namespace app\components;
+namespace app\components\rewriter;
 
 use app\components\SpinFormat;
-use app\components\Rewriter;
+use app\components\rewriter\Rewriter;
 use app\components\WordHelper;
 use app\components\Number;
 use Yii;
@@ -27,7 +27,7 @@ class PhraseRewriter extends Rewriter
 		$replacements = [];
 		$counter = 0;
 
-		$regexPattern = '%((?:[\d]+[\.]?[\d]*[\.]?)+)%';
+		$regexPattern = '%\b(\d{1,3}(?:\.\d{3})*|\d+)\b%';
 		$sentence = preg_replace_callback($regexPattern, function ($match) use (&$replacements,&$counter,$sentence){
 			$alternateSentences = [];
 			$realSentence = $match[1];

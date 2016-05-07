@@ -41,4 +41,11 @@ class Exclusion extends \yii\db\ActiveRecord
             'value' => 'Value',
         ];
     }
+	
+	public function create($value)
+	{
+		$object = new self;
+		$object->value=$value;
+		$object->save();
+	}
 }

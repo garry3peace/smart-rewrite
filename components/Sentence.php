@@ -6,9 +6,9 @@
 
 namespace app\components;
 
-use app\components\SentenceRewriter;
-use app\components\PhraseRewriter;
-use app\components\WordRewriter;
+use app\components\rewriter\SentenceRewriter;
+use app\components\rewriter\PhraseRewriter;
+use app\components\rewriter\WordRewriter;
 use Yii;
 
 class Sentence 
@@ -50,10 +50,26 @@ class Sentence
 	 */
 	private static function exclude($sentence)
 	{
+		//Excluding text that is html link/src
+		$regex = '%(<(?i:img|a)[\w\s-\.\"\=\<\>\:./]*?>)%';
+		$sentence = preg_replace_callback($regex,function ($match){
+			$word = $match[0];
+			$target = $match[1];
+			return Yii::$app->wordCache->store($target, $word);
+		},$sentence);
+		
+		//Excluding names. Names always uppercase and most of it doesn't at in front
+		$regex = '%\b([A-Z]\w+)\b%';
+		$sentence = preg_replace_callback($regex,function ($match){
+			$word = $match[0];
+			$target = $match[1];
+			return Yii::$app->wordCache->store($target, $word);
+		},$sentence);
+		
 		//Checking the database
 		$exclusions = \app\models\Exclusion::find()->all();
 		foreach($exclusions as $exclusion){
-			$sentence = Yii::$app->wordCache->store($exclusion->value, $sentence);
+			$sentence = Yii::$app->wordCache->store($exclusion->value, $sentence, $caseSensitive=false);
 		}
 		
 		//checking user submit data

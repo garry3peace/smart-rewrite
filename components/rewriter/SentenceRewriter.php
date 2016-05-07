@@ -3,15 +3,15 @@
  * SpinFormat to manage spin text format
  */
 
-namespace app\components;
+namespace app\components\rewriter;
 
 use app\components\SpinFormat;
-use app\components\Rewriter;
+use app\components\rewriter\Rewriter;
 
 class SentenceRewriter extends Rewriter
 {
-	const SENTENCE_OPENING = '%(?:^|\.)';//symbols for opening sentence
-	const SENTENCE_CLOSING = '(?:$|\.)%i'; //symbols for closing sentence
+	const SENTENCE_OPENING = '%\b';//symbols for opening sentence
+	const SENTENCE_CLOSING = '\b%i'; //symbols for closing sentence
 	
 	/**
 	 * Parsing the $process string by replacing the variable
@@ -52,30 +52,56 @@ class SentenceRewriter extends Rewriter
 		
 		$timeWord = '(sejak|semenjak|sedari|sewaktu|tatkala|ketika|sementara|seraya|
 			selagi|selama|sambil|demi|setelah|sesudah|sebelum|sehabis|selesai|seusai|
-			hingga|sampai)';
+			hingga)';
 		
 		return [
 			'1'=>[
 				'rule'=>self::SENTENCE_OPENING.'([\w\s`-]*)'.$ifWord .'([\w\s`-]*)maka([\w\s`-]*)'.self::SENTENCE_CLOSING,
-				'process'=>':match1|ucfirst,:match4 :match2 :match3|trim|lcfirst.',
+				'process'=>':match1|ucfirst,:match4 :match2 :match3|trim|lcfirst',
 			],
 			'2'=>[
 				'rule'=>self::SENTENCE_OPENING.'([\w\s`-]*)'.$ifWord .'([\w\s`-]*)'.self::SENTENCE_CLOSING,
-				'process'=>':match2|trim|ucfirst :match3, :match1|lcfirst|trim.',
+				'process'=>':match2|trim|ucfirst :match3, :match1|lcfirst|trim',
 			],
 			'3'=>[
 				'rule'=>self::SENTENCE_OPENING.$ifWord.'([\w\s`-]*), ([\w\s`-]*)'.self::SENTENCE_CLOSING,
-				'process'=>':match3|ucfirst|trim :match1|lcfirst :match2.',
+				'process'=>':match3|trim|ucfirst :match1|lcfirst :match2',
 			],
 			'4'=>[
 				'rule'=>self::SENTENCE_OPENING.'([\w\s-`,]+) (dikarenakan|karena|sebab|supaya|agar) ([\w\s`-]*)'.self::SENTENCE_CLOSING,
-				'process'=>':match2 :match3|ucfirst|trim :match1|lcfirst.',
+				'process'=>':match2|trim|ucfirst :match3|ucfirst|trim :match1|lcfirst',
 			],
 			'5'=>[
 				'rule'=>self::SENTENCE_OPENING.'([\w\s-`]+) '.$timeWord.' ([\w\s-`]*)'.self::SENTENCE_CLOSING,
-				'process'=>':match2 :match3|trim, :match1|trim|lcfirst.',
+				'process'=>':match2|trim|ucfirst :match3|trim, :match1|trim|lcfirst',
 			],
+			'6'=>[
+				'rule'=>self::SENTENCE_OPENING.'([\w\s-`]+) (\w+) (me(?:[a-z]+)kan)([\w\s-`]*)'.self::SENTENCE_CLOSING,
+				'process'=>'func:parsePassive',
+			]
 		];
+	}
+	
+	/**
+	 * Executer process that is function type
+	 */
+	private static function executeProcess($process, $match)
+	{
+		$function = str_replace('func:', '', $process);
+		return call_user_func("self::$function",$match);
+	}
+	
+	/**
+	 * Process could be function or string
+	 * If it is function, the process must preceed with "func:"
+	 * to let the system know
+	 */
+	private static function isFunctionProcess($process)
+	{
+		if(strpos($process, 'func:')===0){
+			return true;
+		}
+		return false;
 	}
 	
 	private static function process($sentence)
@@ -89,15 +115,21 @@ class SentenceRewriter extends Rewriter
 			$regexPattern = $rule['rule'];
 			if (preg_match_all($regexPattern, $sentence, $matches,  PREG_SET_ORDER)){
 				foreach($matches as $match){
+					$alternateSentences = [];
+					
 					$realSentence = $match[0];
 
 					$alternateSentences[] = $realSentence;
 					
-
-					$alternateSentences[] = self::processingPregMatch($rule['process'], $match); 
+					$process = $rule['process'];
+					if(self::isFunctionProcess($process)){
+						$alternateSentences[] = self::executeProcess($process, $match);
+					}else{
+						$alternateSentences[] = self::processingPregMatch($process, $match); 
+					}
 					$spinSentence = SpinFormat::generate($alternateSentences);
 
-					$counterLabel = ':st'.$counter;
+					$counterLabel = '#st'.$counter.'#';
 					$replacements[$counterLabel] = $spinSentence;
 					$sentence = str_replace($realSentence, $counterLabel, $sentence);
 
@@ -107,6 +139,19 @@ class SentenceRewriter extends Rewriter
 		}
 		$sentence = self::replaceText($sentence, $replacements);
 		return $sentence;
+	}
+	
+	private static function parsePassive($match){
+		$rawPassive = $match[3];
+		$passive = \app\components\sentence\Passive::toPassiveMekan($rawPassive);
+
+		$listTimeWord = ['akan','sudah','telah','belum','masih','sedang','tetap'];
+		if(in_array($match[2], $listTimeWord)){
+			return ucfirst(trim($match[4])).' '.$match[2].' '.$passive.' '.lcfirst(trim($match[1]));
+		}
+		
+		$sentence = ucfirst(trim($match[4])).' '.$passive.' '.lcfirst(trim($match[1])).' '.$match[2];
+		return $sentence; 
 	}
 	
 	private static function parseBecauseSentence($sentence)
@@ -125,27 +170,6 @@ class SentenceRewriter extends Rewriter
 				
 				
 				$alternateSentences[] = ucfirst($match[2]).' '.trim(lcfirst($match[3])).', '.trim(lcfirst($match[1])).'.';
-				$spinSentence = SpinFormat::generate($alternateSentences);
-				$sentence = str_replace($realSentence, $spinSentence, $sentence);
-			}
-		}
-
-		return $sentence;
-	}
-	
-	private static function parseWhenSentence($sentence)
-	{
-		$timeWord = '(sejak|semenjak|sedari|sewaktu|tatkala|ketika|sementara|begitu|seraya|
-			selagi|selama|serta|sambil|demi|setelah|sesudah|sebelum|sehabis|selesai|seusai|
-			hingga|sampai)';
-		$regexPattern = self::SENTENCE_OPENING.'([\w\s-`]+) '.$timeWord.' ([\w\s-`]*)'.self::SENTENCE_CLOSING;
-		if(preg_match_all($regexPattern, $sentence, $matches,  PREG_SET_ORDER)){
-			foreach($matches as $match){
-				$realSentence = $match[0];
-
-				$alternateSentences[] = $realSentence;
-				
-				$alternateSentences[] = 'Ketika '.trim($match[2]).', '.trim(lcfirst($match[1])).'.';
 				$spinSentence = SpinFormat::generate($alternateSentences);
 				$sentence = str_replace($realSentence, $spinSentence, $sentence);
 			}

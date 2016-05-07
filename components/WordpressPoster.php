@@ -68,23 +68,7 @@ class WordpressPoster
 		curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 30);
 		curl_setopt($ch, CURLOPT_URL, $this->url($url));
 
-		/*
-		$nonce = rand();
-		$timestamp = time();
-		$signature = $this->getSignature($url, $data);
-		$headers = array(
-			'authorization: OAuth oauth_consumer_key="'.self::CONSUMER_KEY.'",
-				oauth_token="'.self::OAUTH_TOKEN.'",
-				oauth_signature_method="HMAC-SHA1",
-				oauth_timestamp="'.$timestamp.'",
-				oauth_nonce="'.$nonce.'",
-				oauth_version="1.0",
-				oauth_signature="'.$signature.'"',
-			'cache-control: no-cache',
-			'content-type: multipart/form-data;',
-		);*/
-		//$headers = array('Content-Type: application/x-www-form-urlencoded');
-		$headers = array('Content-Type: multipart/form-data');
+		$headers = array('Content-Type: application/x-www-form-urlencoded');
 		curl_setopt($ch, CURLOPT_HEADER, $headers);
 
 		curl_setopt($ch, CURLOPT_POST, true);
@@ -138,7 +122,8 @@ class WordpressPoster
 	{
 		$this->rewriteContent();
 
-		var_dump($this->title, $this->content);
+		print_r($this->title);
+		print_r($this->content);
 
 		$postData = $this->getData();
 //		print_r($postData);
@@ -147,7 +132,7 @@ class WordpressPoster
 		$signature = $this->getSignature($this->url('wp/v2/posts'), $data);
 		$data .= '&oauth_signature='.$signature;
 
-//		var_dump($data);
+		print_r($data);
 		$result = $this->curl('wp/v2/posts',$data);
 
 		var_dump($result);

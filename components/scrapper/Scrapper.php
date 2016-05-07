@@ -6,12 +6,10 @@ class Scrapper
 {
 
 	/**
-	 * execute how to get content based on domain
-	 * @param string $domain
-	 * @param SimpleHtml $html
-	 * @return type
+	 * Function to retrieve content from onlineshop content
+	 * automatically
 	 */
-	private static function retrieve($domain, $html)
+	private static function onlineShop($domain)
 	{
 		switch($domain){
 			case 'sephora.com':
@@ -113,18 +111,84 @@ class Scrapper
 					'<p>More to love: </p>'.self::find($html, '.more-to-love ul','outertext');
 				$shorttext = self::find($html, '.description');
 				break;
-			case 'wowkeren.com':
-				$title =self::find($html, '#JudulHalaman h1');
-				$content = self::find($html, '#IsiBerita .content p');
-				$content = str_replace('WowKeren.com - ','',$content);
-				break;
-			default:
-				$longtext = $shorttext = '';
-				$title= $content = '';
-				break;
+		}
+		return ['longtext'=>$longtext, 'shorttext'=>$shorttext];
+	}
+	
+	
+	private static function cnnindonesia($html)
+	{
+		$title = self::find($html, '.content_detail h1');
+		
+		//remove the content "side see more"
+		$nodes = $html->find('.text_detail .topiksisip');
+		foreach($nodes as $node){
+			$node->outertext='';
 		}
 		
-		//return ['longtext'=>$longtext, 'shorttext'=>$shorttext];
+		//remove link sisip
+		$nodes = $html->find('.text_detail .linksisip');
+		foreach($nodes as $node){
+			$node->outertext='';
+		}
+		
+		//remove the first "cnn-jakarta"
+		$node = $html->find('.text_detail strong', 0);
+		$node->outertext='';
+		
+		$node = $html->find('.text_detail b', -1);
+		$node->outertext='';
+		
+		$content = self::find($html, '.text_detail','innertext');
+		$content = str_replace('<!–// –>','',$content);
+		
+		return [$title, $content];
+	}
+	
+	private static function wowkeren($html)
+	{
+		$title =self::find($html, '#JudulHalaman h1');
+		
+		//remove link
+		$nodes = $html->find('#IsiBerita .content p a');
+		foreach($nodes as $node){
+			$node->innertext=$node->plaintext;
+		}
+		
+		$content = self::find($html, '#IsiBerita .content p','innertext');
+		
+		//remove brand
+		$content = str_replace('<strong>WowKeren.com</strong> - ','',$content);
+		
+		
+		return [$title, $content];
+	}
+	
+	private static function kapanlagi($html)
+	{
+		$title =self::find($html, '.entertainment-newsdetail-title-new');
+		$content = self::find($html, '.entertainment-detail-news');
+		$content = str_replace('Kapanlagi.com - ','',$content);
+		return [$title, $content];
+	}
+	
+	/**
+	 * execute how to get content based on domain
+	 * @param string $domain
+	 * @param SimpleHtml $html
+	 * @return type
+	 */
+	private static function retrieve($domain, $html)
+	{
+		$domainMeta = explode('.',$domain);
+		$domainName = $domainMeta[0];
+		
+		$title = $content = '';
+		
+		if(method_exists(new self,$domainName)){
+			list($title, $content) = self::$domainName($html);
+		}		
+		
 		return ['title'=>$title, 'content'=>$content];
 	}
 	
@@ -174,7 +238,7 @@ class Scrapper
 		curl_setopt($curl, CURLOPT_HEADER, false);
 		$agent= 'Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1; .NET CLR 1.0.3705; .NET CLR 1.1.4322)';
 		curl_setopt($curl, CURLOPT_USERAGENT, $agent);
-		
+		curl_setopt($curl,CURLOPT_ENCODING , 'gzip');
 		curl_setopt($curl, CURLOPT_HTTP_VERSION, CURL_HTTP_VERSION_1_1);
 		curl_setopt($curl, CURLOPT_IPRESOLVE, CURL_IPRESOLVE_V4 );
 		curl_setopt($curl, CURLOPT_POST, false);
@@ -194,8 +258,9 @@ class Scrapper
 		$domain = self::getDomain($url);
 		
 		$content = self::curlGet($url);
+//		print_r($content);
 		$html = SimpleHtml::str_get_html($content);
-		
+//		var_dump($html);die('#');
 		return self::retrieve($domain, $html);
 	}
 }

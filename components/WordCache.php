@@ -24,14 +24,18 @@ class WordCache extends Component
 	 * @param string $sentence the whole sentences
 	 * @return type
 	 */
-	public function store($data, $sentence)
+	public function store($data, $sentence, $caseSensitive=true)
 	{
 		$counter = $this->counter;
-		$label = "%$counter%";
+		$label = "#cache$counter#";
 		$this->cache[$label] = $data;
 		$this->counter++;
 		
-		$sentence = str_replace($data, $label, $sentence);
+		if($caseSensitive){
+			$sentence = str_replace($data, $label, $sentence);
+		}else{
+			$sentence = str_ireplace($data, $label, $sentence);
+		}
 		return $sentence;
 	}
 	

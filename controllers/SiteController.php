@@ -128,20 +128,4 @@ class SiteController extends Controller
 			'wordCount'=>$wordCount,
 		]);
     }
-	
-	public function actionImport()
-	{
-		if($_SERVER['HTTP_HOST']!='localhost:8080'){
-			die();
-		}
-		
-        if (Yii::$app->request->post()) {
-			$post = Yii::$app->request->post();
-			$data = $post['import']['data'];
-			Importer::import($data);
-            return $this->refresh();
-        }
-        return $this->render('import');
-	}
-	
 }

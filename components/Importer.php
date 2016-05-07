@@ -8,10 +8,11 @@ namespace app\components;
 use Yii;
 use app\models\Synonym;
 use app\models\Antonym;
+use app\models\Exclusion;
 
 class Importer
 {
-	private static function emptyTable()
+	private static function emptyTableThesaurus()
 	{
 		$connection = Yii::$app->db;
 		$connection->createCommand()->truncateTable('antonym')->execute();
@@ -19,10 +20,21 @@ class Importer
 		$connection->createCommand()->truncateTable('word')->execute();
 	}
 	
+	public static function importException($data)
+	{
+		$data = explode(PHP_EOL, $data);
+		
+		foreach($data as $row){		
+			$row = trim($row);
+			
+			Exclusion::create($row);
+		}
+	}
+	
 	public static function import($data)
 	{
 		//truncate all tables first
-		self::emptyTable();
+		self::emptyTableThesaurus();
 		
 		$data = explode(PHP_EOL, $data);
 		

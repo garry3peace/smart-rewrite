@@ -3,10 +3,10 @@
  * SpinFormat to manage spin text format
  */
 
-namespace app\components;
+namespace app\components\rewriter;
 
 use app\components\SpinFormat;
-use app\components\Rewriter;
+use app\components\rewriter\Rewriter;
 
 class WordRewriter extends Rewriter
 {
