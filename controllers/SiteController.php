@@ -128,4 +128,17 @@ class SiteController extends Controller
 			'wordCount'=>$wordCount,
 		]);
     }
+	public function actionSummarize()
+	{
+		$content = '';
+		$summary = '';
+		
+		if(isset($_POST['Summarize'])){
+			$content = $_POST['Summarize']['content'];
+			$summarizer = new \app\components\summarizer\Summarizer($content);
+			$summary = $summarizer->summarize();
+			
+		}
+		return $this->render('summarize',['content'=>$content,'summary'=>$summary]);
+	}
 }

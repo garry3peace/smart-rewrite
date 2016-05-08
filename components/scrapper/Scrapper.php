@@ -172,6 +172,15 @@ class Scrapper
 		return [$title, $content];
 	}
 	
+	private static function muvila($html)
+	{
+		$title =self::find($html, '.detail-headline h1');
+		$content = self::findAll($html, '.body-paragraph p', 'outertext');
+		$content = str_replace('Muvila.com &ndash; ','',$content);
+		return [$title, $content];
+	}
+	
+	
 	/**
 	 * execute how to get content based on domain
 	 * @param string $domain
