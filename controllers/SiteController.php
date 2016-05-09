@@ -132,13 +132,20 @@ class SiteController extends Controller
 	{
 		$content = '';
 		$summary = '';
+		$line = 5;
 		
 		if(isset($_POST['Summarize'])){
 			$content = $_POST['Summarize']['content'];
+			$line = intval($_POST['Summarize']['line']);
 			$summarizer = new \app\components\summarizer\Summarizer($content);
+			$summarizer->setNumOfResult($line);
 			$summary = $summarizer->summarize();
 			
 		}
-		return $this->render('summarize',['content'=>$content,'summary'=>$summary]);
+		return $this->render('summarize',[
+			'content'=>$content,
+			'summary'=>$summary,
+			'line'=>$line]
+			);
 	}
 }

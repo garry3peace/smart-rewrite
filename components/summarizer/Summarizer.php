@@ -93,7 +93,10 @@ class Summarizer
 		return $this->keywords;
 	}
 	
-	
+	public function setNumOfResult($num)
+	{
+		$this->numOfResult = $num;
+	}
 	
 	/**
 	 * calculate each sentence point
@@ -123,6 +126,9 @@ class Summarizer
 					
 				$score += $this->keywords[$word];
 			}
+			
+			$score = $score/count($words);
+			
 			$value = [
 				'sentence'=>$sentence,
 				'score'=>$score,

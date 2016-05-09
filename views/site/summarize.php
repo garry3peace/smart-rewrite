@@ -21,6 +21,7 @@ $this->params['breadcrumbs'][] = $this->title;
 			</p>
 			<?= Html::beginForm(); ?>
 			<?= Html::textarea('Summarize[content]',$content,['class'=>'form-control','rows'=>10]); ?>
+			Jumlah Baris : <?= Html::textInput('Summarize[line]',$line,['class'=>'form-control']); ?>
 			<?= Html::submitButton('Submit',['class'=>'btn-primary btn']); ?>
 			<?= Html::endForm(); ?>
 		</div>
