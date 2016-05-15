@@ -142,7 +142,15 @@ class SentenceRewriter extends Rewriter
 	}
 	
 	private static function parsePassive($match){
+		$realSentence = $match[0];
 		$rawPassive = $match[3];
+		
+		$exception = ['merupakan'];
+		if(in_array($rawPassive, $exception)){
+			return $realSentence;
+		}
+		
+		
 		$passive = \app\components\sentence\Passive::toPassiveMekan($rawPassive);
 
 		$listTimeWord = ['akan','sudah','telah','belum','masih','sedang','tetap'];

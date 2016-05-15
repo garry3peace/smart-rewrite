@@ -6,6 +6,7 @@
 
 namespace app\components;
 
+use app\components\rewriter\ParagraphRewriter;
 use app\components\rewriter\SentenceRewriter;
 use app\components\rewriter\PhraseRewriter;
 use app\components\rewriter\WordRewriter;
@@ -27,6 +28,11 @@ class Sentence
 		//exclude all execptions
 		$sentence = self::exclude($sentence);
 		
+		//processing paragraph
+		if($config->is('paragraph')){
+			$paragraphWriter = new ParagraphRewriter($sentence,self::$config);
+			$sentence = $paragraphWriter->rearrange($sentence);
+		}
 		//processing rewrite sentence
 		$sentence = SentenceRewriter::rewrite($sentence);
 		//processing phrase
