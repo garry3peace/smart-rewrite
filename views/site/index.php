@@ -11,7 +11,7 @@ Yii::$app->view->params['metaDescription'] = 'Smart Rewrite akan menulis ulang a
 
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="site home">
+<div class="site home" ng-app="app">
     
 
 	<div class="row">

@@ -145,7 +145,7 @@ class SentenceRewriter extends Rewriter
 		$realSentence = $match[0];
 		$rawPassive = $match[3];
 		
-		$exception = ['merupakan'];
+		$exception = ['merupakan','memunculkan'];
 		if(in_array($rawPassive, $exception)){
 			return $realSentence;
 		}

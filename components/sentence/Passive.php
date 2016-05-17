@@ -29,9 +29,9 @@ class Passive {
 			'maklum','makmur','makna','maksimal','maksud','makzul','malam',
 			'malas','mampir','mampu','mandat','mandi','mandul','manfaat','mangsa',
 			'manis','manja','manjur','mantap','manuver','marah','mekar','mati','malu','maling',
-			'mengerti','mentah','milik','minat','minggat','minta','minum','minus','mirip',
+			'menang','mengerti','mentah','milik','minat','minggat','minta','minum','minus','mirip',
 			'miskin','modal','model','modern','modernisasi','modifikasi','mogok','molor',
-			'moralisasi','motivasi','muara','mula','mulai','mulia','muntah','mutilasi','mutasi',
+			'moralisasi','motivasi','muara','mula','mulai','mulia','muncul','muntah','mutilasi','mutasi',
 			'mutlak'
 		];
 		
@@ -63,7 +63,51 @@ class Passive {
 		return false;
 	}
 	
+
+	/**
+	 * Remove the suffix (ending word)
+	 * @param string $word
+	 * @param string $suffix
+	 */
+	private static function removeSuffix($word, $suffix)
+	{
+		$prefixLength= strlen($suffix);
+		if(substr($word,-$prefixLength)==$suffix){
+			return substr($word,0, -$prefixLength);
+		}
+		return $word;
+	}
 	
+	/**
+	 * Remove the beginning (first word)
+	 * @param string $word
+	 * @param string $prefix
+	 */
+	private static function removePrefix($word, $prefix)
+	{
+		$prefixLength= strlen($prefix);
+		if(substr($word,0,$prefixLength)==$prefix){
+			return substr($word,$prefixLength);
+		}
+		return $word;
+	}
+	
+
+	/**
+	 * Function to remove any fix given
+	 *
+	*/
+	private static function removeAffix($word, $prefix='', $suffix='')
+	{
+		//replace prefix
+		$word = self::removePrefix($word, $prefix);
+
+		//replace suffix
+		$word = self::removeSuffix($word, $suffix);
+		
+		return $word;
+	}	
+
 	/**
 	 * Passive me-kan form
 	 * @param type $affix
@@ -72,46 +116,51 @@ class Passive {
 	{
 		//finding "meny-kan", eg: menyertakan, menyatakan
 		if(strpos($affix,'meny')===0){
-			$base = str_replace('kan','',str_replace('me','',$affix));
+			$base = self::removeAffix($affix,'me','kan');
 			if(self::isVerbStartWith($affix,'ny')){
 				$passive = 'di'.$affix.'kan';
 			}else{
-				$base = str_replace('kan','',str_replace('meny','',$affix));
+				$base = self::removeAffix($affix,'meny','kan');
 				$passive = 'dis'.$base.'kan';
 			}
 		//find "meng-kan, eg: mengabarkan, menganulirkan, mengaturkan
 		}else if(strpos($affix,'meng')===0){
-			$base = str_replace('kan','',str_replace('meng','k',$affix));
+			$base = 'k'.self::removeAffix($affix,'meng','kan');
 			if(self::isVerbStartWith($base,'k')){
 				$passive = 'di'.$base.'kan';
 			}else{
-				$base = str_replace('kan','',str_replace('meng','',$affix));
+				$base = self::removeAffix($affix,'meng','kan');
 				$passive = 'di'.$base.'kan';
 			}
 		//find "men-kan", eg: menudingkan, menuliskan
 		}else if (strpos($affix,'men')===0){
-			$base = str_replace('kan','',str_replace('me','',$affix));
+			$base = self::removeAffix($affix,'me','kan');
 			if(self::isVerbStartWith($base,'n')){
 				$passive = 'di'.$base.'kan';
 			}else if(in_array($affix[3], ['a','i','u','e','o'])){
-				$base = str_replace('kan','',str_replace('men','',$affix));
+				$base = self::removeAffix($affix,'men','kan');
 				$passive = 'dit'.$base.'kan';
 			}else{
-				$base = str_replace('kan','',str_replace('men','',$affix));
+				$base = self::removeAffix($affix,'men','kan');
 				$passive = 'di'.$base.'kan';
 			}
 			
 		//find mem-kan
 		}else if (strpos($affix,'mem')===0){
 			if(in_array($affix[3], ['a','i','u','e','o'])){
-				$base = str_replace('kan','',str_replace('mem','',$affix));
-				$passive = 'dip'.$base.'kan';
+				$base = self::removeAffix($affix,'me','kan');
+				if(self::isVerbStartWith($base,'m')){
+					$passive = 'di'.$base.'kan';
+				}else{
+					$base = self::removeAffix($affix,'mem','kan');
+					$passive = 'dip'.$base.'kan';
+				}
 			}else{
-				$base = str_replace('kan','',str_replace('mem','',$affix));
+				$base = self::removeAffix($affix,'mem','kan');
 				$passive = 'di'.$base.'kan';
 			}
 		}else{
-			$base = $base = str_replace('kan','',str_replace('me','',$affix));
+			$base = self::removeAffix($affix,'me','kan');
 			$passive = 'di'.$base.'kan';
 		}
 		
