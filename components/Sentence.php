@@ -20,10 +20,23 @@ class Sentence
 	
 	private static $config; //Config Object
 
+	
+	/**
+	 * Store the submitted content into the log
+	 */
+	private static function log($sentence, $config)
+	{
+		$log = new \app\models\Log;
+		return $log->add($sentence, $config);
+	}
+	
 	public static function parse($sentence, $config)
 	{
 		//loading the Config object
 		self::$config = $config;
+		
+		//saving into log
+		self::log($sentence, $config);
 		
 		//exclude all execptions
 		$sentence = self::exclude($sentence);
