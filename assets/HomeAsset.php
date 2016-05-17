@@ -11,6 +11,7 @@ class HomeAsset extends AssetBundle
 		'angular/angular.js',
 		'clipboard/dist/clipboard.min.js',
 		'/js/mel-spintax.js',
+		'/js/home.js',
 	];
     
 }

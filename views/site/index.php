@@ -11,7 +11,8 @@ Yii::$app->view->params['metaDescription'] = 'Smart Rewrite akan menulis ulang a
 
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="site home" ng-app="app">
+<div ng-app='app'>
+<div class="site home" ng-controller='SpintaxController'>
     
 
 	<div class="row">
@@ -21,7 +22,10 @@ $this->params['breadcrumbs'][] = $this->title;
 				Smart Rewrite
 			</p>
 			<?= Html::beginForm(); ?>
-			<?= Html::textarea('Spin[content]',$content,['class'=>'form-control','rows'=>10]); ?>
+			<?= Html::textarea('Spin[content]','',[
+				'class'=>'form-control',
+				'rows'=>10,
+				'ng-bind'=>'sourceText']); ?>
 			<?= Yii::$app->controller->renderPartial('_option-form', ['options'=>$options]); ?>
 			<?= Html::submitButton('Submit',['class'=>'btn-primary btn']); ?>
 			<?= Html::endForm(); ?>
@@ -31,7 +35,11 @@ $this->params['breadcrumbs'][] = $this->title;
 	<h2>Spintax</h2>
 	<div class="row">
 		<div class="col-lg-12 result">
-			<?= Html::textarea('Spin[spinTax]',$spinTax,['id'=>'Spin_spinTax', 'class'=>'form-control','rows'=>10,'locked'=>'locked']); ?>
+			<?= Html::textarea('Spin[spinTax]','',[
+				'id'=>'Spin_spinTax', 
+				'class'=>'form-control',
+				'rows'=>10,
+				'ng-bind'=>'spintaxText']); ?>
 			<p class="small">Spintax biasanya dipakai di aplikasi seperti GSA Search Engine Ranker atau Scrapebox</p>
 		</div>
 		
@@ -42,9 +50,14 @@ $this->params['breadcrumbs'][] = $this->title;
 	</div>
 	<hr/>
 	<h2>Hasil</h2>
-	<div class="row">
+	<div class="row" >
+		<button class="btn btn-primary" ng-click="regenerate()">Re-generate</button>
 		<div class="col-lg-12 result">
-			<?= Html::textarea('Spin[result]',$result,['id'=>'Spin_result', 'class'=>'form-control','rows'=>10,'locked'=>'locked']); ?>
+			<?= Html::textarea('Spin[result]','',[
+				'id'=>'Spin_result', 
+				'class'=>'form-control',
+				'rows'=>10,
+				'ng-bind'=>'resultText']); ?>
 		</div>
 		<div class="col-lg-12">
 			<br/>
@@ -52,3 +65,9 @@ $this->params['breadcrumbs'][] = $this->title;
 		</div>
 	</div>
 </div>
+</div>
+
+<script>
+	window.spintaxText		= '<?=$spinTax?>';
+	window.sourceText		= '<?=$content?>';
+</script>
