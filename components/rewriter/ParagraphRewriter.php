@@ -107,7 +107,7 @@ class ParagraphRewriter extends Rewriter
 			return $this->isText;
 		}
 		
-		if(strpos('<p>',$this->content)!==false){
+		if(strpos($this->content, '<p>')!==false){
 			$this->isText = false;
 		}
 		$this->isText = true;

@@ -2,11 +2,10 @@
 
 namespace app\controllers;
 
-use Yii;
 use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii\filters\VerbFilter;
-use app\components\scrapper\Scrapper;
+use app\components\scrapper\ScrapperPage;
 use app\components\WordpressPoster;
 
 class ScrapeController extends Controller
@@ -55,7 +54,7 @@ class ScrapeController extends Controller
 			$content = $_POST['Scrape']['list'];
 			$list = explode(PHP_EOL, $content);
 			foreach($list as $link){
-				$data = Scrapper::get($link);
+				$data = ScrapperPage::get($link);
 				$wp = new WordpressPoster($data['title'], $data['content']);
 				$wp->post();
 			}

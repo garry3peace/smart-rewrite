@@ -25,10 +25,19 @@ class WordpressPoster
 	 */
 	private function rewriteContent()
 	{
-		$configValue = ['unique'=>true];
+		$content = $this->content;
+		
+		//for title, we use the summary of content
+		$summarizer = new \app\components\summarizer\Summarizer($content, 1);
+		$this->title = $summarizer->summarize();
+		
+		$configValue = [
+			'unique'=>true,
+			'paragraph'=>true,
+			'paragraph_exclude_first_last'=>true,
+		];
 		$config = new Config($configValue);
 		
-		$content = $this->content;
 		$spinTax = Sentence::parse($content, $config);
 		$this->content = SpinFormat::parse($spinTax);
 	}
@@ -79,9 +88,12 @@ class WordpressPoster
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 		
 		$result = curl_exec($ch);
+		$httpcode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+				
 		curl_close($ch);
 //		var_dump('%%%');var_dump($result);var_dump('%%%');
-		return $result;
+
+		return ['result'=>$result, 'code'=>$httpcode];
 		
 	}
 
@@ -117,13 +129,13 @@ class WordpressPoster
 		uksort( $postData, 'strcmp' );
 		return $postData;
 	}
-
+	
 	public function post()
 	{
 		$this->rewriteContent();
 
-		print_r($this->title);
-		print_r($this->content);
+//		print_r($this->title);
+//		print_r($this->content);
 
 		$postData = $this->getData();
 //		print_r($postData);
@@ -132,9 +144,6 @@ class WordpressPoster
 		$signature = $this->getSignature($this->url('wp/v2/posts'), $data);
 		$data .= '&oauth_signature='.$signature;
 
-		print_r($data);
-		$result = $this->curl('wp/v2/posts',$data);
-
-		var_dump($result);
+		return $this->curl('wp/v2/posts',$data);
 	}
 }

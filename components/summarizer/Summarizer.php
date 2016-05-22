@@ -13,11 +13,11 @@ class Summarizer
 	//Number of sentence for the summary
 	private $numOfResult ; 
 	
-	public function __construct($content)
+	public function __construct($content, $numOfResult=5)
 	{
 		$this->content = $content;
 		$this->keywords = [];
-		$this->numOfResult = 5;
+		$this->numOfResult = $numOfResult;
 		
 		//collecting important keyword
 		$this->getKeywords();
@@ -25,15 +25,16 @@ class Summarizer
 	
 	private function commonWords()
 	{
-		return ['yang','di','dengan','dan','telah','sudah','tetapi','namun',
+		return ['atau','yang','di','dengan','dan','telah','sudah','tetapi','namun',
 			'agar','supaya','jika','kalau','maka','kemudian','ini','itu','lalu',
-			'sesudah','sebelum','bukan','tidak','akan'];
+			'sesudah','sebelum','bukan','tidak','akan','juga','pada','padahal','adalah',
+			'dari','jadi','oleh','karena','sebab'];
 	}
 	
 	/**
 	 * Return sentence without multiple space.
 	 */
-	private function cleanContent()
+	private function removeMultipleSpace()
 	{
 		$content = $this->content;
 		$content = preg_replace('/\s+/', ' ', $content);
@@ -41,14 +42,29 @@ class Summarizer
 	}
 	
 	/**
-	 * Remove all unnecassary symbol and such
+	 * Remove all unnecassary symbols
 	 * This function for counting keywords and such
 	 */
 	private function superCleanContent()
 	{
 		$content = $this->content;
+		
+		//double br or <p> must be identified as new sentence
+		//remove paragraphs
+		$content = str_ireplace('</p>', ' ', $content);
+		
+		//remove <br/>
+		$content = preg_replace('%<br[\s]*/>%i', ' ', $content);
+		
+		//remove html tags
+		$content = strip_tags($content);
+		
+		//remove multi-spaces
 		$content = preg_replace('/\s+/', ' ', $content);
+		
+		//remove symbols
 		$content = preg_replace('/[^\d\w\s\.]/i', '', $content);
+		
 		return $content;
 	}
 	
@@ -107,10 +123,10 @@ class Summarizer
 		//of the sentence
 		$sentenceVal = [];
 		
-		$content = strtolower($this->superCleanContent());
-		$sentences = explode('. ',$content);
+		$sentences = $this->splitSentences();
 		foreach($sentences as $sentence){
-			$words = explode(' ',$sentence);
+			$lowercaseSentence = strtolower($sentence);
+			$words = explode(' ',$lowercaseSentence);
 			
 			//Looping each word in sentence and calculate the score
 			$score=0;
@@ -137,7 +153,7 @@ class Summarizer
 		}
 		
 		uasort($sentenceVal, function($a, $b) {
-			return $b['score'] - $a['score'];
+			return intval($b['score']*1000) - intval($a['score']*1000);
 		});
 		
 		return $sentenceVal;
@@ -149,7 +165,7 @@ class Summarizer
 	 */
 	private function getKeySentence()
 	{
-		//return the sentence scores
+		//return the sentence with scores
 		$result = $this->sentencePoint();
 		
 		$line = [];
@@ -161,14 +177,26 @@ class Summarizer
 				break;
 			}
 		}
+		
 		return $line;
 	}
 		
+	
+	private function splitSentences()
+	{
+		$content = $this->superCleanContent();
+		$sentences = explode('. ',$content);
+		return $sentences;
+	}
+	
 	public function summarize(){
-		$content = $this->cleanContent();
+
+		$sentences = $this->splitSentences();
 		
-		$sentences = explode('. ', $content);
 		$keySentence = $this->getKeySentence();
+		
+//		var_dump($keySentence);
+//		var_dump($sentences);die('#');
 		
 		$result = '';
 		foreach($sentences as $key=>$sentence){
@@ -179,6 +207,9 @@ class Summarizer
 		
 		//remove the last dot
 		$result = str_replace('.. ', '.',$result);
+		
+		//strip all html if exists
+		$result = strip_tags($result);
 		
 		return $result;
 	}
