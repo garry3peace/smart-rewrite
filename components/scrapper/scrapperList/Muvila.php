@@ -2,9 +2,9 @@
 
 namespace app\components\scrapper\scrapperList;
 
-use \app\components\scrapper\ScrapeListWeb;
+use \app\components\scrapper\ScrapeListItem;
 
-class Muvila extends ScrapeListWeb
+class Muvila extends ScrapeListItem
 {
 	public function getUrl()
 	{
@@ -13,6 +13,11 @@ class Muvila extends ScrapeListWeb
 	
 	public function getItem()
 	{
-		
+		return 'h3 a';
+	}
+	
+	public function getList()
+	{
+		return '.entry';
 	}
 }

@@ -23,7 +23,10 @@ class PostController extends Controller
      */
     public function actionScrapeList()
     {
-        $list = ['http://www.cnnindonesia.com/'];
+        $list = [
+			//'http://www.cnnindonesia.com/',
+			'http://www.muvila.com',
+			];
 		
 		foreach($list as $web){
 			$scrapeList = new \app\components\scrapper\ScrapperList($web);
@@ -75,6 +78,8 @@ class PostController extends Controller
 			//post to wordpress
 			$wp = new WordpressPoster($data['title'], $data['content']);
 			$result = $wp->post();
+			
+			print_r($result);
 			
 			//Save into log
 			$item = [
