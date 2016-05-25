@@ -46,8 +46,7 @@ class ParagraphRewriter extends Rewriter
 	
 	private function merge()
 	{
-		$result = $this->arrParagraphs;
-		
+		//adding first paragraph and last paragraph
 		array_unshift($this->arrParagraphs, $this->firstParagraph);
 		array_push($this->arrParagraphs, $this->lastParagraph);
 		
@@ -77,9 +76,10 @@ class ParagraphRewriter extends Rewriter
 		//we change all paragraph related into single symbol.
 		$paragraph = $this->content;
 		$paragraph = str_replace('</p>', '', $paragraph);
-		$paragraph = preg_replace('%<br/>[\s]*<br/>%', '<p>', $paragraph);
+		$paragraph = preg_replace('%<br[\s]*/>[\s]*<br[\s]*/>%', '<p>', $paragraph);
 		
 		$paragraphs = explode('<p>', $paragraph);
+		
 		return $paragraphs;
 	}
 	
@@ -107,10 +107,11 @@ class ParagraphRewriter extends Rewriter
 			return $this->isText;
 		}
 		
-		if(strpos($this->content, '<p>')!==false){
+		if($this->content != strip_tags($this->content)){
 			$this->isText = false;
+		}else{
+			$this->isText = true;
 		}
-		$this->isText = true;
 		
 		return $this->isText;
 	}
