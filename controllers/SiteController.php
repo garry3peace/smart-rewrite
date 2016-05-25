@@ -148,4 +148,47 @@ class SiteController extends Controller
 			'line'=>$line]
 			);
 	}
+	
+	public function actionTest()
+	{
+		$limit = 1;
+		$list = \app\models\ScrapeLog::findAllNotPosted();
+		
+		//scrape the page
+		$count = 0;
+		foreach($list as $log){
+			$url = $log->url;
+			
+			$scrapePage = \app\components\scrapper\ScrapperPageFactory::get($url);
+			$data = $scrapePage->get();
+
+			//Skip if no content
+			if(empty($data['content'])){
+				$item['url']= $url;
+				ScrapeLog::logExclusion($item);
+				continue;
+			}
+
+			//post to wordpress
+			$wp = new \app\components\WordpressPoster($data['title'], $data['content']);
+			$result = $wp->post();
+			
+			var_dump($result);
+			
+			//Save into log
+			$item = [
+				'title'=>$data['title'],
+				'content'=>$data['content'],
+				'url'=>$url,
+				'code'=>$result['code'],
+			];
+			\app\models\ScrapeLogScrapeLog::logUpdate($item);
+			
+			$count++;
+			//Stop when have reached the limit of post
+			if($count >= $limit){
+				break;
+			}
+		}
+	}
 }

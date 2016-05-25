@@ -8,16 +8,16 @@ class Muvila extends ScrapeListItem
 {
 	public function getUrl()
 	{
-		return 'http://www.cnnindonesia.com/film/indeks/57/';
+		return 'http://www.muvila.com/rss/';
 	}
 	
 	public function getItem()
 	{
-		return 'h3 a';
+		return 'link';
 	}
 	
 	public function getList()
 	{
-		return '.entry';
+		return 'item';
 	}
 }

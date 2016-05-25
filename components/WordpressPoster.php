@@ -2,6 +2,8 @@
 
 namespace app\components;
 
+use app\components\Curl;
+
 class WordpressPoster
 {
 	private $title;
@@ -28,8 +30,8 @@ class WordpressPoster
 		$content = $this->content;
 		
 		//for title, we use the summary of content
-		$summarizer = new \app\components\summarizer\Summarizer($content, 1);
-		$this->title = $summarizer->summarize();
+//		$summarizer = new \app\components\summarizer\Summarizer($content, 1);
+//		$this->title = $summarizer->summarize();
 		
 		$configValue = [
 			'unique'=>true,
@@ -74,24 +76,31 @@ class WordpressPoster
 	private function curl($url, $data)
 	{
 		$ch = curl_init();
-		curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 30);
+		curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 60);
+		
+		//DEBUG MODE
+		/*
+		curl_setopt($ch, CURLOPT_VERBOSE, TRUE);
+		$fp =  fopen("curl.error","w");
+		curl_setopt($ch, CURLOPT_STDERR, $fp);		 
+		 */
+		
 		curl_setopt($ch, CURLOPT_URL, $this->url($url));
-
 		$headers = array('Content-Type: application/x-www-form-urlencoded');
 		curl_setopt($ch, CURLOPT_HEADER, $headers);
-
 		curl_setopt($ch, CURLOPT_POST, true);
 		curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
 		curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
 		curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 		
-		$result = curl_exec($ch);
-		$httpcode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+		$curl = new Curl;
+		$curl->maxRedirect =0;
+		$result = $curl->exec($ch);
+		$httpcode = $curl->getCode();
+		$error = $curl->getError();
+//		var_dump($error,$result);die();
 				
-		curl_close($ch);
-//		var_dump('%%%');var_dump($result);var_dump('%%%');
-
 		return ['result'=>$result, 'code'=>$httpcode];
 		
 	}

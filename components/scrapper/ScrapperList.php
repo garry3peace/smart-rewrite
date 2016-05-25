@@ -33,14 +33,14 @@ class ScrapperList extends Scrapper
 			
 		$rule = $scrapeItem->getList();
 		$list = $this->html->find($rule);
-		
+
 		return $list;
 	}
 	
 	public function get()
 	{
 		$list = $this->getList();
-		
+
 		$result = [];
 		foreach($list as $item){
 			$itemRule = $this->scrapeListItem->getItem();

@@ -1,0 +1,4521 @@
+class simple_html_dom#26 (23) {
+  public $root =>
+  class simple_html_dom_node#27 (9) {
+    public $nodetype =>
+    int(5)
+    public $tag =>
+    string(4) "root"
+    public $attr =>
+    array(0) {
+    }
+    public $children =>
+    array(1) {
+      [0] =>
+      class simple_html_dom_node#28 (9) {
+        ...
+      }
+    }
+    public $nodes =>
+    array(1) {
+      [0] =>
+      class simple_html_dom_node#28 (9) {
+        ...
+      }
+    }
+    public $parent =>
+    NULL
+    public $_ =>
+    array(2) {
+      [0] =>
+      int(-1)
+      [1] =>
+      int(1222)
+    }
+    public $tag_start =>
+    int(0)
+    private $dom =>
+          ...
+
+  }
+  public $nodes =>
+  array(1222) {
+    [0] =>
+    class simple_html_dom_node#27 (9) {
+      public $nodetype =>
+      int(5)
+      public $tag =>
+      string(4) "root"
+      public $attr =>
+      array(0) {
+        ...
+      }
+      public $children =>
+      array(1) {
+        ...
+      }
+      public $nodes =>
+      array(1) {
+        ...
+      }
+      public $parent =>
+      NULL
+      public $_ =>
+      array(2) {
+        ...
+      }
+      public $tag_start =>
+      int(0)
+      private $dom =>
+              ...
+
+    }
+    [1] =>
+    class simple_html_dom_node#28 (9) {
+      public $nodetype =>
+      int(1)
+      public $tag =>
+      string(3) "rss"
+      public $attr =>
+      array(5) {
+        ...
+      }
+      public $children =>
+      array(1) {
+        ...
+      }
+      public $nodes =>
+      array(3) {
+        ...
+      }
+      public $parent =>
+      class simple_html_dom_node#27 (9) {
+        ...
+      }
+      public $_ =>
+      array(5) {
+        ...
+      }
+      public $tag_start =>
+      int(0)
+      private $dom =>
+              ...
+
+    }
+    [2] =>
+    class simple_html_dom_node#29 (9) {
+      public $nodetype =>
+      int(3)
+      public $tag =>
+      string(4) "text"
+      public $attr =>
+      array(0) {
+        ...
+      }
+      public $children =>
+      array(0) {
+        ...
+      }
+      public $nodes =>
+      array(0) {
+        ...
+      }
+      public $parent =>
+      class simple_html_dom_node#28 (9) {
+        ...
+      }
+      public $_ =>
+      array(1) {
+        ...
+      }
+      public $tag_start =>
+      int(0)
+      private $dom =>
+              ...
+
+    }
+    [3] =>
+    class simple_html_dom_node#30 (9) {
+      public $nodetype =>
+      int(1)
+      public $tag =>
+      string(7) "channel"
+      public $attr =>
+      array(0) {
+        ...
+      }
+      public $children =>
+      array(55) {
+        ...
+      }
+      public $nodes =>
+      array(64) {
+        ...
+      }
+      public $parent =>
+      class simple_html_dom_node#28 (9) {
+        ...
+      }
+      public $_ =>
+      array(3) {
+        ...
+      }
+      public $tag_start =>
+      int(233)
+      private $dom =>
+              ...
+
+    }
+    [4] =>
+    class simple_html_dom_node#31 (9) {
+      public $nodetype =>
+      int(3)
+      public $tag =>
+      string(4) "text"
+      public $attr =>
+      array(0) {
+        ...
+      }
+      public $children =>
+      array(0) {
+        ...
+      }
+      public $nodes =>
+      array(0) {
+        ...
+      }
+      public $parent =>
+      class simple_html_dom_node#30 (9) {
+        ...
+      }
+      public $_ =>
+      array(1) {
+        ...
+      }
+      public $tag_start =>
+      int(0)
+      private $dom =>
+              ...
+
+    }
+    [5] =>
+    class simple_html_dom_node#32 (9) {
+      public $nodetype =>
+      int(1)
+      public $tag =>
+      string(5) "title"
+      public $attr =>
+      array(0) {
+        ...
+      }
+      public $children =>
+      array(0) {
+        ...
+      }
+      public $nodes =>
+      array(1) {
+        ...
+      }
+      public $parent =>
+      class simple_html_dom_node#30 (9) {
+        ...
+      }
+      public $_ =>
+      array(3) {
+        ...
+      }
+      public $tag_start =>
+      int(248)
+      private $dom =>
+              ...
+
+    }
+    [6] =>
+    class simple_html_dom_node#33 (9) {
+      public $nodetype =>
+      int(3)
+      public $tag =>
+      string(4) "text"
+      public $attr =>
+      array(0) {
+        ...
+      }
+      public $children =>
+      array(0) {
+        ...
+      }
+      public $nodes =>
+      array(0) {
+        ...
+      }
+      public $parent =>
+      class simple_html_dom_node#32 (9) {
+        ...
+      }
+      public $_ =>
+      array(1) {
+        ...
+      }
+      public $tag_start =>
+      int(0)
+      private $dom =>
+              ...
+
+    }
+    [7] =>
+    class simple_html_dom_node#34 (9) {
+      public $nodetype =>
+      int(3)
+      public $tag =>
+      string(4) "text"
+      public $attr =>
+      array(0) {
+        ...
+      }
+      public $children =>
+      array(0) {
+        ...
+      }
+      public $nodes =>
+      array(0) {
+        ...
+      }
+      public $parent =>
+      class simple_html_dom_node#30 (9) {
+        ...
+      }
+      public $_ =>
+      array(1) {
+        ...
+      }
+      public $tag_start =>
+      int(0)
+      private $dom =>
+              ...
+
+    }
+    [8] =>
+    class simple_html_dom_node#35 (9) {
+      public $nodetype =>
+      int(1)
+      public $tag =>
+      string(4) "link"
+      public $attr =>
+      array(0) {
+        ...
+      }
+      public $children =>
+      array(0) {
+        ...
+      }
+      public $nodes =>
+      array(0) {
+        ...
+      }
+      public $parent =>
+      class simple_html_dom_node#30 (9) {
+        ...
+      }
+      public $_ =>
+      array(2) {
+        ...
+      }
+      public $tag_start =>
+      int(284)
+      private $dom =>
+              ...
+
+    }
+    [9] =>
+    class simple_html_dom_node#36 (9) {
+      public $nodetype =>
+      int(3)
+      public $tag =>
+      string(4) "text"
+      public $attr =>
+      array(0) {
+        ...
+      }
+      public $children =>
+      array(0) {
+        ...
+      }
+      public $nodes =>
+      array(0) {
+        ...
+      }
+      public $parent =>
+      class simple_html_dom_node#30 (9) {
+        ...
+      }
+      public $_ =>
+      array(1) {
+        ...
+      }
+      public $tag_start =>
+      int(0)
+      private $dom =>
+              ...
+
+    }
+    [10] =>
+    class simple_html_dom_node#37 (9) {
+      public $nodetype =>
+      int(3)
+      public $tag =>
+      string(4) "text"
+      public $attr =>
+      array(0) {
+        ...
+      }
+      public $children =>
+      array(0) {
+        ...
+      }
+      public $nodes =>
+      array(0) {
+        ...
+      }
+      public $parent =>
+      class simple_html_dom_node#30 (9) {
+        ...
+      }
+      public $_ =>
+      array(1) {
+        ...
+      }
+      public $tag_start =>
+      int(0)
+      private $dom =>
+              ...
+
+    }
+    [11] =>
+    class simple_html_dom_node#38 (9) {
+      public $nodetype =>
+      int(3)
+      public $tag =>
+      string(4) "text"
+      public $attr =>
+      array(0) {
+        ...
+      }
+      public $children =>
+      array(0) {
+        ...
+      }
+      public $nodes =>
+      array(0) {
+        ...
+      }
+      public $parent =>
+      class simple_html_dom_node#30 (9) {
+        ...
+      }
+      public $_ =>
+      array(1) {
+        ...
+      }
+      public $tag_start =>
+      int(0)
+      private $dom =>
+              ...
+
+    }
+    [12] =>
+    class simple_html_dom_node#39 (9) {
+      public $nodetype =>
+      int(1)
+      public $tag =>
+      string(11) "description"
+      public $attr =>
+      array(0) {
+        ...
+      }
+      public $children =>
+      array(0) {
+        ...
+      }
+      public $nodes =>
+      array(1) {
+        ...
+      }
+      public $parent =>
+      class simple_html_dom_node#30 (9) {
+        ...
+      }
+      public $_ =>
+      array(3) {
+        ...
+      }
+      public $tag_start =>
+      int(325)
+      private $dom =>
+              ...
+
+    }
+    [13] =>
+    class simple_html_dom_node#40 (9) {
+      public $nodetype =>
+      int(3)
+      public $tag =>
+      string(4) "text"
+      public $attr =>
+      array(0) {
+        ...
+      }
+      public $children =>
+      array(0) {
+        ...
+      }
+      public $nodes =>
+      array(0) {
+        ...
+      }
+      public $parent =>
+      class simple_html_dom_node#39 (9) {
+        ...
+      }
+      public $_ =>
+      array(1) {
+        ...
+      }
+      public $tag_start =>
+      int(0)
+      private $dom =>
+              ...
+
+    }
+    [14] =>
+    class simple_html_dom_node#41 (9) {
+      public $nodetype =>
+      int(3)
+      public $tag =>
+      string(4) "text"
+      public $attr =>
+      array(0) {
+        ...
+      }
+      public $children =>
+      array(0) {
+        ...
+      }
+      public $nodes =>
+      array(0) {
+        ...
+      }
+      public $parent =>
+      class simple_html_dom_node#30 (9) {
+        ...
+      }
+      public $_ =>
+      array(1) {
+        ...
+      }
+      public $tag_start =>
+      int(0)
+      private $dom =>
+              ...
+
+    }
+    [15] =>
+    class simple_html_dom_node#42 (9) {
+      public $nodetype =>
+      int(1)
+      public $tag =>
+      string(8) "language"
+      public $attr =>
+      array(0) {
+        ...
+      }
+      public $children =>
+      array(0) {
+        ...
+      }
+      public $nodes =>
+      array(1) {
+        ...
+      }
+      public $parent =>
+      class simple_html_dom_node#30 (9) {
+        ...
+      }
+      public $_ =>
+      array(3) {
+        ...
+      }
+      public $tag_start =>
+      int(476)
+      private $dom =>
+              ...
+
+    }
+    [16] =>
+    class simple_html_dom_node#43 (9) {
+      public $nodetype =>
+      int(3)
+      public $tag =>
+      string(4) "text"
+      public $attr =>
+      array(0) {
+        ...
+      }
+      public $children =>
+      array(0) {
+        ...
+      }
+      public $nodes =>
+      array(0) {
+        ...
+      }
+      public $parent =>
+      class simple_html_dom_node#42 (9) {
+        ...
+      }
+      public $_ =>
+      array(1) {
+        ...
+      }
+      public $tag_start =>
+      int(0)
+      private $dom =>
+              ...
+
+    }
+    [17] =>
+    class simple_html_dom_node#44 (9) {
+      public $nodetype =>
+      int(3)
+      public $tag =>
+      string(4) "text"
+      public $attr =>
+      array(0) {
+        ...
+      }
+      public $children =>
+      array(0) {
+        ...
+      }
+      public $nodes =>
+      array(0) {
+        ...
+      }
+      public $parent =>
+      class simple_html_dom_node#30 (9) {
+        ...
+      }
+      public $_ =>
+      array(1) {
+        ...
+      }
+      public $tag_start =>
+      int(0)
+      private $dom =>
+              ...
+
+    }
+    [18] =>
+    class simple_html_dom_node#45 (9) {
+      public $nodetype =>
+      int(1)
+      public $tag =>
+      string(9) "atom:link"
+      public $attr =>
+      array(2) {
+        ...
+      }
+      public $children =>
+      array(0) {
+        ...
+      }
+      public $nodes =>
+      array(0) {
+        ...
+      }
+      public $parent =>
+      class simple_html_dom_node#30 (9) {
+        ...
+      }
+      public $_ =>
+      array(5) {
+        ...
+      }
+      public $tag_start =>
+      int(508)
+      private $dom =>
+              ...
+
+    }
+    [19] =>
+    class simple_html_dom_node#46 (9) {
+      public $nodetype =>
+      int(3)
+      public $tag =>
+      string(4) "text"
+      public $attr =>
+      array(0) {
+        ...
+      }
+      public $children =>
+      array(0) {
+        ...
+      }
+      public $nodes =>
+      array(0) {
+        ...
+      }
+      public $parent =>
+      class simple_html_dom_node#30 (9) {
+        ...
+      }
+      public $_ =>
+      array(1) {
+        ...
+      }
+      public $tag_start =>
+      int(0)
+      private $dom =>
+              ...
+
+    }
+    [20] =>
+    class simple_html_dom_node#47 (9) {
+      public $nodetype =>
+      int(1)
+      public $tag =>
+      string(4) "item"
+      public $attr =>
+      array(0) {
+        ...
+      }
+      public $children =>
+      array(7) {
+        ...
+      }
+      public $nodes =>
+      array(17) {
+        ...
+      }
+      public $parent =>
+      class simple_html_dom_node#30 (9) {
+        ...
+      }
+      public $_ =>
+      array(3) {
+        ...
+      }
+      public $tag_start =>
+      int(566)
+      private $dom =>
+              ...
+
+    }
+    [21] =>
+    class simple_html_dom_node#48 (9) {
+      public $nodetype =>
+      int(3)
+      public $tag =>
+      string(4) "text"
+      public $attr =>
+      array(0) {
+        ...
+      }
+      public $children =>
+      array(0) {
+        ...
+      }
+      public $nodes =>
+      array(0) {
+        ...
+      }
+      public $parent =>
+      class simple_html_dom_node#47 (9) {
+        ...
+      }
+      public $_ =>
+      array(1) {
+        ...
+      }
+      public $tag_start =>
+      int(0)
+      private $dom =>
+              ...
+
+    }
+    [22] =>
+    class simple_html_dom_node#49 (9) {
+      public $nodetype =>
+      int(1)
+      public $tag =>
+      string(5) "title"
+      public $attr =>
+      array(0) {
+        ...
+      }
+      public $children =>
+      array(0) {
+        ...
+      }
+      public $nodes =>
+      array(1) {
+        ...
+      }
+      public $parent =>
+      class simple_html_dom_node#47 (9) {
+        ...
+      }
+      public $_ =>
+      array(3) {
+        ...
+      }
+      public $tag_start =>
+      int(577)
+      private $dom =>
+              ...
+
+    }
+    [23] =>
+    class simple_html_dom_node#50 (9) {
+      public $nodetype =>
+      int(3)
+      public $tag =>
+      string(4) "text"
+      public $attr =>
+      array(0) {
+        ...
+      }
+      public $children =>
+      array(0) {
+        ...
+      }
+      public $nodes =>
+      array(0) {
+        ...
+      }
+      public $parent =>
+      class simple_html_dom_node#49 (9) {
+        ...
+      }
+      public $_ =>
+      array(1) {
+        ...
+      }
+      public $tag_start =>
+      int(0)
+      private $dom =>
+              ...
+
+    }
+    [24] =>
+    class simple_html_dom_node#51 (9) {
+      public $nodetype =>
+      int(3)
+      public $tag =>
+      string(4) "text"
+      public $attr =>
+      array(0) {
+        ...
+      }
+      public $children =>
+      array(0) {
+        ...
+      }
+      public $nodes =>
+      array(0) {
+        ...
+      }
+      public $parent =>
+      class simple_html_dom_node#47 (9) {
+        ...
+      }
+      public $_ =>
+      array(1) {
+        ...
+      }
+      public $tag_start =>
+      int(0)
+      private $dom =>
+              ...
+
+    }
+    [25] =>
+    class simple_html_dom_node#52 (9) {
+      public $nodetype =>
+      int(1)
+      public $tag =>
+      string(4) "link"
+      public $attr =>
+      array(0) {
+        ...
+      }
+      public $children =>
+      array(0) {
+        ...
+      }
+      public $nodes =>
+      array(0) {
+        ...
+      }
+      public $parent =>
+      class simple_html_dom_node#47 (9) {
+        ...
+      }
+      public $_ =>
+      array(2) {
+        ...
+      }
+      public $tag_start =>
+      int(657)
+      private $dom =>
+              ...
+
+    }
+    [26] =>
+    class simple_html_dom_node#53 (9) {
+      public $nodetype =>
+      int(3)
+      public $tag =>
+      string(4) "text"
+      public $attr =>
+      array(0) {
+        ...
+      }
+      public $children =>
+      array(0) {
+        ...
+      }
+      public $nodes =>
+      array(0) {
+        ...
+      }
+      public $parent =>
+      class simple_html_dom_node#47 (9) {
+        ...
+      }
+      public $_ =>
+      array(1) {
+        ...
+      }
+      public $tag_start =>
+      int(0)
+      private $dom =>
+              ...
+
+    }
+    [27] =>
+    class simple_html_dom_node#54 (9) {
+      public $nodetype =>
+      int(3)
+      public $tag =>
+      string(4) "text"
+      public $attr =>
+      array(0) {
+        ...
+      }
+      public $children =>
+      array(0) {
+        ...
+      }
+      public $nodes =>
+      array(0) {
+        ...
+      }
+      public $parent =>
+      class simple_html_dom_node#47 (9) {
+        ...
+      }
+      public $_ =>
+      array(1) {
+        ...
+      }
+      public $tag_start =>
+      int(0)
+      private $dom =>
+              ...
+
+    }
+    [28] =>
+    class simple_html_dom_node#55 (9) {
+      public $nodetype =>
+      int(3)
+      public $tag =>
+      string(4) "text"
+      public $attr =>
+      array(0) {
+        ...
+      }
+      public $children =>
+      array(0) {
+        ...
+      }
+      public $nodes =>
+      array(0) {
+        ...
+      }
+      public $parent =>
+      class simple_html_dom_node#47 (9) {
+        ...
+      }
+      public $_ =>
+      array(1) {
+        ...
+      }
+      public $tag_start =>
+      int(0)
+      private $dom =>
+              ...
+
+    }
+    [29] =>
+    class simple_html_dom_node#56 (9) {
+      public $nodetype =>
+      int(1)
+      public $tag =>
+      string(4) "guid"
+      public $attr =>
+      array(0) {
+        ...
+      }
+      public $children =>
+      array(0) {
+        ...
+      }
+      public $nodes =>
+      array(1) {
+        ...
+      }
+      public $parent =>
+      class simple_html_dom_node#47 (9) {
+        ...
+      }
+      public $_ =>
+      array(3) {
+        ...
+      }
+      public $tag_start =>
+      int(774)
+      private $dom =>
+              ...
+
+    }
+    [30] =>
+    class simple_html_dom_node#57 (9) {
+      public $nodetype =>
+      int(3)
+      public $tag =>
+      string(4) "text"
+      public $attr =>
+      array(0) {
+        ...
+      }
+      public $children =>
+      array(0) {
+        ...
+      }
+      public $nodes =>
+      array(0) {
+        ...
+      }
+      public $parent =>
+      class simple_html_dom_node#56 (9) {
+        ...
+      }
+      public $_ =>
+      array(1) {
+        ...
+      }
+      public $tag_start =>
+      int(0)
+      private $dom =>
+              ...
+
+    }
+    [31] =>
+    class simple_html_dom_node#58 (9) {
+      public $nodetype =>
+      int(3)
+      public $tag =>
+      string(4) "text"
+      public $attr =>
+      array(0) {
+        ...
+      }
+      public $children =>
+      array(0) {
+        ...
+      }
+      public $nodes =>
+      array(0) {
+        ...
+      }
+      public $parent =>
+      class simple_html_dom_node#47 (9) {
+        ...
+      }
+      public $_ =>
+      array(1) {
+        ...
+      }
+      public $tag_start =>
+      int(0)
+      private $dom =>
+              ...
+
+    }
+    [32] =>
+    class simple_html_dom_node#59 (9) {
+      public $nodetype =>
+      int(1)
+      public $tag =>
+      string(7) "pubdate"
+      public $attr =>
+      array(0) {
+        ...
+      }
+      public $children =>
+      array(0) {
+        ...
+      }
+      public $nodes =>
+      array(1) {
+        ...
+      }
+      public $parent =>
+      class simple_html_dom_node#47 (9) {
+        ...
+      }
+      public $_ =>
+      array(3) {
+        ...
+      }
+      public $tag_start =>
+      int(891)
+      private $dom =>
+              ...
+
+    }
+    [33] =>
+    class simple_html_dom_node#60 (9) {
+      public $nodetype =>
+      int(3)
+      public $tag =>
+      string(4) "text"
+      public $attr =>
+      array(0) {
+        ...
+      }
+      public $children =>
+      array(0) {
+        ...
+      }
+      public $nodes =>
+      array(0) {
+        ...
+      }
+      public $parent =>
+      class simple_html_dom_node#59 (9) {
+        ...
+      }
+      public $_ =>
+      array(1) {
+        ...
+      }
+      public $tag_start =>
+      int(0)
+      private $dom =>
+              ...
+
+    }
+    [34] =>
+    class simple_html_dom_node#61 (9) {
+      public $nodetype =>
+      int(3)
+      public $tag =>
+      string(4) "text"
+      public $attr =>
+      array(0) {
+        ...
+      }
+      public $children =>
+      array(0) {
+        ...
+      }
+      public $nodes =>
+      array(0) {
+        ...
+      }
+      public $parent =>
+      class simple_html_dom_node#47 (9) {
+        ...
+      }
+      public $_ =>
+      array(1) {
+        ...
+      }
+      public $tag_start =>
+      int(0)
+      private $dom =>
+              ...
+
+    }
+    [35] =>
+    class simple_html_dom_node#62 (9) {
+      public $nodetype =>
+      int(1)
+      public $tag =>
+      string(10) "dc:creator"
+      public $attr =>
+      array(0) {
+        ...
+      }
+      public $children =>
+      array(0) {
+        ...
+      }
+      public $nodes =>
+      array(1) {
+        ...
+      }
+      public $parent =>
+      class simple_html_dom_node#47 (9) {
+        ...
+      }
+      public $_ =>
+      array(3) {
+        ...
+      }
+      public $tag_start =>
+      int(946)
+      private $dom =>
+              ...
+
+    }
+    [36] =>
+    class simple_html_dom_node#63 (9) {
+      public $nodetype =>
+      int(3)
+      public $tag =>
+      string(4) "text"
+      public $attr =>
+      array(0) {
+        ...
+      }
+      public $children =>
+      array(0) {
+        ...
+      }
+      public $nodes =>
+      array(0) {
+        ...
+      }
+      public $parent =>
+      class simple_html_dom_node#62 (9) {
+        ...
+      }
+      public $_ =>
+      array(1) {
+        ...
+      }
+      public $tag_start =>
+      int(0)
+      private $dom =>
+              ...
+
+    }
+    [37] =>
+    class simple_html_dom_node#64 (9) {
+      public $nodetype =>
+      int(3)
+      public $tag =>
+      string(4) "text"
+      public $attr =>
+      array(0) {
+        ...
+      }
+      public $children =>
+      array(0) {
+        ...
+      }
+      public $nodes =>
+      array(0) {
+        ...
+      }
+      public $parent =>
+      class simple_html_dom_node#47 (9) {
+        ...
+      }
+      public $_ =>
+      array(1) {
+        ...
+      }
+      public $tag_start =>
+      int(0)
+      private $dom =>
+              ...
+
+    }
+    [38] =>
+    class simple_html_dom_node#65 (9) {
+      public $nodetype =>
+      int(1)
+      public $tag =>
+      string(11) "description"
+      public $attr =>
+      array(0) {
+        ...
+      }
+      public $children =>
+      array(0) {
+        ...
+      }
+      public $nodes =>
+      array(1) {
+        ...
+      }
+      public $parent =>
+      class simple_html_dom_node#47 (9) {
+        ...
+      }
+      public $_ =>
+      array(3) {
+        ...
+      }
+      public $tag_start =>
+      int(990)
+      private $dom =>
+              ...
+
+    }
+    [39] =>
+    class simple_html_dom_node#66 (9) {
+      public $nodetype =>
+      int(3)
+      public $tag =>
+      string(4) "text"
+      public $attr =>
+      array(0) {
+        ...
+      }
+      public $children =>
+      array(0) {
+        ...
+      }
+      public $nodes =>
+      array(0) {
+        ...
+      }
+      public $parent =>
+      class simple_html_dom_node#65 (9) {
+        ...
+      }
+      public $_ =>
+      array(1) {
+        ...
+      }
+      public $tag_start =>
+      int(0)
+      private $dom =>
+              ...
+
+    }
+    [40] =>
+    class simple_html_dom_node#67 (9) {
+      public $nodetype =>
+      int(3)
+      public $tag =>
+      string(4) "text"
+      public $attr =>
+      array(0) {
+        ...
+      }
+      public $children =>
+      array(0) {
+        ...
+      }
+      public $nodes =>
+      array(0) {
+        ...
+      }
+      public $parent =>
+      class simple_html_dom_node#47 (9) {
+        ...
+      }
+      public $_ =>
+      array(1) {
+        ...
+      }
+      public $tag_start =>
+      int(0)
+      private $dom =>
+              ...
+
+    }
+    [41] =>
+    class simple_html_dom_node#68 (9) {
+      public $nodetype =>
+      int(1)
+      public $tag =>
+      string(15) "content:encoded"
+      public $attr =>
+      array(0) {
+        ...
+      }
+      public $children =>
+      array(0) {
+        ...
+      }
+      public $nodes =>
+      array(1) {
+        ...
+      }
+      public $parent =>
+      class simple_html_dom_node#47 (9) {
+        ...
+      }
+      public $_ =>
+      array(3) {
+        ...
+      }
+      public $tag_start =>
+      int(1052)
+      private $dom =>
+              ...
+
+    }
+    [42] =>
+    class simple_html_dom_node#69 (9) {
+      public $nodetype =>
+      int(3)
+      public $tag =>
+      string(4) "text"
+      public $attr =>
+      array(0) {
+        ...
+      }
+      public $children =>
+      array(0) {
+        ...
+      }
+      public $nodes =>
+      array(0) {
+        ...
+      }
+      public $parent =>
+      class simple_html_dom_node#68 (9) {
+        ...
+      }
+      public $_ =>
+      array(1) {
+        ...
+      }
+      public $tag_start =>
+      int(0)
+      private $dom =>
+              ...
+
+    }
+    [43] =>
+    class simple_html_dom_node#70 (9) {
+      public $nodetype =>
+      int(3)
+      public $tag =>
+      string(4) "text"
+      public $attr =>
+      array(0) {
+        ...
+      }
+      public $children =>
+      array(0) {
+        ...
+      }
+      public $nodes =>
+      array(0) {
+        ...
+      }
+      public $parent =>
+      class simple_html_dom_node#47 (9) {
+        ...
+      }
+      public $_ =>
+      array(1) {
+        ...
+      }
+      public $tag_start =>
+      int(0)
+      private $dom =>
+              ...
+
+    }
+    [44] =>
+    class simple_html_dom_node#71 (9) {
+      public $nodetype =>
+      int(1)
+      public $tag =>
+      string(4) "item"
+      public $attr =>
+      array(0) {
+        ...
+      }
+      public $children =>
+      array(7) {
+        ...
+      }
+      public $nodes =>
+      array(17) {
+        ...
+      }
+      public $parent =>
+      class simple_html_dom_node#30 (9) {
+        ...
+      }
+      public $_ =>
+      array(3) {
+        ...
+      }
+      public $tag_start =>
+      int(1125)
+      private $dom =>
+              ...
+
+    }
+    [45] =>
+    class simple_html_dom_node#72 (9) {
+      public $nodetype =>
+      int(3)
+      public $tag =>
+      string(4) "text"
+      public $attr =>
+      array(0) {
+        ...
+      }
+      public $children =>
+      array(0) {
+        ...
+      }
+      public $nodes =>
+      array(0) {
+        ...
+      }
+      public $parent =>
+      class simple_html_dom_node#71 (9) {
+        ...
+      }
+      public $_ =>
+      array(1) {
+        ...
+      }
+      public $tag_start =>
+      int(0)
+      private $dom =>
+              ...
+
+    }
+    [46] =>
+    class simple_html_dom_node#73 (9) {
+      public $nodetype =>
+      int(1)
+      public $tag =>
+      string(5) "title"
+      public $attr =>
+      array(0) {
+        ...
+      }
+      public $children =>
+      array(0) {
+        ...
+      }
+      public $nodes =>
+      array(1) {
+        ...
+      }
+      public $parent =>
+      class simple_html_dom_node#71 (9) {
+        ...
+      }
+      public $_ =>
+      array(3) {
+        ...
+      }
+      public $tag_start =>
+      int(1136)
+      private $dom =>
+              ...
+
+    }
+    [47] =>
+    class simple_html_dom_node#74 (9) {
+      public $nodetype =>
+      int(3)
+      public $tag =>
+      string(4) "text"
+      public $attr =>
+      array(0) {
+        ...
+      }
+      public $children =>
+      array(0) {
+        ...
+      }
+      public $nodes =>
+      array(0) {
+        ...
+      }
+      public $parent =>
+      class simple_html_dom_node#73 (9) {
+        ...
+      }
+      public $_ =>
+      array(1) {
+        ...
+      }
+      public $tag_start =>
+      int(0)
+      private $dom =>
+              ...
+
+    }
+    [48] =>
+    class simple_html_dom_node#75 (9) {
+      public $nodetype =>
+      int(3)
+      public $tag =>
+      string(4) "text"
+      public $attr =>
+      array(0) {
+        ...
+      }
+      public $children =>
+      array(0) {
+        ...
+      }
+      public $nodes =>
+      array(0) {
+        ...
+      }
+      public $parent =>
+      class simple_html_dom_node#71 (9) {
+        ...
+      }
+      public $_ =>
+      array(1) {
+        ...
+      }
+      public $tag_start =>
+      int(0)
+      private $dom =>
+              ...
+
+    }
+    [49] =>
+    class simple_html_dom_node#76 (9) {
+      public $nodetype =>
+      int(1)
+      public $tag =>
+      string(4) "link"
+      public $attr =>
+      array(0) {
+        ...
+      }
+      public $children =>
+      array(0) {
+        ...
+      }
+      public $nodes =>
+      array(0) {
+        ...
+      }
+      public $parent =>
+      class simple_html_dom_node#71 (9) {
+        ...
+      }
+      public $_ =>
+      array(2) {
+        ...
+      }
+      public $tag_start =>
+      int(1216)
+      private $dom =>
+              ...
+
+    }
+    [50] =>
+    class simple_html_dom_node#77 (9) {
+      public $nodetype =>
+      int(3)
+      public $tag =>
+      string(4) "text"
+      public $attr =>
+      array(0) {
+        ...
+      }
+      public $children =>
+      array(0) {
+        ...
+      }
+      public $nodes =>
+      array(0) {
+        ...
+      }
+      public $parent =>
+      class simple_html_dom_node#71 (9) {
+        ...
+      }
+      public $_ =>
+      array(1) {
+        ...
+      }
+      public $tag_start =>
+      int(0)
+      private $dom =>
+              ...
+
+    }
+    [51] =>
+    class simple_html_dom_node#78 (9) {
+      public $nodetype =>
+      int(3)
+      public $tag =>
+      string(4) "text"
+      public $attr =>
+      array(0) {
+        ...
+      }
+      public $children =>
+      array(0) {
+        ...
+      }
+      public $nodes =>
+      array(0) {
+        ...
+      }
+      public $parent =>
+      class simple_html_dom_node#71 (9) {
+        ...
+      }
+      public $_ =>
+      array(1) {
+        ...
+      }
+      public $tag_start =>
+      int(0)
+      private $dom =>
+              ...
+
+    }
+    [52] =>
+    class simple_html_dom_node#79 (9) {
+      public $nodetype =>
+      int(3)
+      public $tag =>
+      string(4) "text"
+      public $attr =>
+      array(0) {
+        ...
+      }
+      public $children =>
+      array(0) {
+        ...
+      }
+      public $nodes =>
+      array(0) {
+        ...
+      }
+      public $parent =>
+      class simple_html_dom_node#71 (9) {
+        ...
+      }
+      public $_ =>
+      array(1) {
+        ...
+      }
+      public $tag_start =>
+      int(0)
+      private $dom =>
+              ...
+
+    }
+    [53] =>
+    class simple_html_dom_node#80 (9) {
+      public $nodetype =>
+      int(1)
+      public $tag =>
+      string(4) "guid"
+      public $attr =>
+      array(0) {
+        ...
+      }
+      public $children =>
+      array(0) {
+        ...
+      }
+      public $nodes =>
+      array(1) {
+        ...
+      }
+      public $parent =>
+      class simple_html_dom_node#71 (9) {
+        ...
+      }
+      public $_ =>
+      array(3) {
+        ...
+      }
+      public $tag_start =>
+      int(1339)
+      private $dom =>
+              ...
+
+    }
+    [54] =>
+    class simple_html_dom_node#81 (9) {
+      public $nodetype =>
+      int(3)
+      public $tag =>
+      string(4) "text"
+      public $attr =>
+      array(0) {
+        ...
+      }
+      public $children =>
+      array(0) {
+        ...
+      }
+      public $nodes =>
+      array(0) {
+        ...
+      }
+      public $parent =>
+      class simple_html_dom_node#80 (9) {
+        ...
+      }
+      public $_ =>
+      array(1) {
+        ...
+      }
+      public $tag_start =>
+      int(0)
+      private $dom =>
+              ...
+
+    }
+    [55] =>
+    class simple_html_dom_node#82 (9) {
+      public $nodetype =>
+      int(3)
+      public $tag =>
+      string(4) "text"
+      public $attr =>
+      array(0) {
+        ...
+      }
+      public $children =>
+      array(0) {
+        ...
+      }
+      public $nodes =>
+      array(0) {
+        ...
+      }
+      public $parent =>
+      class simple_html_dom_node#71 (9) {
+        ...
+      }
+      public $_ =>
+      array(1) {
+        ...
+      }
+      public $tag_start =>
+      int(0)
+      private $dom =>
+              ...
+
+    }
+    [56] =>
+    class simple_html_dom_node#83 (9) {
+      public $nodetype =>
+      int(1)
+      public $tag =>
+      string(7) "pubdate"
+      public $attr =>
+      array(0) {
+        ...
+      }
+      public $children =>
+      array(0) {
+        ...
+      }
+      public $nodes =>
+      array(1) {
+        ...
+      }
+      public $parent =>
+      class simple_html_dom_node#71 (9) {
+        ...
+      }
+      public $_ =>
+      array(3) {
+        ...
+      }
+      public $tag_start =>
+      int(1462)
+      private $dom =>
+              ...
+
+    }
+    [57] =>
+    class simple_html_dom_node#84 (9) {
+      public $nodetype =>
+      int(3)
+      public $tag =>
+      string(4) "text"
+      public $attr =>
+      array(0) {
+        ...
+      }
+      public $children =>
+      array(0) {
+        ...
+      }
+      public $nodes =>
+      array(0) {
+        ...
+      }
+      public $parent =>
+      class simple_html_dom_node#83 (9) {
+        ...
+      }
+      public $_ =>
+      array(1) {
+        ...
+      }
+      public $tag_start =>
+      int(0)
+      private $dom =>
+              ...
+
+    }
+    [58] =>
+    class simple_html_dom_node#85 (9) {
+      public $nodetype =>
+      int(3)
+      public $tag =>
+      string(4) "text"
+      public $attr =>
+      array(0) {
+        ...
+      }
+      public $children =>
+      array(0) {
+        ...
+      }
+      public $nodes =>
+      array(0) {
+        ...
+      }
+      public $parent =>
+      class simple_html_dom_node#71 (9) {
+        ...
+      }
+      public $_ =>
+      array(1) {
+        ...
+      }
+      public $tag_start =>
+      int(0)
+      private $dom =>
+              ...
+
+    }
+    [59] =>
+    class simple_html_dom_node#86 (9) {
+      public $nodetype =>
+      int(1)
+      public $tag =>
+      string(10) "dc:creator"
+      public $attr =>
+      array(0) {
+        ...
+      }
+      public $children =>
+      array(0) {
+        ...
+      }
+      public $nodes =>
+      array(1) {
+        ...
+      }
+      public $parent =>
+      class simple_html_dom_node#71 (9) {
+        ...
+      }
+      public $_ =>
+      array(3) {
+        ...
+      }
+      public $tag_start =>
+      int(1517)
+      private $dom =>
+              ...
+
+    }
+    [60] =>
+    class simple_html_dom_node#87 (9) {
+      public $nodetype =>
+      int(3)
+      public $tag =>
+      string(4) "text"
+      public $attr =>
+      array(0) {
+        ...
+      }
+      public $children =>
+      array(0) {
+        ...
+      }
+      public $nodes =>
+      array(0) {
+        ...
+      }
+      public $parent =>
+      class simple_html_dom_node#86 (9) {
+        ...
+      }
+      public $_ =>
+      array(1) {
+        ...
+      }
+      public $tag_start =>
+      int(0)
+      private $dom =>
+              ...
+
+    }
+    [61] =>
+    class simple_html_dom_node#88 (9) {
+      public $nodetype =>
+      int(3)
+      public $tag =>
+      string(4) "text"
+      public $attr =>
+      array(0) {
+        ...
+      }
+      public $children =>
+      array(0) {
+        ...
+      }
+      public $nodes =>
+      array(0) {
+        ...
+      }
+      public $parent =>
+      class simple_html_dom_node#71 (9) {
+        ...
+      }
+      public $_ =>
+      array(1) {
+        ...
+      }
+      public $tag_start =>
+      int(0)
+      private $dom =>
+              ...
+
+    }
+    [62] =>
+    class simple_html_dom_node#89 (9) {
+      public $nodetype =>
+      int(1)
+      public $tag =>
+      string(11) "description"
+      public $attr =>
+      array(0) {
+        ...
+      }
+      public $children =>
+      array(0) {
+        ...
+      }
+      public $nodes =>
+      array(1) {
+        ...
+      }
+      public $parent =>
+      class simple_html_dom_node#71 (9) {
+        ...
+      }
+      public $_ =>
+      array(3) {
+        ...
+      }
+      public $tag_start =>
+      int(1561)
+      private $dom =>
+              ...
+
+    }
+    [63] =>
+    class simple_html_dom_node#90 (9) {
+      public $nodetype =>
+      int(3)
+      public $tag =>
+      string(4) "text"
+      public $attr =>
+      array(0) {
+        ...
+      }
+      public $children =>
+      array(0) {
+        ...
+      }
+      public $nodes =>
+      array(0) {
+        ...
+      }
+      public $parent =>
+      class simple_html_dom_node#89 (9) {
+        ...
+      }
+      public $_ =>
+      array(1) {
+        ...
+      }
+      public $tag_start =>
+      int(0)
+      private $dom =>
+              ...
+
+    }
+    [64] =>
+    class simple_html_dom_node#91 (9) {
+      public $nodetype =>
+      int(3)
+      public $tag =>
+      string(4) "text"
+      public $attr =>
+      array(0) {
+        ...
+      }
+      public $children =>
+      array(0) {
+        ...
+      }
+      public $nodes =>
+      array(0) {
+        ...
+      }
+      public $parent =>
+      class simple_html_dom_node#71 (9) {
+        ...
+      }
+      public $_ =>
+      array(1) {
+        ...
+      }
+      public $tag_start =>
+      int(0)
+      private $dom =>
+              ...
+
+    }
+    [65] =>
+    class simple_html_dom_node#92 (9) {
+      public $nodetype =>
+      int(1)
+      public $tag =>
+      string(15) "content:encoded"
+      public $attr =>
+      array(0) {
+        ...
+      }
+      public $children =>
+      array(0) {
+        ...
+      }
+      public $nodes =>
+      array(1) {
+        ...
+      }
+      public $parent =>
+      class simple_html_dom_node#71 (9) {
+        ...
+      }
+      public $_ =>
+      array(3) {
+        ...
+      }
+      public $tag_start =>
+      int(1623)
+      private $dom =>
+              ...
+
+    }
+    [66] =>
+    class simple_html_dom_node#93 (9) {
+      public $nodetype =>
+      int(3)
+      public $tag =>
+      string(4) "text"
+      public $attr =>
+      array(0) {
+        ...
+      }
+      public $children =>
+      array(0) {
+        ...
+      }
+      public $nodes =>
+      array(0) {
+        ...
+      }
+      public $parent =>
+      class simple_html_dom_node#92 (9) {
+        ...
+      }
+      public $_ =>
+      array(1) {
+        ...
+      }
+      public $tag_start =>
+      int(0)
+      private $dom =>
+              ...
+
+    }
+    [67] =>
+    class simple_html_dom_node#94 (9) {
+      public $nodetype =>
+      int(3)
+      public $tag =>
+      string(4) "text"
+      public $attr =>
+      array(0) {
+        ...
+      }
+      public $children =>
+      array(0) {
+        ...
+      }
+      public $nodes =>
+      array(0) {
+        ...
+      }
+      public $parent =>
+      class simple_html_dom_node#71 (9) {
+        ...
+      }
+      public $_ =>
+      array(1) {
+        ...
+      }
+      public $tag_start =>
+      int(0)
+      private $dom =>
+              ...
+
+    }
+    [68] =>
+    class simple_html_dom_node#95 (9) {
+      public $nodetype =>
+      int(1)
+      public $tag =>
+      string(4) "item"
+      public $attr =>
+      array(0) {
+        ...
+      }
+      public $children =>
+      array(7) {
+        ...
+      }
+      public $nodes =>
+      array(17) {
+        ...
+      }
+      public $parent =>
+      class simple_html_dom_node#30 (9) {
+        ...
+      }
+      public $_ =>
+      array(3) {
+        ...
+      }
+      public $tag_start =>
+      int(1696)
+      private $dom =>
+              ...
+
+    }
+    [69] =>
+    class simple_html_dom_node#96 (9) {
+      public $nodetype =>
+      int(3)
+      public $tag =>
+      string(4) "text"
+      public $attr =>
+      array(0) {
+        ...
+      }
+      public $children =>
+      array(0) {
+        ...
+      }
+      public $nodes =>
+      array(0) {
+        ...
+      }
+      public $parent =>
+      class simple_html_dom_node#95 (9) {
+        ...
+      }
+      public $_ =>
+      array(1) {
+        ...
+      }
+      public $tag_start =>
+      int(0)
+      private $dom =>
+              ...
+
+    }
+    [70] =>
+    class simple_html_dom_node#97 (9) {
+      public $nodetype =>
+      int(1)
+      public $tag =>
+      string(5) "title"
+      public $attr =>
+      array(0) {
+        ...
+      }
+      public $children =>
+      array(0) {
+        ...
+      }
+      public $nodes =>
+      array(1) {
+        ...
+      }
+      public $parent =>
+      class simple_html_dom_node#95 (9) {
+        ...
+      }
+      public $_ =>
+      array(3) {
+        ...
+      }
+      public $tag_start =>
+      int(1707)
+      private $dom =>
+              ...
+
+    }
+    [71] =>
+    class simple_html_dom_node#98 (9) {
+      public $nodetype =>
+      int(3)
+      public $tag =>
+      string(4) "text"
+      public $attr =>
+      array(0) {
+        ...
+      }
+      public $children =>
+      array(0) {
+        ...
+      }
+      public $nodes =>
+      array(0) {
+        ...
+      }
+      public $parent =>
+      class simple_html_dom_node#97 (9) {
+        ...
+      }
+      public $_ =>
+      array(1) {
+        ...
+      }
+      public $tag_start =>
+      int(0)
+      private $dom =>
+              ...
+
+    }
+    [72] =>
+    class simple_html_dom_node#99 (9) {
+      public $nodetype =>
+      int(3)
+      public $tag =>
+      string(4) "text"
+      public $attr =>
+      array(0) {
+        ...
+      }
+      public $children =>
+      array(0) {
+        ...
+      }
+      public $nodes =>
+      array(0) {
+        ...
+      }
+      public $parent =>
+      class simple_html_dom_node#95 (9) {
+        ...
+      }
+      public $_ =>
+      array(1) {
+        ...
+      }
+      public $tag_start =>
+      int(0)
+      private $dom =>
+              ...
+
+    }
+    [73] =>
+    class simple_html_dom_node#100 (9) {
+      public $nodetype =>
+      int(1)
+      public $tag =>
+      string(4) "link"
+      public $attr =>
+      array(0) {
+        ...
+      }
+      public $children =>
+      array(0) {
+        ...
+      }
+      public $nodes =>
+      array(0) {
+        ...
+      }
+      public $parent =>
+      class simple_html_dom_node#95 (9) {
+        ...
+      }
+      public $_ =>
+      array(2) {
+        ...
+      }
+      public $tag_start =>
+      int(1780)
+      private $dom =>
+              ...
+
+    }
+    [74] =>
+    class simple_html_dom_node#101 (9) {
+      public $nodetype =>
+      int(3)
+      public $tag =>
+      string(4) "text"
+      public $attr =>
+      array(0) {
+        ...
+      }
+      public $children =>
+      array(0) {
+        ...
+      }
+      public $nodes =>
+      array(0) {
+        ...
+      }
+      public $parent =>
+      class simple_html_dom_node#95 (9) {
+        ...
+      }
+      public $_ =>
+      array(1) {
+        ...
+      }
+      public $tag_start =>
+      int(0)
+      private $dom =>
+              ...
+
+    }
+    [75] =>
+    class simple_html_dom_node#102 (9) {
+      public $nodetype =>
+      int(3)
+      public $tag =>
+      string(4) "text"
+      public $attr =>
+      array(0) {
+        ...
+      }
+      public $children =>
+      array(0) {
+        ...
+      }
+      public $nodes =>
+      array(0) {
+        ...
+      }
+      public $parent =>
+      class simple_html_dom_node#95 (9) {
+        ...
+      }
+      public $_ =>
+      array(1) {
+        ...
+      }
+      public $tag_start =>
+      int(0)
+      private $dom =>
+              ...
+
+    }
+    [76] =>
+    class simple_html_dom_node#103 (9) {
+      public $nodetype =>
+      int(3)
+      public $tag =>
+      string(4) "text"
+      public $attr =>
+      array(0) {
+        ...
+      }
+      public $children =>
+      array(0) {
+        ...
+      }
+      public $nodes =>
+      array(0) {
+        ...
+      }
+      public $parent =>
+      class simple_html_dom_node#95 (9) {
+        ...
+      }
+      public $_ =>
+      array(1) {
+        ...
+      }
+      public $tag_start =>
+      int(0)
+      private $dom =>
+              ...
+
+    }
+    [77] =>
+    class simple_html_dom_node#104 (9) {
+      public $nodetype =>
+      int(1)
+      public $tag =>
+      string(4) "guid"
+      public $attr =>
+      array(0) {
+        ...
+      }
+      public $children =>
+      array(0) {
+        ...
+      }
+      public $nodes =>
+      array(1) {
+        ...
+      }
+      public $parent =>
+      class simple_html_dom_node#95 (9) {
+        ...
+      }
+      public $_ =>
+      array(3) {
+        ...
+      }
+      public $tag_start =>
+      int(1899)
+      private $dom =>
+              ...
+
+    }
+    [78] =>
+    class simple_html_dom_node#105 (9) {
+      public $nodetype =>
+      int(3)
+      public $tag =>
+      string(4) "text"
+      public $attr =>
+      array(0) {
+        ...
+      }
+      public $children =>
+      array(0) {
+        ...
+      }
+      public $nodes =>
+      array(0) {
+        ...
+      }
+      public $parent =>
+      class simple_html_dom_node#104 (9) {
+        ...
+      }
+      public $_ =>
+      array(1) {
+        ...
+      }
+      public $tag_start =>
+      int(0)
+      private $dom =>
+              ...
+
+    }
+    [79] =>
+    class simple_html_dom_node#106 (9) {
+      public $nodetype =>
+      int(3)
+      public $tag =>
+      string(4) "text"
+      public $attr =>
+      array(0) {
+        ...
+      }
+      public $children =>
+      array(0) {
+        ...
+      }
+      public $nodes =>
+      array(0) {
+        ...
+      }
+      public $parent =>
+      class simple_html_dom_node#95 (9) {
+        ...
+      }
+      public $_ =>
+      array(1) {
+        ...
+      }
+      public $tag_start =>
+      int(0)
+      private $dom =>
+              ...
+
+    }
+    [80] =>
+    class simple_html_dom_node#107 (9) {
+      public $nodetype =>
+      int(1)
+      public $tag =>
+      string(7) "pubdate"
+      public $attr =>
+      array(0) {
+        ...
+      }
+      public $children =>
+      array(0) {
+        ...
+      }
+      public $nodes =>
+      array(1) {
+        ...
+      }
+      public $parent =>
+      class simple_html_dom_node#95 (9) {
+        ...
+      }
+      public $_ =>
+      array(3) {
+        ...
+      }
+      public $tag_start =>
+      int(2018)
+      private $dom =>
+              ...
+
+    }
+    [81] =>
+    class simple_html_dom_node#108 (9) {
+      public $nodetype =>
+      int(3)
+      public $tag =>
+      string(4) "text"
+      public $attr =>
+      array(0) {
+        ...
+      }
+      public $children =>
+      array(0) {
+        ...
+      }
+      public $nodes =>
+      array(0) {
+        ...
+      }
+      public $parent =>
+      class simple_html_dom_node#107 (9) {
+        ...
+      }
+      public $_ =>
+      array(1) {
+        ...
+      }
+      public $tag_start =>
+      int(0)
+      private $dom =>
+              ...
+
+    }
+    [82] =>
+    class simple_html_dom_node#109 (9) {
+      public $nodetype =>
+      int(3)
+      public $tag =>
+      string(4) "text"
+      public $attr =>
+      array(0) {
+        ...
+      }
+      public $children =>
+      array(0) {
+        ...
+      }
+      public $nodes =>
+      array(0) {
+        ...
+      }
+      public $parent =>
+      class simple_html_dom_node#95 (9) {
+        ...
+      }
+      public $_ =>
+      array(1) {
+        ...
+      }
+      public $tag_start =>
+      int(0)
+      private $dom =>
+              ...
+
+    }
+    [83] =>
+    class simple_html_dom_node#110 (9) {
+      public $nodetype =>
+      int(1)
+      public $tag =>
+      string(10) "dc:creator"
+      public $attr =>
+      array(0) {
+        ...
+      }
+      public $children =>
+      array(0) {
+        ...
+      }
+      public $nodes =>
+      array(1) {
+        ...
+      }
+      public $parent =>
+      class simple_html_dom_node#95 (9) {
+        ...
+      }
+      public $_ =>
+      array(3) {
+        ...
+      }
+      public $tag_start =>
+      int(2073)
+      private $dom =>
+              ...
+
+    }
+    [84] =>
+    class simple_html_dom_node#111 (9) {
+      public $nodetype =>
+      int(3)
+      public $tag =>
+      string(4) "text"
+      public $attr =>
+      array(0) {
+        ...
+      }
+      public $children =>
+      array(0) {
+        ...
+      }
+      public $nodes =>
+      array(0) {
+        ...
+      }
+      public $parent =>
+      class simple_html_dom_node#110 (9) {
+        ...
+      }
+      public $_ =>
+      array(1) {
+        ...
+      }
+      public $tag_start =>
+      int(0)
+      private $dom =>
+              ...
+
+    }
+    [85] =>
+    class simple_html_dom_node#112 (9) {
+      public $nodetype =>
+      int(3)
+      public $tag =>
+      string(4) "text"
+      public $attr =>
+      array(0) {
+        ...
+      }
+      public $children =>
+      array(0) {
+        ...
+      }
+      public $nodes =>
+      array(0) {
+        ...
+      }
+      public $parent =>
+      class simple_html_dom_node#95 (9) {
+        ...
+      }
+      public $_ =>
+      array(1) {
+        ...
+      }
+      public $tag_start =>
+      int(0)
+      private $dom =>
+              ...
+
+    }
+    [86] =>
+    class simple_html_dom_node#113 (9) {
+      public $nodetype =>
+      int(1)
+      public $tag =>
+      string(11) "description"
+      public $attr =>
+      array(0) {
+        ...
+      }
+      public $children =>
+      array(0) {
+        ...
+      }
+      public $nodes =>
+      array(1) {
+        ...
+      }
+      public $parent =>
+      class simple_html_dom_node#95 (9) {
+        ...
+      }
+      public $_ =>
+      array(3) {
+        ...
+      }
+      public $tag_start =>
+      int(2117)
+      private $dom =>
+              ...
+
+    }
+    [87] =>
+    class simple_html_dom_node#114 (9) {
+      public $nodetype =>
+      int(3)
+      public $tag =>
+      string(4) "text"
+      public $attr =>
+      array(0) {
+        ...
+      }
+      public $children =>
+      array(0) {
+        ...
+      }
+      public $nodes =>
+      array(0) {
+        ...
+      }
+      public $parent =>
+      class simple_html_dom_node#113 (9) {
+        ...
+      }
+      public $_ =>
+      array(1) {
+        ...
+      }
+      public $tag_start =>
+      int(0)
+      private $dom =>
+              ...
+
+    }
+    [88] =>
+    class simple_html_dom_node#115 (9) {
+      public $nodetype =>
+      int(3)
+      public $tag =>
+      string(4) "text"
+      public $attr =>
+      array(0) {
+        ...
+      }
+      public $children =>
+      array(0) {
+        ...
+      }
+      public $nodes =>
+      array(0) {
+        ...
+      }
+      public $parent =>
+      class simple_html_dom_node#95 (9) {
+        ...
+      }
+      public $_ =>
+      array(1) {
+        ...
+      }
+      public $tag_start =>
+      int(0)
+      private $dom =>
+              ...
+
+    }
+    [89] =>
+    class simple_html_dom_node#116 (9) {
+      public $nodetype =>
+      int(1)
+      public $tag =>
+      string(15) "content:encoded"
+      public $attr =>
+      array(0) {
+        ...
+      }
+      public $children =>
+      array(0) {
+        ...
+      }
+      public $nodes =>
+      array(1) {
+        ...
+      }
+      public $parent =>
+      class simple_html_dom_node#95 (9) {
+        ...
+      }
+      public $_ =>
+      array(3) {
+        ...
+      }
+      public $tag_start =>
+      int(2179)
+      private $dom =>
+              ...
+
+    }
+    [90] =>
+    class simple_html_dom_node#117 (9) {
+      public $nodetype =>
+      int(3)
+      public $tag =>
+      string(4) "text"
+      public $attr =>
+      array(0) {
+        ...
+      }
+      public $children =>
+      array(0) {
+        ...
+      }
+      public $nodes =>
+      array(0) {
+        ...
+      }
+      public $parent =>
+      class simple_html_dom_node#116 (9) {
+        ...
+      }
+      public $_ =>
+      array(1) {
+        ...
+      }
+      public $tag_start =>
+      int(0)
+      private $dom =>
+              ...
+
+    }
+    [91] =>
+    class simple_html_dom_node#118 (9) {
+      public $nodetype =>
+      int(3)
+      public $tag =>
+      string(4) "text"
+      public $attr =>
+      array(0) {
+        ...
+      }
+      public $children =>
+      array(0) {
+        ...
+      }
+      public $nodes =>
+      array(0) {
+        ...
+      }
+      public $parent =>
+      class simple_html_dom_node#95 (9) {
+        ...
+      }
+      public $_ =>
+      array(1) {
+        ...
+      }
+      public $tag_start =>
+      int(0)
+      private $dom =>
+              ...
+
+    }
+    [92] =>
+    class simple_html_dom_node#119 (9) {
+      public $nodetype =>
+      int(1)
+      public $tag =>
+      string(4) "item"
+      public $attr =>
+      array(0) {
+        ...
+      }
+      public $children =>
+      array(7) {
+        ...
+      }
+      public $nodes =>
+      array(17) {
+        ...
+      }
+      public $parent =>
+      class simple_html_dom_node#30 (9) {
+        ...
+      }
+      public $_ =>
+      array(3) {
+        ...
+      }
+      public $tag_start =>
+      int(2252)
+      private $dom =>
+              ...
+
+    }
+    [93] =>
+    class simple_html_dom_node#120 (9) {
+      public $nodetype =>
+      int(3)
+      public $tag =>
+      string(4) "text"
+      public $attr =>
+      array(0) {
+        ...
+      }
+      public $children =>
+      array(0) {
+        ...
+      }
+      public $nodes =>
+      array(0) {
+        ...
+      }
+      public $parent =>
+      class simple_html_dom_node#119 (9) {
+        ...
+      }
+      public $_ =>
+      array(1) {
+        ...
+      }
+      public $tag_start =>
+      int(0)
+      private $dom =>
+              ...
+
+    }
+    [94] =>
+    class simple_html_dom_node#121 (9) {
+      public $nodetype =>
+      int(1)
+      public $tag =>
+      string(5) "title"
+      public $attr =>
+      array(0) {
+        ...
+      }
+      public $children =>
+      array(0) {
+        ...
+      }
+      public $nodes =>
+      array(1) {
+        ...
+      }
+      public $parent =>
+      class simple_html_dom_node#119 (9) {
+        ...
+      }
+      public $_ =>
+      array(3) {
+        ...
+      }
+      public $tag_start =>
+      int(2263)
+      private $dom =>
+              ...
+
+    }
+    [95] =>
+    class simple_html_dom_node#122 (9) {
+      public $nodetype =>
+      int(3)
+      public $tag =>
+      string(4) "text"
+      public $attr =>
+      array(0) {
+        ...
+      }
+      public $children =>
+      array(0) {
+        ...
+      }
+      public $nodes =>
+      array(0) {
+        ...
+      }
+      public $parent =>
+      class simple_html_dom_node#121 (9) {
+        ...
+      }
+      public $_ =>
+      array(1) {
+        ...
+      }
+      public $tag_start =>
+      int(0)
+      private $dom =>
+              ...
+
+    }
+    [96] =>
+    class simple_html_dom_node#123 (9) {
+      public $nodetype =>
+      int(3)
+      public $tag =>
+      string(4) "text"
+      public $attr =>
+      array(0) {
+        ...
+      }
+      public $children =>
+      array(0) {
+        ...
+      }
+      public $nodes =>
+      array(0) {
+        ...
+      }
+      public $parent =>
+      class simple_html_dom_node#119 (9) {
+        ...
+      }
+      public $_ =>
+      array(1) {
+        ...
+      }
+      public $tag_start =>
+      int(0)
+      private $dom =>
+              ...
+
+    }
+    [97] =>
+    class simple_html_dom_node#124 (9) {
+      public $nodetype =>
+      int(1)
+      public $tag =>
+      string(4) "link"
+      public $attr =>
+      array(0) {
+        ...
+      }
+      public $children =>
+      array(0) {
+        ...
+      }
+      public $nodes =>
+      array(0) {
+        ...
+      }
+      public $parent =>
+      class simple_html_dom_node#119 (9) {
+        ...
+      }
+      public $_ =>
+      array(2) {
+        ...
+      }
+      public $tag_start =>
+      int(2334)
+      private $dom =>
+              ...
+
+    }
+    [98] =>
+    class simple_html_dom_node#125 (9) {
+      public $nodetype =>
+      int(3)
+      public $tag =>
+      string(4) "text"
+      public $attr =>
+      array(0) {
+        ...
+      }
+      public $children =>
+      array(0) {
+        ...
+      }
+      public $nodes =>
+      array(0) {
+        ...
+      }
+      public $parent =>
+      class simple_html_dom_node#119 (9) {
+        ...
+      }
+      public $_ =>
+      array(1) {
+        ...
+      }
+      public $tag_start =>
+      int(0)
+      private $dom =>
+              ...
+
+    }
+    [99] =>
+    class simple_html_dom_node#126 (9) {
+      public $nodetype =>
+      int(3)
+      public $tag =>
+      string(4) "text"
+      public $attr =>
+      array(0) {
+        ...
+      }
+      public $children =>
+      array(0) {
+        ...
+      }
+      public $nodes =>
+      array(0) {
+        ...
+      }
+      public $parent =>
+      class simple_html_dom_node#119 (9) {
+        ...
+      }
+      public $_ =>
+      array(1) {
+        ...
+      }
+      public $tag_start =>
+      int(0)
+      private $dom =>
+              ...
+
+    }
+    [100] =>
+    class simple_html_dom_node#127 (9) {
+      public $nodetype =>
+      int(3)
+      public $tag =>
+      string(4) "text"
+      public $attr =>
+      array(0) {
+        ...
+      }
+      public $children =>
+      array(0) {
+        ...
+      }
+      public $nodes =>
+      array(0) {
+        ...
+      }
+      public $parent =>
+      class simple_html_dom_node#119 (9) {
+        ...
+      }
+      public $_ =>
+      array(1) {
+        ...
+      }
+      public $tag_start =>
+      int(0)
+      private $dom =>
+              ...
+
+    }
+    [101] =>
+    class simple_html_dom_node#128 (9) {
+      public $nodetype =>
+      int(1)
+      public $tag =>
+      string(4) "guid"
+      public $attr =>
+      array(0) {
+        ...
+      }
+      public $children =>
+      array(0) {
+        ...
+      }
+      public $nodes =>
+      array(1) {
+        ...
+      }
+      public $parent =>
+      class simple_html_dom_node#119 (9) {
+        ...
+      }
+      public $_ =>
+      array(3) {
+        ...
+      }
+      public $tag_start =>
+      int(2452)
+      private $dom =>
+              ...
+
+    }
+    [102] =>
+    class simple_html_dom_node#129 (9) {
+      public $nodetype =>
+      int(3)
+      public $tag =>
+      string(4) "text"
+      public $attr =>
+      array(0) {
+        ...
+      }
+      public $children =>
+      array(0) {
+        ...
+      }
+      public $nodes =>
+      array(0) {
+        ...
+      }
+      public $parent =>
+      class simple_html_dom_node#128 (9) {
+        ...
+      }
+      public $_ =>
+      array(1) {
+        ...
+      }
+      public $tag_start =>
+      int(0)
+      private $dom =>
+              ...
+
+    }
+    [103] =>
+    class simple_html_dom_node#130 (9) {
+      public $nodetype =>
+      int(3)
+      public $tag =>
+      string(4) "text"
+      public $attr =>
+      array(0) {
+        ...
+      }
+      public $children =>
+      array(0) {
+        ...
+      }
+      public $nodes =>
+      array(0) {
+        ...
+      }
+      public $parent =>
+      class simple_html_dom_node#119 (9) {
+        ...
+      }
+      public $_ =>
+      array(1) {
+        ...
+      }
+      public $tag_start =>
+      int(0)
+      private $dom =>
+              ...
+
+    }
+    [104] =>
+    class simple_html_dom_node#131 (9) {
+      public $nodetype =>
+      int(1)
+      public $tag =>
+      string(7) "pubdate"
+      public $attr =>
+      array(0) {
+        ...
+      }
+      public $children =>
+      array(0) {
+        ...
+      }
+      public $nodes =>
+      array(1) {
+        ...
+      }
+      public $parent =>
+      class simple_html_dom_node#119 (9) {
+        ...
+      }
+      public $_ =>
+      array(3) {
+        ...
+      }
+      public $tag_start =>
+      int(2570)
+      private $dom =>
+              ...
+
+    }
+    [105] =>
+    class simple_html_dom_node#132 (9) {
+      public $nodetype =>
+      int(3)
+      public $tag =>
+      string(4) "text"
+      public $attr =>
+      array(0) {
+        ...
+      }
+      public $children =>
+      array(0) {
+        ...
+      }
+      public $nodes =>
+      array(0) {
+        ...
+      }
+      public $parent =>
+      class simple_html_dom_node#131 (9) {
+        ...
+      }
+      public $_ =>
+      array(1) {
+        ...
+      }
+      public $tag_start =>
+      int(0)
+      private $dom =>
+              ...
+
+    }
+    [106] =>
+    class simple_html_dom_node#133 (9) {
+      public $nodetype =>
+      int(3)
+      public $tag =>
+      string(4) "text"
+      public $attr =>
+      array(0) {
+        ...
+      }
+      public $children =>
+      array(0) {
+        ...
+      }
+      public $nodes =>
+      array(0) {
+        ...
+      }
+      public $parent =>
+      class simple_html_dom_node#119 (9) {
+        ...
+      }
+      public $_ =>
+      array(1) {
+        ...
+      }
+      public $tag_start =>
+      int(0)
+      private $dom =>
+              ...
+
+    }
+    [107] =>
+    class simple_html_dom_node#134 (9) {
+      public $nodetype =>
+      int(1)
+      public $tag =>
+      string(10) "dc:creator"
+      public $attr =>
+      array(0) {
+        ...
+      }
+      public $children =>
+      array(0) {
+        ...
+      }
+      public $nodes =>
+      array(1) {
+        ...
+      }
+      public $parent =>
+      class simple_html_dom_node#119 (9) {
+        ...
+      }
+      public $_ =>
+      array(3) {
+        ...
+      }
+      public $tag_start =>
+      int(2625)
+      private $dom =>
+              ...
+
+    }
+    [108] =>
+    class simple_html_dom_node#135 (9) {
+      public $nodetype =>
+      int(3)
+      public $tag =>
+      string(4) "text"
+      public $attr =>
+      array(0) {
+        ...
+      }
+      public $children =>
+      array(0) {
+        ...
+      }
+      public $nodes =>
+      array(0) {
+        ...
+      }
+      public $parent =>
+      class simple_html_dom_node#134 (9) {
+        ...
+      }
+      public $_ =>
+      array(1) {
+        ...
+      }
+      public $tag_start =>
+      int(0)
+      private $dom =>
+              ...
+
+    }
+    [109] =>
+    class simple_html_dom_node#136 (9) {
+      public $nodetype =>
+      int(3)
+      public $tag =>
+      string(4) "text"
+      public $attr =>
+      array(0) {
+        ...
+      }
+      public $children =>
+      array(0) {
+        ...
+      }
+      public $nodes =>
+      array(0) {
+        ...
+      }
+      public $parent =>
+      class simple_html_dom_node#119 (9) {
+        ...
+      }
+      public $_ =>
+      array(1) {
+        ...
+      }
+      public $tag_start =>
+      int(0)
+      private $dom =>
+              ...
+
+    }
+    [110] =>
+    class simple_html_dom_node#137 (9) {
+      public $nodetype =>
+      int(1)
+      public $tag =>
+      string(11) "description"
+      public $attr =>
+      array(0) {
+        ...
+      }
+      public $children =>
+      array(0) {
+        ...
+      }
+      public $nodes =>
+      array(1) {
+        ...
+      }
+      public $parent =>
+      class simple_html_dom_node#119 (9) {
+        ...
+      }
+      public $_ =>
+      array(3) {
+        ...
+      }
+      public $tag_start =>
+      int(2669)
+      private $dom =>
+              ...
+
+    }
+    [111] =>
+    class simple_html_dom_node#138 (9) {
+      public $nodetype =>
+      int(3)
+      public $tag =>
+      string(4) "text"
+      public $attr =>
+      array(0) {
+        ...
+      }
+      public $children =>
+      array(0) {
+        ...
+      }
+      public $nodes =>
+      array(0) {
+        ...
+      }
+      public $parent =>
+      class simple_html_dom_node#137 (9) {
+        ...
+      }
+      public $_ =>
+      array(1) {
+        ...
+      }
+      public $tag_start =>
+      int(0)
+      private $dom =>
+              ...
+
+    }
+    [112] =>
+    class simple_html_dom_node#139 (9) {
+      public $nodetype =>
+      int(3)
+      public $tag =>
+      string(4) "text"
+      public $attr =>
+      array(0) {
+        ...
+      }
+      public $children =>
+      array(0) {
+        ...
+      }
+      public $nodes =>
+      array(0) {
+        ...
+      }
+      public $parent =>
+      class simple_html_dom_node#119 (9) {
+        ...
+      }
+      public $_ =>
+      array(1) {
+        ...
+      }
+      public $tag_start =>
+      int(0)
+      private $dom =>
+              ...
+
+    }
+    [113] =>
+    class simple_html_dom_node#140 (9) {
+      public $nodetype =>
+      int(1)
+      public $tag =>
+      string(15) "content:encoded"
+      public $attr =>
+      array(0) {
+        ...
+      }
+      public $children =>
+      array(0) {
+        ...
+      }
+      public $nodes =>
+      array(1) {
+        ...
+      }
+      public $parent =>
+      class simple_html_dom_node#119 (9) {
+        ...
+      }
+      public $_ =>
+      array(3) {
+        ...
+      }
+      public $tag_start =>
+      int(2731)
+      private $dom =>
+              ...
+
+    }
+    [114] =>
+    class simple_html_dom_node#141 (9) {
+      public $nodetype =>
+      int(3)
+      public $tag =>
+      string(4) "text"
+      public $attr =>
+      array(0) {
+        ...
+      }
+      public $children =>
+      array(0) {
+        ...
+      }
+      public $nodes =>
+      array(0) {
+        ...
+      }
+      public $parent =>
+      class simple_html_dom_node#140 (9) {
+        ...
+      }
+      public $_ =>
+      array(1) {
+        ...
+      }
+      public $tag_start =>
+      int(0)
+      private $dom =>
+              ...
+
+    }
+    [115] =>
+    class simple_html_dom_node#142 (9) {
+      public $nodetype =>
+      int(3)
+      public $tag =>
+      string(4) "text"
+      public $attr =>
+      array(0) {
+        ...
+      }
+      public $children =>
+      array(0) {
+        ...
+      }
+      public $nodes =>
+      array(0) {
+        ...
+      }
+      public $parent =>
+      class simple_html_dom_node#119 (9) {
+        ...
+      }
+      public $_ =>
+      array(1) {
+        ...
+      }
+      public $tag_start =>
+      int(0)
+      private $dom =>
+              ...
+
+    }
+    [116] =>
+    class simple_html_dom_node#143 (9) {
+      public $nodetype =>
+      int(1)
+      public $tag =>
+      string(4) "item"
+      public $attr =>
+      array(0) {
+        ...
+      }
+      public $children =>
+      array(7) {
+        ...
+      }
+      public $nodes =>
+      array(17) {
+        ...
+      }
+      public $parent =>
+      class simple_html_dom_node#30 (9) {
+        ...
+      }
+      public $_ =>
+      array(3) {
+        ...
+      }
+      public $tag_start =>
+      int(2804)
+      private $dom =>
+              ...
+
+    }
+    [117] =>
+    class simple_html_dom_node#144 (9) {
+      public $nodetype =>
+      int(3)
+      public $tag =>
+      string(4) "text"
+      public $attr =>
+      array(0) {
+        ...
+      }
+      public $children =>
+      array(0) {
+        ...
+      }
+      public $nodes =>
+      array(0) {
+        ...
+      }
+      public $parent =>
+      class simple_html_dom_node#143 (9) {
+        ...
+      }
+      public $_ =>
+      array(1) {
+        ...
+      }
+      public $tag_start =>
+      int(0)
+      private $dom =>
+              ...
+
+    }
+    [118] =>
+    class simple_html_dom_node#145 (9) {
+      public $nodetype =>
+      int(1)
+      public $tag =>
+      string(5) "title"
+      public $attr =>
+      array(0) {
+        ...
+      }
+      public $children =>
+      array(0) {
+        ...
+      }
+      public $nodes =>
+      array(1) {
+        ...
+      }
+      public $parent =>
+      class simple_html_dom_node#143 (9) {
+        ...
+      }
+      public $_ =>
+      array(3) {
+        ...
+      }
+      public $tag_start =>
+      int(2815)
+      private $dom =>
+              ...
+
+    }
+    [119] =>
+    class simple_html_dom_node#146 (9) {
+      public $nodetype =>
+      int(3)
+      public $tag =>
+      string(4) "text"
+      public $attr =>
+      array(0) {
+        ...
+      }
+      public $children =>
+      array(0) {
+        ...
+      }
+      public $nodes =>
+      array(0) {
+        ...
+      }
+      public $parent =>
+      class simple_html_dom_node#145 (9) {
+        ...
+      }
+      public $_ =>
+      array(1) {
+        ...
+      }
+      public $tag_start =>
+      int(0)
+      private $dom =>
+              ...
+
+    }
+    [120] =>
+    class simple_html_dom_node#147 (9) {
+      public $nodetype =>
+      int(3)
+      public $tag =>
+      string(4) "text"
+      public $attr =>
+      array(0) {
+        ...
+      }
+      public $children =>
+      array(0) {
+        ...
+      }
+      public $nodes =>
+      array(0) {
+        ...
+      }
+      public $parent =>
+      class simple_html_dom_node#143 (9) {
+        ...
+      }
+      public $_ =>
+      array(1) {
+        ...
+      }
+      public $tag_start =>
+      int(0)
+      private $dom =>
+              ...
+
+    }
+    [121] =>
+    class simple_html_dom_node#148 (9) {
+      public $nodetype =>
+      int(1)
+      public $tag =>
+      string(4) "link"
+      public $attr =>
+      array(0) {
+        ...
+      }
+      public $children =>
+      array(0) {
+        ...
+      }
+      public $nodes =>
+      array(0) {
+        ...
+      }
+      public $parent =>
+      class simple_html_dom_node#143 (9) {
+        ...
+      }
+      public $_ =>
+      array(2) {
+        ...
+      }
+      public $tag_start =>
+      int(2882)
+      private $dom =>
+              ...
+
+    }
+    [122] =>
+    class simple_html_dom_node#149 (9) {
+      public $nodetype =>
+      int(3)
+      public $tag =>
+      string(4) "text"
+      public $attr =>
+      array(0) {
+        ...
+      }
+      public $children =>
+      array(0) {
+        ...
+      }
+      public $nodes =>
+      array(0) {
+        ...
+      }
+      public $parent =>
+      class simple_html_dom_node#143 (9) {
+        ...
+      }
+      public $_ =>
+      array(1) {
+        ...
+      }
+      public $tag_start =>
+      int(0)
+      private $dom =>
+              ...
+
+    }
+    [123] =>
+    class simple_html_dom_node#150 (9) {
+      public $nodetype =>
+      int(3)
+      public $tag =>
+      string(4) "text"
+      public $attr =>
+      array(0) {
+        ...
+      }
+      public $children =>
+      array(0) {
+        ...
+      }
+      public $nodes =>
+      array(0) {
+        ...
+      }
+      public $parent =>
+      class simple_html_dom_node#143 (9) {
+        ...
+      }
+      public $_ =>
+      array(1) {
+        ...
+      }
+      public $tag_start =>
+      int(0)
+      private $dom =>
+              ...
+
+    }
+    [124] =>
+    class simple_html_dom_node#151 (9) {
+      public $nodetype =>
+      int(3)
+      public $tag =>
+      string(4) "text"
+      public $attr =>
+      array(0) {
+        ...
+      }
+      public $children =>
+      array(0) {
+        ...
+      }
+      public $nodes =>
+      array(0) {
+        ...
+      }
+      public $parent =>
+      class simple_html_dom_node#143 (9) {
+        ...
+      }
+      public $_ =>
+      array(1) {
+        ...
+      }
+      public $tag_start =>
+      int(0)
+      private $dom =>
+              ...
+
+    }
+    [125] =>
+    class simple_html_dom_node#152 (9) {
+      public $nodetype =>
+      int(1)
+      public $tag =>
+      string(4) "guid"
+      public $attr =>
+      array(0) {
+        ...
+      }
+      public $children =>
+      array(0) {
+        ...
+      }
+      public $nodes =>
+      array(1) {
+        ...
+      }
+      public $parent =>
+      class simple_html_dom_node#143 (9) {
+        ...
+      }
+      public $_ =>
+      array(3) {
+        ...
+      }
+      public $tag_start =>
+      int(2996)
+      private $dom =>
+              ...
+
+    }
+    [126] =>
+    class simple_html_dom_node#153 (9) {
+      public $nodetype =>
+      int(3)
+      public $tag =>
+      string(4) "text"
+      public $attr =>
+      array(0) {
+        ...
+      }
+      public $children =>
+      array(0) {
+        ...
+      }
+      public $nodes =>
+      array(0) {
+        ...
+      }
+      public $parent =>
+      class simple_html_dom_node#152 (9) {
+        ...
+      }
+      public $_ =>
+      array(1) {
+        ...
+      }
+      public $tag_start =>
+      int(0)
+      private $dom =>
+              ...
+
+    }
+    [127] =>
+    class simple_html_dom_node#154 (9) {
+      public $nodetype =>
+      int(3)
+      public $tag =>
+      string(4) "text"
+      public $attr =>
+      array(0) {
+        ...
+      }
+      public $children =>
+      array(0) {
+        ...
+      }
+      public $nodes =>
+      array(0) {
+        ...
+      }
+      public $parent =>
+      class simple_html_dom_node#143 (9) {
+        ...
+      }
+      public $_ =>
+      array(1) {
+        ...
+      }
+      public $tag_start =>
+      int(0)
+      private $dom =>
+              ...
+
+    }
+
+    (more elements)...
+  }
+  public $callback =>
+  NULL
+  public $lowercase =>
+  bool(true)
+  public $original_size =>
+  int(168819)
+  public $size =>
+  int(28888)
+  protected $pos =>
+  int(28888)
+  protected $doc =>
+  string(28888) "<rss version="2.0"       xmlns:content="http://purl.org/rss/1.0/modules/content/"       xmlns:dc="http://purl.org/dc/elements/1.1/"       xmlns:media="http://search.yahoo.com/mrss/"       xmlns:atom="http://www.w3.org/2005/Atom">    <channel>      <title>MUVILA RSS Feed</title>      <link>http://www.muvila.com/</link>      <description>        Muvila.com adalah sebuah media online yang membahas tentang film, TV, Selebriti dan dunia entertainment.      </description>      <language>en-us</language>      <ato"...
+  protected $char =>
+  NULL
+  protected $cursor =>
+  int(1222)
+  protected $parent =>
+  class simple_html_dom_node#27 (9) {
+    public $nodetype =>
+    int(5)
+    public $tag =>
+    string(4) "root"
+    public $attr =>
+    array(0) {
+    }
+    public $children =>
+    array(1) {
+      [0] =>
+      class simple_html_dom_node#28 (9) {
+        ...
+      }
+    }
+    public $nodes =>
+    array(1) {
+      [0] =>
+      class simple_html_dom_node#28 (9) {
+        ...
+      }
+    }
+    public $parent =>
+    NULL
+    public $_ =>
+    array(2) {
+      [0] =>
+      int(-1)
+      [1] =>
+      int(1222)
+    }
+    public $tag_start =>
+    int(0)
+    private $dom =>
+          ...
+
+  }
+  protected $noise =>
+  array(100) {
+    '___noise___ 1000' =>
+    string(2654) "<![CDATA[         <figure>             <img src="http://cdn.klimg.com/muvila.com/resources/news/2016/05/20/15822/592x342-captain-america-civil-war-kini-jadi-film-terlaris-tahun-2016-160520o.jpg" width="592" height="342">             <figcaption>                              </figcaption>         </figure>         <p>Setelah ditayangkan di negara asalnya, Amerika Serikat, pada 6 Mei lalu, kantung pendapatan<em> Captain America: Civil War</em> makin menggembung. Bahkan, pada Rabu, 18 Mei lalu, film pertarunga"...
+    '___noise___ 1001' =>
+    string(112) "<![CDATA[         Captain America: Civil War ditargetkan menyentuh 1 miliar dolar AS pada pekan ini.         ]]>"
+    '___noise___ 1002' =>
+    string(1911) "<![CDATA[         <figure>             <img src="http://cdn.klimg.com/muvila.com/resources/news/2016/05/19/15810/592x342-begini-jadinya-x-men-apocalypse-jika-dibuat-versi-lego-1605195.jpg" width="592" height="342">             <figcaption>                 Toscano Bricks             </figcaption>         </figure>         <p>Film<em> X-Men: Apocalypse</em> memang tak memiliki hubungan dengan <em>franchise </em>film<em> The Lego Movie</em>, tapi bukan berarti para mutan<em> X-Men: Apocalypse</em> tidak bisa t"...
+    '___noise___ 1003' =>
+    string(79) "<![CDATA[         Tonton trailer film X-Men: Apocalypse versi Lego.         ]]>"
+    '___noise___ 1004' =>
+    string(2276) "<![CDATA[         <figure>             <img src="http://cdn.klimg.com/muvila.com/resources/news/2016/05/19/15809/592x342-pemain-sutradara-x-men-apocalypse-jelaskan-kekuatan-apocalypse-160519c.jpg" width="592" height="342">             <figcaption>                 20th Century Fox             </figcaption>         </figure>         <p>Film terbaru<em> X-Men: Apocalypse</em> yang telah dirilis di bioskop Indonesia menampilkan tokoh antagonis baru, yakni mutan bernama Apocalypse alias En Sabah Nur yang diperan"...
+    '___noise___ 1005' =>
+    string(126) "<![CDATA[         Bryan Singer, James McAvoy, dan Michael Fassbender ungkap sumber dan bentuk kekuatan Apocalypse.         ]]>"
+    '___noise___ 1006' =>
+    string(1883) "<![CDATA[         <figure>             <img src="http://cdn.klimg.com/muvila.com/resources/news/2016/05/20/15823/592x342-ahn-so-hee-jadi-cinta-pertama-seo-kang-joon-di-entourage-160520g.jpg" width="592" height="342">             <figcaption>                              </figcaption>         </figure>         <p>Ahn So Hee resmi bergabung dalam serial drama baru tvN<em> Entourage</em>. Ia bakal berperan sebagai cinta pertama Seo Kang Joon. Kabar tersebut disampaikan langsung oleh pihak manajemen artis Ahn S"...
+    '___noise___ 1007' =>
+    string(124) "<![CDATA[         Ahn So Hee akan tampil pertama kali di layar kaca setelah ia keluar dari girlband Wonder Girls         ]]>"
+    '___noise___ 1008' =>
+    string(2783) "<![CDATA[         <figure>             <img src="http://cdn.klimg.com/muvila.com/resources/news/2016/05/20/15821/592x342-jennifer-lawrence-angkat-bicara-tentang-kembali-perankan-mystique-160520m.jpg" width="592" height="342">             <figcaption>                              </figcaption>         </figure>         <p>Sejak film <em>X-Men: Apocalypse</em> diproduksi pada tahun lalu, <strong><a href="http://www.muvila.com/film/artikel/jennifer-lawrence-tak-kan-lagi-bersama-x-men-setelah-apocalypse-150324e"...
+    '___noise___ 1009' =>
+    string(130) "<![CDATA[         Sang aktris mengaku tidak suka dengan kostum khusus yang harus dia kenakan saat memerankan Mystique.         ]]>"
+    '___noise___ 1010' =>
+    string(1752) "<![CDATA[         <figure>             <img src="http://cdn.klimg.com/muvila.com/resources/news/2016/05/20/15824/592x342-lagu-jessica-jung-fly-dicekal-kbs--160520k.jpg" width="592" height="342">             <figcaption>                              </figcaption>         </figure>         <p>Setelah hampir satu tahun hengkang dari <em>girlband</em> K-pop Girl's Generation, akhirnya Jessica Jung mengeluarkan album solonya pertamanya, <em>With Love, J.</em> Sayangnya, lagu andalan Jessica Jung yang berjudul "F"...
+    '___noise___ 1011' =>
+    string(131) "<![CDATA[         Setelah keluar dari Girl's Generation, Jessica Jung mengeluarkan album solo pertamanya, With Love, J.         ]]>"
+    '___noise___ 1012' =>
+    string(2554) "<![CDATA[         <figure>             <img src="http://cdn.klimg.com/muvila.com/resources/news/2016/05/20/15820/592x342-the-handmaiden-jadi-film-korea-paling-diminati-distributor-dunia-160520y.jpg" width="592" height="342">             <figcaption>                              </figcaption>         </figure>         <p><em>The Handmaiden</em>, film <em>thriller</em> Korea Selatan yang masuk kompetisi Festival Film Cannes untuk memperebutkan Palme d'Or, siap diedarkan ke berbagai penjuru negara. Seperti diu"...
+    '___noise___ 1013' =>
+    string(112) "<![CDATA[         Hak edar The Handmaiden laku terjual ke 175 negara, termasuk Amerika dan Perancis.         ]]>"
+    '___noise___ 1014' =>
+    string(1698) "<![CDATA[         <figure>             <img src="http://cdn.klimg.com/muvila.com/resources/news/2016/05/20/15825/592x342-wolverine-3-siap-rekrut-aktris-fear-walking-dead-ini-160520d.jpg" width="592" height="342">             <figcaption>                              </figcaption>         </figure>         <p><em>Wolverine 3</em> siap menambah jajaran pemainnya. Aktris serial TV terkenal, <em>Fear the Walking Dead</em>, Elizabeth Rodriguez, seperti diwartakan <em>Wrap,</em> sedang dibujuk oleh 20th Century F"...
+    '___noise___ 1015' =>
+    string(148) "<![CDATA[         Elizabeth Rodriguez dikenal sebagai bintang serial TV populer di Amerika, termasuk Orange is the New Black di Netflix.         ]]>"
+    '___noise___ 1016' =>
+    string(2148) "<![CDATA[         <figure>             <img src="http://cdn.klimg.com/muvila.com/resources/news/2016/05/20/15829/592x342-tonton-aksi-dan-kecerdikan-macgyver-versi-modern-160520q.jpg" width="592" height="342">             <figcaption>                 CBS             </figcaption>         </figure>         <p><em>MacGyver</em> adalah serial televisi populer yang tayang antara tahun 1985 hingga 1992. Serial ini mengisahkan tentang seorang agen rahasia bernama Angus MacGyver yang memiliki sifat unik. Ia tidak p"...
+    '___noise___ 1017' =>
+    string(154) "<![CDATA[         Membuat bom dari peluru, membuat parasut, hingga panah dengan daya ledak tinggi digambarkan trailer perdana serial MacGyver.         ]]>"
+    '___noise___ 1018' =>
+    string(8302) "<![CDATA[         <figure>             <img src="http://cdn.klimg.com/muvila.com/resources/news/2016/05/21/15831/592x342-movie-review-x-men-apocalypse-yang-perpanjang-mitos-1605210.jpg" width="592" height="342">             <figcaption>                              </figcaption>         </figure>         <p>Sebagai salah satu pelopor kesuksesan film-film <em>superhero</em> Hollywood era milenium, <em>franchise</em> <em>X-Men</em> versi layar lebar terbukti sukses bertahan sampai 16 tahun. Bahkan, bisa dibil"...
+    '___noise___ 1019' =>
+    string(122) "<![CDATA[         Film X-Men: Apocalypse lanjutkan franchise X-Men tanpa konflik yang memberi perubahan besar.         ]]>"
+    '___noise___ 1020' =>
+    string(3030) "<![CDATA[         <figure>             <img src="http://cdn.klimg.com/muvila.com/resources/news/2016/05/20/15828/592x342-trailer-the-purge-election-year-pro-kontra-malam-pembantaian-160520c.jpg" width="592" height="342">             <figcaption>                 Universal Pictures             </figcaption>         </figure>         <p>Universal Pictures akhirnya merilis <em>trailer</em> kedua <em>The Purge: Election Year </em>yang mengungkapkan bahwa proses <em>Purge</em> (sebuah pembantaian yang dilakukan d"...
+    '___noise___ 1021' =>
+    string(111) "<![CDATA[         Calon Presiden Amerika Serikat harus bertahan hidup dari buruan lawan politiknya.         ]]>"
+    '___noise___ 1022' =>
+    string(1921) "<![CDATA[         <figure>             <img src="http://cdn.klimg.com/muvila.com/resources/news/2016/05/21/15833/592x342-anak-buah-daniel-radcliffe-baku-hantam-dengan-four-horsemen--160521w.jpg" width="592" height="342">             <figcaption>                              </figcaption>         </figure>         <p>Daniel Radcliffe tak lagi membawa tongkat sihir. Sebagai pengganti untuk melindunginya, ia memiliki <em>bodyguard, </em>seperti yang akan diperlihatkan dalam cuplikan terbaru di film <em>Now You"...
+    '___noise___ 1023' =>
+    string(121) "<![CDATA[         Now You See Me 2 akan mengisahkan pertarungan si jenius teknologi Walter dan Four Horsemen.         ]]>"
+    '___noise___ 1024' =>
+    string(2077) "<![CDATA[         <figure>             <img src="http://cdn.klimg.com/muvila.com/resources/news/2016/05/21/15834/592x342-rupa-johnny-depp-waktu-remaja-mirip-justin-bieber-160521k.jpg" width="592" height="342">             <figcaption>                              </figcaption>         </figure>         <p>Usia Johnny Depp dan Justin Bieber memang terpaut jauh. Kendati demikian, wajah mereka ternyata mirip seperti anak kembar sewaktu masih muda. Hal tersebut dibuktikan dalam acara <em>talkshow</em> <em>Ellen"...
+    '___noise___ 1025' =>
+    string(126) "<![CDATA[         Ellen DeGeneres Show membandingkan foto Johnny Depp dan Justin Bieber ketika mereka masih remaja         ]]>"
+    '___noise___ 1026' =>
+    string(2243) "<![CDATA[         <figure>             <img src="http://cdn.klimg.com/muvila.com/resources/news/2016/05/21/15841/592x342-dokumenter-quentin-tarantino-gambarkan-setianya-sang-sutradara-160521a.jpg" width="592" height="342">             <figcaption>                 Miramax             </figcaption>         </figure>         <p>Sutradara yang berencana untuk pensiun di film kesepuluhnya, Quentin Tarantino, dibuatkan film dokumenter tentang kariernya sebagai sineas. Rekan bisnis Tarantino sejak film pertamanya,"...
+    '___noise___ 1027' =>
+    string(108) "<![CDATA[         Film 21 Years: Quentin Tarantino berfokus pada 21 tahun karier sang sutradara.         ]]>"
+    '___noise___ 1028' =>
+    string(1661) "<![CDATA[         <figure>             <img src="http://cdn.klimg.com/muvila.com/resources/news/2016/05/21/15840/592x342-setelah-angry-birds-fruit-ninja-segera-diadaptasi-jadi-film-1605216.jpg" width="592" height="342">             <figcaption>                 Halfbrick Studios             </figcaption>         </figure>         <p>Tak lama setelah perilisan global film animasi <em>The Angry Birds Movie, </em>kini<em> Fruit Ninja</em>, sebuah <em>mobile game</em> populer lain, juga akan diadaptasi menjadi f"...
+    '___noise___ 1029' =>
+    string(110) "<![CDATA[         Permainan Fruit Ninja akan diadaptasi menjadi sebuah film drama komedi keluarga.         ]]>"
+    '___noise___ 1030' =>
+    string(2282) "<![CDATA[         <figure>             <img src="http://cdn.klimg.com/muvila.com/resources/news/2016/05/21/15839/592x342-trailer-star-trek-beyond-gambarkan-kehancuran-uss-enterprise-160521c.jpg" width="592" height="342">             <figcaption>                              </figcaption>         </figure>         <p>Paramount Pictures International akhirnya merilis <em>trailer</em> kedua <em>Star Trek Beyond </em>yang menggambarkan Kapten Kirk (Chris Pine) dan anak buahnya harus menghadapi kehancuran tak te"...
+    '___noise___ 1031' =>
+    string(100) "<![CDATA[         Kapten Kirk harus bekerja sama dengan alien untuk melawan musuh utama.         ]]>"
+    '___noise___ 1032' =>
+    string(1720) "<![CDATA[         <figure>             <img src="http://cdn.klimg.com/muvila.com/resources/news/2016/05/21/15832/592x342-tonton-kocaknya-penipu-ulung-era-joseon-di-trailer-kim-soen-dal-160521o.jpg" width="592" height="342">             <figcaption>                 asianwiki             </figcaption>         </figure>         <p>CJ Entertainment akhirnya memperlihatkan <em>trailer</em> perdana film <em>Kim Seon-dal,</em> yang dibintangi oleh Yoo Seung Ho (<em>Remember, Arang and the Magistrate)</em> dan Xium"...
+    '___noise___ 1033' =>
+    string(129) "<![CDATA[         Film Kim Seon-dal dibintangi oleh Yoo Seung Ho (Remember, Arang and the Magistrate) dan Xiumin EXO.         ]]>"
+    '___noise___ 1034' =>
+    string(4014) "<![CDATA[         <figure>             <img src="http://cdn.klimg.com/muvila.com/resources/news/2016/05/20/15816/592x342-guntur-soeharjanto-ingin-beri-pengalaman-spritual-lewat-film-160520a.jpg" width="592" height="342">             <figcaption>                              </figcaption>         </figure>         <p>Setelah film <em>Dreams</em>, Guntur Soeharjanto segera merilis film terbarunya, <em>Jilbab Traveler Sparks in Korea.</em> Dalam memproduksi film ini, Guntur mengaku sulit menentukan pemain untu"...
+    '___noise___ 1035' =>
+    string(139) "<![CDATA[         Sutradara Jilbab Traveler Sparks in Korea ini mengungkapkan soal sulitnya memilih pemain untuk film tersebut.         ]]>"
+    '___noise___ 1036' =>
+    string(2324) "<![CDATA[         <figure>             <img src="http://cdn.klimg.com/muvila.com/resources/news/2016/05/21/15836/592x342-setelah-vakum-lama-the-groove-akan-luncurkan-album-baru-160521o.jpg" width="592" height="342">             <figcaption>                 kapanlagi             </figcaption>         </figure>         <p>Setelah vakum cukup lama, The Groove akhirnya akan kembali menyapa para pecinta musik Tanah Air lewat album terbarunya. Album bertajuk <em>Forever U&#38;amp;rsquo;ll Be Mine</em> ini akan di"...
+    '___noise___ 1037' =>
+    string(151) "<![CDATA[         The Groove kembali berkarya dengan mengeluarkan album kelima mereka, Forever U&amp;#226;&amp;#8364;&amp;#8482;ll Be Mine.         ]]>"
+    '___noise___ 1038' =>
+    string(1943) "<![CDATA[         <figure>             <img src="http://cdn.klimg.com/muvila.com/resources/news/2016/05/21/15835/592x342-begini-gaya-charlize-theron-sebagai-musuh-terkuat-fast-8-160521j.jpg" width="592" height="342">             <figcaption>                              </figcaption>         </figure>         <p>Setelah menjadi Furiosa di <em>Mad Max: Fury Road</em>, Charlize Theron akan kembali menunjukkan kegarangannya dalam <em>Fast and Furious 8.</em> Penampilan perdananya di <em>franchise</em> film lar"...
+    '___noise___ 1039' =>
+    string(115) "<![CDATA[         Aktris pemenang Piala Oscar Charlize Theron berperan sebagai Cipher. Siapakah Cipher?         ]]>"
+    '___noise___ 1040' =>
+    string(3223) "<![CDATA[         <figure>             <img src="http://cdn.klimg.com/muvila.com/resources/news/2016/05/20/15830/592x342-artikel-film-bcl-lihat-persamaan-dirinya-dan-rania-160520q.jpg" width="592" height="342">             <figcaption>                              </figcaption>         </figure>         <p>Setelah tampil dalam film komedi <em>My Stupid Boss</em>, Bunga Citra Lestari (BCL) akan muncul dalam film drama <em>Jilbab Traveler: Love Spark in Korea</em>. Di sini, BCL menjadi Rania, seorang perempua"...
+    '___noise___ 1041' =>
+    string(135) "<![CDATA[         Bunga Citra Lestari akan beradu akting dengan Morgan Oey dalam film Jilbab Traveler: Love Spark in Korea.         ]]>"
+    '___noise___ 1042' =>
+    string(1778) "<![CDATA[         <figure>             <img src="http://cdn.klimg.com/muvila.com/resources/news/2016/05/21/15838/592x342-sunspring-film-pendek-yang-skenarionya-ditulis-oleh-komputer-1605218.jpg" width="592" height="342">             <figcaption>                 Vimeo/SUNSPRING by 32 Tesla K80 GPUs             </figcaption>         </figure>         <p>Sebuah terobosan baru di dunia perfilman telah terjadi. Di zaman serba digital seperti sekarang ini, hadir sebuah film pendek yang skenarionya ditulis oleh pe"...
+    '___noise___ 1043' =>
+    string(127) "<![CDATA[         Perangkat lunak kecerdasan buatan diberi beberapa kalimat acak untuk dibuat sebuah skenario film.         ]]>"
+    '___noise___ 1044' =>
+    string(2404) "<![CDATA[         <figure>             <img src="http://cdn.klimg.com/muvila.com/resources/news/2016/05/23/15849/592x342-jadi-bintang-pop-layaknya-britney-spears-lewat-mobile-game-160523g.jpg" width="592" height="342">             <figcaption>                 Pop Sugar             </figcaption>         </figure>         <p>Ratu pop dunia Britney Spears merilis aplikasi <em>mobile game</em> pertamanya. Dengan mengusung nama <em>Britney Spears: American Dream,</em> <em>game</em> inimemberikan kesempatan kepad"...
+    '___noise___ 1045' =>
+    string(111) "<![CDATA[         Pemain game ini juga dapat kembali menikmati lagu-lagu terpopuler Britney Spears.         ]]>"
+    '___noise___ 1046' =>
+    string(2912) "<![CDATA[         <figure>             <img src="http://cdn.klimg.com/muvila.com/resources/news/2016/05/23/15853/592x342-argentina-larang-justin-bieber-gelar-konser-160523y.jpg" width="592" height="342">             <figcaption>                 rollingstone.com             </figcaption>         </figure>         <p>Justin Bieber terpaksa membatalkan tur konser <em>Purpose</em> di Argentina karena pemerintah Argentina melarang <em>superstar </em>asal Kanada itu masuk ke negara mereka. Hal ini dipicu oleh tin"...
+    '___noise___ 1047' =>
+    string(141) "<![CDATA[         Pemerintah Argentina tak lagi izinkan Justin Bieber untuk menggelar konser terkait tindakannya tiga tahun lalu.         ]]>"
+    '___noise___ 1048' =>
+    string(2379) "<![CDATA[         <figure>             <img src="http://cdn.klimg.com/muvila.com/resources/news/2016/05/23/15864/592x342-produser-running-man-ungkap-betapa-pentingnya-lee-kwang-soo-160523z.jpg" width="592" height="342">             <figcaption>                 singles             </figcaption>         </figure>         <p>Lee Kwang Soo <strong><a href="http://www.muvila.com/foto/entertainment/5-selebritis-korea-ini-bergelimangan-harta-di-tahun-2016-1601282.html">menjadi salah satu artis Korea Selatan dengan"...
+    '___noise___ 1049' =>
+    string(87) "<![CDATA[         Seberapa penting Lee Kwang Soo untuk program Running Man?         ]]>"
+    '___noise___ 1050' =>
+    string(2557) "<![CDATA[         <figure>             <img src="http://cdn.klimg.com/muvila.com/resources/news/2016/05/23/15868/592x342-harry-styles-makin-jauh-dari-one-direction-160523k.jpg" width="592" height="342">             <figcaption>                 Entertainment Weekly             </figcaption>         </figure>         <p>Tahun ini, mungkin menjadi tahun yang mengecewakan bagi Directioners (sebutan bagi penggemar One Direction, <em>red</em>). Namun, bagi Harry Styles, tahun ini akan menjadi tahun yang penting. "...
+    '___noise___ 1051' =>
+    string(109) "<![CDATA[         Harry Styles dikabarkan semakin menunjukkan kemantapannya untuk bersolo karier.         ]]>"
+    '___noise___ 1052' =>
+    string(2444) "<![CDATA[         <figure>             <img src="http://cdn.klimg.com/muvila.com/resources/news/2016/05/23/15871/592x342-ayumi-pulang-ke-rumah-ikuti-suara-dari-mimpi-anehnya-1605232.jpg" width="592" height="342">             <figcaption>                 JAFF             </figcaption>         </figure>         <p>Sepuluh tahun bukan waktu yang sebentar. Terlebih bagi Ayumi, yang sudah satu dekade bekerja sebagai operator <em>call center</em> di Okinawa, Jepang. Waktu makin berjalan lama dan tidak sebentar, k"...
+    '___noise___ 1053' =>
+    string(120) "<![CDATA[         Film pendek berjudul Rumah ini dibuat Yosep Anggi Noen di Okinawa, Jepang. Tonton di sini.         ]]>"
+    '___noise___ 1054' =>
+    string(1959) "<![CDATA[         <figure>             <img src="http://cdn.klimg.com/muvila.com/resources/news/2016/05/23/15863/592x342-ji-suk-jin-hampir-keluar-dari-acara-running-man-160523e.jpg" width="592" height="342">             <figcaption>                              </figcaption>         </figure>         <p>Tak terasa, <em>Running Man</em> telah mencapai episode ke-300 pada 22 Mei kemarin. Artinya, program <em>variety show</em> telah menemani pemirsanya selama enam tahun lamanya. Hal tersebut sungguh tak pernah"...
+    '___noise___ 1055' =>
+    string(108) "<![CDATA[         Ji Suk Jin mengaku awal episode Running Man merupakan masa-masa sulit baginya.         ]]>"
+    '___noise___ 1056' =>
+    string(2323) "<![CDATA[         <figure>             <img src="http://cdn.klimg.com/muvila.com/resources/news/2016/05/23/15870/592x342-captain-america-3-jadi-film-pertama-yang-meraup-1-miliar-dolar-as-160523r.jpg" width="592" height="342">             <figcaption>                              </figcaption>         </figure>         <p><em>Captain America: Civil War</em> sukses menjadi film pertama yang mencapai pendapatan global 1 miliar dolar AS di tahun ini. Film <em>superhero</em> milik Disney dan Marvel ini mendapatk"...
+    '___noise___ 1057' =>
+    string(118) "<![CDATA[         Captain America: Civil War begitu gesit meraup 1 miliar dolar AS dari box office global.         ]]>"
+    '___noise___ 1058' =>
+    string(2394) "<![CDATA[         <figure>             <img src="http://cdn.klimg.com/muvila.com/resources/news/2016/05/23/15867/592x342-sisi-lain-adele-di-video-klip-send-my-love-to-your-new-lover-160523x.jpg" width="592" height="342">             <figcaption>                 aceshowbiz             </figcaption>         </figure>         <p>Sesuai janjinya, Adele merilis video klip "Send My Love (To Your New Lover)&#38;amp;rdquo; dalam ajang Billboard Music Awards 2016 di Las Vegas, Amerika Serikat pada 22 Mei 2016 waktu "...
+    '___noise___ 1059' =>
+    string(125) "<![CDATA[         Di video klip terbarunya ini, Adele melakukan sesuatu yang belum pernah ia lakukan. Apakah itu?         ]]>"
+    '___noise___ 1060' =>
+    string(2618) "<![CDATA[         <figure>             <img src="http://cdn.klimg.com/muvila.com/resources/news/2016/05/23/15875/592x342-imax-akan-buat-bioskop-khusus-virtual-reality-160523p.jpg" width="592" height="342">             <figcaption>                 Silicon Beat             </figcaption>         </figure>         <p>Satu lompatan bisnis akan dibuat IMAX dengan membuat bioskop khusus Virtual Reality (VR) di enam lokasi di dunia. Seperti yang ditulis <em>The Wall Street Journal</em>, IMAX menargetkan bioskop-bio"...
+    '___noise___ 1061' =>
+    string(155) "<![CDATA[         Perusahaan bioskop asal Kanada ini bekerja sama dengan Starbreeze yang bikin video game The Chronicles of Riddick dan Payday.         ]]>"
+    '___noise___ 1062' =>
+    string(2166) "<![CDATA[         <figure>             <img src="http://cdn.klimg.com/muvila.com/resources/news/2016/05/23/15872/592x342-popstar-never-stop-never-stopping-parodi-musisi-populer-dunia-160523h.jpg" width="592" height="342">             <figcaption>                              </figcaption>         </figure>         <p>Universal Pictures telah merilis trailer perdana film <em>Popstar: Never Stop Never Stopping </em>yang merupakan parodi dokumenter (<em>mockumentary</em>) musikal berfokus pada penyanyi populer"...
+    '___noise___ 1063' =>
+    string(96) "<![CDATA[         Film ini merupakan sebuah parodi yang dikemas ala film dokumenter.         ]]>"
+    '___noise___ 1064' =>
+    string(2838) "<![CDATA[         <figure>             <img src="http://cdn.klimg.com/muvila.com/resources/news/2016/05/23/15876/592x342-mini-seri-roots-jadi-inspirasi-kampanye-anti-budak-modern-160523i.jpg" width="592" height="342">             <figcaption>                 History             </figcaption>         </figure>         <p>Sebuah gerakan sosial berskala internasional tentang pemberantasan perbudakan modern dilakukan melalui kerja sama saluran <em>History, Not For Sale,</em> dan <em>CNN International.</em> Teri"...
+    '___noise___ 1065' =>
+    string(138) "<![CDATA[         Mini seri yang dibintangi Forest Whitaker ini bisa ditonton di saluran History mulai 31 Mei pukul 21.00 WIB.         ]]>"
+    '___noise___ 1066' =>
+    string(5627) "<![CDATA[         <figure>             <img src="http://cdn.klimg.com/muvila.com/resources/news/2016/05/23/15873/592x342-aktor-pemeran-hellboy-ingin-dapat-peran-di-sekuel-deadpool-160523a.jpg" width="592" height="342">             <figcaption>                 Warner Bros.             </figcaption>         </figure>         <p>Setelah tokoh mutan Cable disebut-sebut akan muncul di sekuel <em>Deadpool</em>, respon dari para netizen di media sosial pun bermunculan. Aktor Ron Perlman pun ikut bersuara. Pemeran "...
+    '___noise___ 1067' =>
+    string(124) "<![CDATA[         Ron Perlman menyatakan ketertarikannya untuk memerankan salah satu tokoh mutan terkuat, Cable.         ]]>"
+    '___noise___ 1068' =>
+    string(1946) "<![CDATA[         <figure>             <img src="http://cdn.klimg.com/muvila.com/resources/news/2016/05/23/15874/592x342-the-blackout-experiment-rumah-hantu-yang-siksa-penggunjungnya-1605237.jpg" width="592" height="342">             <figcaption>                              </figcaption>         </figure>         <p>Sineas film dokumenter, Rix Fox, kembali dengan karya terbarunya, tapi kali ini bernuansa horor yang tetap berdasarkan kisah nyata. Judulnya, <em>The Blackout Experiments</em>. Kisahnya tentang"...
+    '___noise___ 1069' =>
+    string(126) "<![CDATA[         Diangkat dari kisah nyata, film ini membahas tentang sebuah wahana rumah hantu bernama Blackout.         ]]>"
+    '___noise___ 1070' =>
+    string(1950) "<![CDATA[         <figure>             <img src="http://cdn.klimg.com/muvila.com/resources/news/2016/05/23/15869/592x342-adele-teken-kontrak-rekaman-bernilai-rp-18-triliun-160523k.jpg" width="592" height="342">             <figcaption>                              </figcaption>         </figure>         <p>Adele telah teken kontrak rekaman senilai 90 juta poundsterling (Rp 1,8 triliun) dengan studio Sony Music. Inilah nilai kontrak kerja sama terbesar yang pernah diberikan kepada musisi Inggris. Bahkan, men"...
+    '___noise___ 1071' =>
+    string(95) "<![CDATA[         Sony Music kini menjadi produser rekaman Adele untuk ke depannya.         ]]>"
+    '___noise___ 1072' =>
+    string(6752) "<![CDATA[         <figure>             <img src="http://cdn.klimg.com/muvila.com/resources/news/2016/05/24/15886/592x342-movie-review-aisyah-sederhana-tak-kekurangan-makna-160524j.jpg" width="592" height="342">             <figcaption>                              </figcaption>         </figure>         <p>Dari judulnya saja, film <em>Aisyah: Biarkan Kami Bersaudara</em> seperti sebuah 'surat terbuka' yang tak punya rahasia lagi. Terlalu jelas apa yang ingin disampaikan, bahkan akan seperti apa akhir cerita"...
+    '___noise___ 1073' =>
+    string(123) "<![CDATA[         Film Aisyah: Biarkan Kami Bersaudara usung pesan jelas lewat rangkaian adegan, bukan kalimat.         ]]>"
+    '___noise___ 1074' =>
+    string(2210) "<![CDATA[         <figure>             <img src="http://cdn.klimg.com/muvila.com/resources/news/2016/05/23/15877/592x342-foto-foto-set-sytuing-alien-covenant-gambarkan-kematian-massal-160523x.jpg" width="592" height="342">             <figcaption>                 Chown Image             </figcaption>         </figure>         <p>Film<em> Alien: Covenant</em> merupakan sekuel <em>Prometheus</em> (Ridley Scott, 2012). Meskipun plotnya masih dirahasiakan, tapi pada akhir pekan lalu diketahui bahwa proses syuti"...
+    '___noise___ 1075' =>
+    string(100) "<![CDATA[         Ada yang mirip dengan cerita Pompeii di latar syuting Alien: Covenant.         ]]>"
+    '___noise___ 1076' =>
+    string(5657) "<![CDATA[         <figure>             <img src="http://cdn.klimg.com/muvila.com/resources/news/2016/05/24/15885/592x342-money-monster-taruhan-nyawa-karena-uang-160524s.jpg" width="592" height="342">             <figcaption>                              </figcaption>         </figure>         <p>Dikenal sebagai salah satu aktris paling disegani di Hollywood, Jodie Foster juga telah merambah ke posisi sutradara sejak tahun 1990-an. Foster kali ini kembali dengan film panjang keempat yang disutradarainya, <em"...
+    '___noise___ 1077' =>
+    string(130) "<![CDATA[         Film garapan Jodie Foster ini angkat isu ekonomi, teknologi, serta penyiaran dalam kemasan thriller.         ]]>"
+    '___noise___ 1078' =>
+    string(4538) "<![CDATA[         <figure>             <img src="http://cdn.klimg.com/muvila.com/resources/news/2016/05/24/15888/592x342-angry-birds-meluncur-ke-puncak-box-office-amerika-160524l.jpg" width="592" height="342">             <figcaption>                              </figcaption>         </figure>         <p>Setelah sukses dirilis di beberapa negara dua pekan lalu, termasuk di Indonesia, film animasi <em>The Angry Birds Movie</em> akhirnya dirilis di Amerika Serikat dan Kanada akhir pekan lalu, dan juga menuai"...
+    '___noise___ 1079' =>
+    string(150) "<![CDATA[         Film animasi The Angry Birds Movie sukses geser Captain America: Civil War dari tahta box office mingguan Amerika Utara.         ]]>"
+    '___noise___ 1080' =>
+    string(2412) "<![CDATA[         <figure>             <img src="http://cdn.klimg.com/muvila.com/resources/news/2016/05/24/15890/592x342-emma-watson-jadi-putri-belle-di-trailer-beauty-and-the-beast-160524w.jpg" width="592" height="342">             <figcaption>                 moviepilot             </figcaption>         </figure>         <p>Walt Disney akhirnya memperlihatkan sekilas penampilan Emma Watson sebagai Putri Belle dalam <em>teaser trailer</em> perdana film <em>live action Beauty and the Beast</em> pada 23 Mei "...
+    '___noise___ 1081' =>
+    string(105) "<![CDATA[         Disney telah merilis trailer perdana film live action Beauty and the Beast.         ]]>"
+    '___noise___ 1082' =>
+    string(2317) "<![CDATA[         <figure>             <img src="http://cdn.klimg.com/muvila.com/resources/news/2016/05/24/15891/592x342-calvin-harris-alami-kecelakaan-mobil-wajahnya-sobek-160524y.jpg" width="592" height="342">             <figcaption>                 skynews.com             </figcaption>         </figure>         <p>Calvin Harris mengalami kecelakaan lalu-lintas yang serius di Los Angeles, Amerika Serikat pada Jumat malam, 20 Mei 2016. Kecelakaan ini menyebabkan Disk Jockey (DJ) internasional itu terluka,"...
+    '___noise___ 1083' =>
+    string(118) "<![CDATA[         Kecelakaan yang dialami Calvin Harris membuatnya harus membatalkan sejumlah pertunjukan.         ]]>"
+    '___noise___ 1084' =>
+    string(3007) "<![CDATA[         <figure>             <img src="http://cdn.klimg.com/muvila.com/resources/news/2016/05/24/15895/592x342-terbang-dengan-pesawat-jet-pribadi-leonardo-dicaprio-dikritik-160524a.jpg" width="592" height="342">             <figcaption>                 dailycaller.com             </figcaption>         </figure>         <p>Leonardo DiCaprio pernah menyinggung soal lingkungan dalam pidato kemenangannya di Academy Awards 2016 pada Februari lalu. Begini sepenggal bunyinya, &#38;amp;ldquo;Perubahan ikl"...
+    '___noise___ 1085' =>
+    string(128) "<![CDATA[         Akibat kebiasaannya naik jet pribadi, citra Leonardo DiCaprio sebagai aktivis lingkungan memburuk.         ]]>"
+    '___noise___ 1086' =>
+    string(1987) "<![CDATA[         <figure>             <img src="http://cdn.klimg.com/muvila.com/resources/news/2016/05/24/15892/592x342-tonton-sekelompok-hewan-bersuara-merdu-di-trailer-sing-1605242.jpg" width="592" height="342">             <figcaption>                              </figcaption>         </figure>         <p>Buster Moon ingin gedung teaternya menghelat satu acara besar untuk menyelamatkan bisnisnya. Maka dari itu, si tokoh koala yang disulih suarakan oleh Matthew McConaughey, memutuskan untuk mengadakan k"...
+    '___noise___ 1087' =>
+    string(155) "<![CDATA[         Mulai dari babi hingga tikus, mengikuti kompetisi menyanyi yang diselenggarakan oleh Buster Moon, koala pemilik gedung teater         ]]>"
+    '___noise___ 1088' =>
+    string(1764) "<![CDATA[         <figure>             <img src="http://cdn.klimg.com/muvila.com/resources/news/2016/05/24/15896/592x342-oh-hae-young-again-hampir-tembus-rating-drama-tv-kabel-tertinggi-160524u.jpg" width="592" height="342">             <figcaption>                              </figcaption>         </figure>         <p>Meski baru menayangkan tujuh episode, serial drama <em>Oh Hae-young Again</em> kini sudah hampir mendekati rating 10 persen. Artinya, <em>Oh Hae-young Again </em> bakal memecahkan rekor rati"...
+    '___noise___ 1089' =>
+    string(110) "<![CDATA[         Oh Hae-young Again berhasil menambah 0,8 persen penontonnya di episode ke-7 nya.         ]]>"
+    '___noise___ 1090' =>
+    string(1769) "<![CDATA[         <figure>             <img src="http://cdn.klimg.com/muvila.com/resources/news/2016/05/24/15893/592x342-garfield-bakal-dijadikan-franchise-film-animasi--160524m.jpg" width="592" height="342">             <figcaption>                              </figcaption>         </figure>         <p>Alcon Entertainment telah mengakusisi hak produksi Garfield dari kreatornya, Jim Davis. Rencananya, Alcon hendak mengubah komik strip populer itu menjadi satu <em>franchise</em> film animasi. Begitu bunyi l"...
+    '___noise___ 1091' =>
+    string(149) "<![CDATA[         Garfield merupakan komik strip yang paling banyak disebarkan di dunia dengan muncul dalam 2.580 surat kabar dan jurnal.         ]]>"
+    '___noise___ 1092' =>
+    string(1679) "<![CDATA[         <figure>             <img src="http://cdn.klimg.com/muvila.com/resources/news/2016/05/24/15894/592x342-park-hae-jin-bakal-bintangi-film-cheese-in-the-trap--160524l.jpg" width="592" height="342">             <figcaption>                              </figcaption>         </figure>         <p>Park Hae Jin akan mengulang kembali perannya sebagai Yoo Jung dalam film adaptasi serial komik <em>online, Cheese in the Trap. </em>Demikian yang disampaikan oleh pihak produksi film tersebut, Mountain "...
+    '___noise___ 1093' =>
+    string(124) "<![CDATA[         Park Hae Jin telah setuju menjadi peran utama dalam Cheese in the Trap versi film layar lebar.         ]]>"
+    '___noise___ 1094' =>
+    string(2517) "<![CDATA[         <figure>             <img src="http://cdn.klimg.com/muvila.com/resources/news/2016/05/24/15889/592x342-the-wailing-masih-tak-terkalahkan-di-box-office-korea-160524m.jpg" width="592" height="342">             <figcaption>                              </figcaption>         </figure>         <p>Kinerja film <em>thriller</em> Korea Selatan, <em>The Wailing,</em> patut diacungi jempol. Walaupun film impor datang silih berganti, namun film rilisan Fox ini sanggup mendominasi penjualan tiket di n"...
+    '___noise___ 1095' =>
+    string(113) "<![CDATA[         The Wailing juga mendapatkan pujian saat ditayangkan di Festival Film Cannes ke-69.         ]]>"
+    '___noise___ 1096' =>
+    string(2573) "<![CDATA[         <figure>             <img src="http://cdn.klimg.com/muvila.com/resources/news/2016/05/24/15902/592x342-k-drama-one-channel-romansa-klasik-dari-bali-sampai-harvard-160524c.jpg" width="592" height="342">             <figcaption>                              </figcaption>         </figure>         <p>Serial drama Korea Selatan selalu mampu memikat penonton di Indonesia. Itulah yang membuat <em>One Channel,</em> salah satu saluran hiburan Korea di Indonesia, bukan hanya bakal menayangkan seria"...
+    '___noise___ 1097' =>
+    string(137) "<![CDATA[         One Channel akan menayangkan Memories of Bali dan dan Love Story in Harvard yang sempat hits di tahun 2004.         ]]>"
+    '___noise___ 1098' =>
+    string(3507) "<![CDATA[         <figure>             <img src="http://cdn.klimg.com/muvila.com/resources/news/2016/05/24/15898/592x342-drama-terbaru-park-shin-hye-bakal-tayang-di-indonesia-1605242.jpg" width="592" height="342">             <figcaption>                 soompi             </figcaption>         </figure>         <p><em>One Channel</em> sebagai salah satu saluran hiburan Korea di Indonesia akan menyuguhkan beberapa serial drama Korea terbarunya memasuki bulan Juni ini. Salah satunya yang menarik perhatian ad"...
+    '___noise___ 1099' =>
+    string(143) "<![CDATA[         One Channel bakal menghadirkan sejumlah serial drama hit di Korea Selatan mulai dari akhir Mei hingga bulan Juni.         ]]>"
+  }
+  protected $token_blank =>
+  string(4) " 	
+"
+  protected $token_equal =>
+  string(4) " =/>"
+  protected $token_slash =>
+  string(6) " />
+	"
+  protected $token_attr =>
+  string(2) " >"
+  public $_charset =>
+  string(5) "UTF-8"
+  public $_target_charset =>
+  string(5) "UTF-8"
+  protected $default_br_text =>
+  string(2) "
+"
+  public $default_span_text =>
+  string(1) " "
+  protected $self_closing_tags =>
+  array(9) {
+    'img' =>
+    int(1)
+    'br' =>
+    int(1)
+    'input' =>
+    int(1)
+    'meta' =>
+    int(1)
+    'link' =>
+    int(1)
+    'hr' =>
+    int(1)
+    'base' =>
+    int(1)
+    'embed' =>
+    int(1)
+    'spacer' =>
+    int(1)
+  }
+  protected $block_tags =>
+  array(6) {
+    'root' =>
+    int(1)
+    'body' =>
+    int(1)
+    'form' =>
+    int(1)
+    'div' =>
+    int(1)
+    'span' =>
+    int(1)
+    'table' =>
+    int(1)
+  }
+  protected $optional_closing_tags =>
+  array(11) {
+    'tr' =>
+    array(3) {
+      'tr' =>
+      int(1)
+      'td' =>
+      int(1)
+      'th' =>
+      int(1)
+    }
+    'th' =>
+    array(1) {
+      'th' =>
+      int(1)
+    }
+    'td' =>
+    array(1) {
+      'td' =>
+      int(1)
+    }
+    'li' =>
+    array(1) {
+      'li' =>
+      int(1)
+    }
+    'dt' =>
+    array(2) {
+      'dt' =>
+      int(1)
+      'dd' =>
+      int(1)
+    }
+    'dd' =>
+    array(2) {
+      'dd' =>
+      int(1)
+      'dt' =>
+      int(1)
+    }
+    'dl' =>
+    array(2) {
+      'dd' =>
+      int(1)
+      'dt' =>
+      int(1)
+    }
+    'p' =>
+    array(1) {
+      'p' =>
+      int(1)
+    }
+    'nobr' =>
+    array(1) {
+      'nobr' =>
+      int(1)
+    }
+    'b' =>
+    array(1) {
+      'b' =>
+      int(1)
+    }
+    'option' =>
+    array(1) {
+      'option' =>
+      int(1)
+    }
+  }
+}
+array(0) {
+}

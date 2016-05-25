@@ -24,8 +24,8 @@ class PostController extends Controller
     public function actionScrapeList()
     {
         $list = [
-			//'http://www.cnnindonesia.com/',
-			'http://www.muvila.com',
+			'http://www.cnnindonesia.com/',
+			//'http://www.muvila.com',
 			];
 		
 		foreach($list as $web){
@@ -79,7 +79,7 @@ class PostController extends Controller
 			$wp = new WordpressPoster($data['title'], $data['content']);
 			$result = $wp->post();
 			
-			print_r($result);
+			var_dump($result);
 			
 			//Save into log
 			$item = [
@@ -89,10 +89,10 @@ class PostController extends Controller
 				'code'=>$result['code'],
 			];
 			ScrapeLog::logUpdate($item);
-			$count++;
 			
+			$count++;
 			//Stop when have reached the limit of post
-			if($count>=$limit){
+			if($count >= $limit){
 				break;
 			}
 		}
