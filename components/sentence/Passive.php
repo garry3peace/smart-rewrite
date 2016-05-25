@@ -107,6 +107,13 @@ class Passive {
 		
 		return $word;
 	}	
+	
+	private function exclusionMekan()
+	{
+		return [
+			'menyakitkan'
+		];
+	}
 
 	/**
 	 * Passive me-kan form
@@ -114,6 +121,11 @@ class Passive {
 	 */
 	public static function toPassiveMekan($affix)
 	{
+		//Certain mekan musn't passified
+		if(in_array($affix, $this->exclusionMekan())){
+			return $affix;
+		}
+		
 		//finding "meny-kan", eg: menyertakan, menyatakan
 		if(strpos($affix,'meny')===0){
 			$base = self::removeAffix($affix,'me','kan');

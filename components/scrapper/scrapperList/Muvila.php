@@ -2,22 +2,10 @@
 
 namespace app\components\scrapper\scrapperList;
 
-use \app\components\scrapper\ScrapeListItem;
-
-class Muvila extends ScrapeListItem
+class Muvila extends ScrapeListItemXml
 {
-	public function getUrl()
+	protected function getUrl()
 	{
 		return 'http://www.muvila.com/rss/';
-	}
-	
-	public function getItem()
-	{
-		return 'link';
-	}
-	
-	public function getList()
-	{
-		return 'item';
 	}
 }

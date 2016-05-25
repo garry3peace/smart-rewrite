@@ -72,10 +72,8 @@ class Scrapper
 		return $result;
 	}
 	
-	private function toTag($raw)
+	public function getHtml()
 	{
-		$raw = trim($raw);
-		$tag = nl2br($raw);
-		return '<p>'.$tag.'</p>';
+		return $this->html;
 	}
 }

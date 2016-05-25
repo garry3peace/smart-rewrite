@@ -2,21 +2,19 @@
 
 namespace app\components\scrapper\scrapperList;
 
-use \app\components\scrapper\ScrapeListItem;
-
-class Cnnindonesia extends ScrapeListItem
+class Cnnindonesia extends ScrapeListItemHtml
 {
-	public function getUrl()
+	protected function getUrl()
 	{
 		return 'http://www.cnnindonesia.com/film/indeks/57/';
 	}
 	
-	public function getItem()
+	protected function itemClass()
 	{
 		return 'h3 a';
 	}
 	
-	public function getList()
+	protected function listClass()
 	{
 		return '.list_indeks li';
 	}
