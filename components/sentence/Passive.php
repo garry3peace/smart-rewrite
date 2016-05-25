@@ -108,7 +108,7 @@ class Passive {
 		return $word;
 	}	
 	
-	private function exclusionMekan()
+	private static function exclusionMekan()
 	{
 		return [
 			'menyakitkan'
@@ -122,7 +122,7 @@ class Passive {
 	public static function toPassiveMekan($affix)
 	{
 		//Certain mekan musn't passified
-		if(in_array($affix, $this->exclusionMekan())){
+		if(in_array($affix, self::exclusionMekan())){
 			return $affix;
 		}
 		
