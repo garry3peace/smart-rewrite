@@ -56,15 +56,15 @@ class SentenceRewriter extends Rewriter
 		
 		return [
 			'1'=>[
-				'rule'=>self::SENTENCE_OPENING.'([\w\s`-]*)'.$ifWord .'([\w\s`-]*)maka([\w\s`-]*)'.self::SENTENCE_CLOSING,
+				'rule'=>self::SENTENCE_OPENING.'([\w\s`-]*) '.$ifWord .' ([\w\s`-]*)maka([\w\s`-]*)'.self::SENTENCE_CLOSING,
 				'process'=>':match1|ucfirst,:match4 :match2 :match3|trim|lcfirst',
 			],
 			'2'=>[
-				'rule'=>self::SENTENCE_OPENING.'([\w\s`-]*)'.$ifWord .'([\w\s`-]*)'.self::SENTENCE_CLOSING,
+				'rule'=>self::SENTENCE_OPENING.'([\w\s`-]*) '.$ifWord .' ([\w\s`-]*)'.self::SENTENCE_CLOSING,
 				'process'=>':match2|trim|ucfirst :match3, :match1|lcfirst|trim',
 			],
 			'3'=>[
-				'rule'=>self::SENTENCE_OPENING.$ifWord.'([\w\s`-]*), ([\w\s`-]*)'.self::SENTENCE_CLOSING,
+				'rule'=>self::SENTENCE_OPENING.$ifWord.' ([\w\s`-]*), ([\w\s`-]*)'.self::SENTENCE_CLOSING,
 				'process'=>':match3|trim|ucfirst :match1|lcfirst :match2',
 			],
 			'4'=>[
