@@ -6,13 +6,17 @@
 namespace app\components\rewriter;
 
 use app\components\rewriter\Rewriter;
+use app\components\Config;
 
 class ParagraphRewriter extends Rewriter
 {
 	private $config; 
 	
 	private $content; //the content of paragraphs to rewrite
-	private $arrParagraphs; //the content separated in array paragraphs
+	private $paragraph; //array of all paragraphs. each array item represent a paragraph
+	
+	//array of paragraph that is going to shuffle. used in rearrange paragraph function
+	private $shuffleParagraph; 
 	
 	private $firstParagraph = '';
 	private $lastParagraph = '';
@@ -21,17 +25,23 @@ class ParagraphRewriter extends Rewriter
 	
 	public function __construct($content, $config=null)
 	{
+		if($config==null){
+			$config = new Config(['paragraph_exclude'=>'1;2;-2;-1']);
+		}
+		
 		$this->content = $content;
 		$this->config = $config;
-		$this->arrParagraphs = $this->getArrParagraphs();
-		$this->firstParagraph = $this->arrParagraphs[0];
-		$this->lastParagraph = end($this->arrParagraphs);
+		$this->paragraph = $this->getArrParagraphs();
+		
+		$this->shuffleParagraph = $this->paragraph;
+		$this->firstParagraph = $this->paragraph[0];
+		$this->lastParagraph = end($this->paragraph);
 	}
 	
 	private function getArrParagraphs()
 	{
-		if(!empty($this->arrParagraphs)){
-			return $this->arrParagraphs;
+		if(!empty($this->paragraph)){
+			return $this->paragraph;
 		}
 		
 		if($this->isText()){
@@ -40,15 +50,37 @@ class ParagraphRewriter extends Rewriter
 			$result = $this->getHtmlParagraph();
 		}
 		
-		$this->arrParagraphs = $result;
-		return $this->arrParagraphs;
+		$this->paragraph = $result;
+		return $this->paragraph;
 	}
 	
+	private function getExcludedParagraph()
+	{
+		$paragraphExclude = $this->config->getArray('paragraph_exclude');
+		$count = count($this->paragraph);
+
+		$result=[];
+		foreach($paragraphExclude as $position){
+			if($position <0){
+				$position = $count+$position+1;
+			}
+			//reduce 1, to match the array system (which start from zero)
+			$position = $position-1;
+			$result[] = $position;
+		}
+		return $result;
+	}
+	/**
+	 * Combining all the array of paragraphs into text
+	 * @return string
+	 */
 	private function merge()
 	{
-		//adding first paragraph and last paragraph
-		array_unshift($this->arrParagraphs, $this->firstParagraph);
-		array_push($this->arrParagraphs, $this->lastParagraph);
+		$paragraphExclude = $this->getExcludedParagraph();
+		foreach($paragraphExclude as $position){
+			//inserting paragraph into the shuffle paragraph
+			array_splice( $this->shuffleParagraph, $position, 0, $this->paragraph[$position]);
+		}
 		
 		if($this->isText()){
 			$text = $this->mergeText();
@@ -88,14 +120,14 @@ class ParagraphRewriter extends Rewriter
 	 */
 	private function mergeText()
 	{
-		$result = implode("\n", $this->arrParagraphs);		
+		$result = implode("\n", $this->shuffleParagraph);		
 		return $result;
 	}
 	
 	private function mergeHtml()
 	{
 		$result = '';
-		foreach($this->arrParagraphs as $item){
+		foreach($this->shuffleParagraph as $item){
 			$result .= '<p>'.$item.'</p>';
 		}
 		return $result;
@@ -116,19 +148,31 @@ class ParagraphRewriter extends Rewriter
 		return $this->isText;
 	}
 	
-	private function exclude($paragraphs)
+	/**
+	 * execute the exclusion of the paragraph
+	 * that excluded in Config
+	 */
+	private function exclude()
 	{
-		return array_slice($paragraphs,1,-1);
+		$paragraphExclude = $this->getExcludedParagraph();
+		foreach($paragraphExclude as $index){
+			unset($this->shuffleParagraph[$index]);
+		}
 	}
 	
+	/**
+	 * Randomize/shuffle the paragraph position
+	 * Return as text
+	 * @return string
+	 */
 	public function rearrange()
 	{
 		//if exclude front and last paragraph is enable, then must exclude them
-		if($this->config->is('paragraph_exclude_first_last')){
-			$this->arrParagraphs = $this->exclude($this->arrParagraphs);
+		if($this->config->is('paragraph_exclude')){
+			$this->exclude($this->config->getArray('paragraph_exclude'));
 		}
 		
-		shuffle($this->arrParagraphs);
+		shuffle($this->shuffleParagraph);
 		
 		$result = $this->merge();
 		

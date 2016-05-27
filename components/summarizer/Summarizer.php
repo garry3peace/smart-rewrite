@@ -28,7 +28,7 @@ class Summarizer
 		return ['atau','yang','di','dengan','dan','telah','sudah','tetapi','namun',
 			'agar','supaya','jika','kalau','maka','kemudian','ini','itu','lalu',
 			'sesudah','sebelum','bukan','tidak','akan','juga','pada','padahal','adalah',
-			'dari','jadi','oleh','karena','sebab'];
+			'dari','jadi','oleh','karena','sebab','tanpa'];
 	}
 	
 	/**
@@ -80,7 +80,7 @@ class Summarizer
 	/**
 	 * Find major keyword.
 	 */
-	private function getKeywords()
+	public function getKeywords()
 	{
 		if(count($this->keywords)>0){
 			return $this->keywords;

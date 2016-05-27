@@ -36,7 +36,7 @@ class WordpressPoster
 		$configValue = [
 			'unique'=>true,
 			'paragraph'=>true,
-			'paragraph_exclude_first_last'=>true,
+			'paragraph_exclude'=>'1,2,-2,-1',
 		];
 		$config = new Config($configValue);
 		

@@ -25,7 +25,7 @@ class PostController extends Controller
     {
         $list = [
 			'http://www.cnnindonesia.com/',
-			//'http://www.muvila.com',
+			'http://www.muvila.com',
 			];
 		
 		foreach($list as $web){
@@ -35,7 +35,7 @@ class PostController extends Controller
 			foreach($result as $url){
 				//Skip if already exists in log
 				$scrapeLog = ScrapeLog::findByUrl($url);
-				if(!empty($scrapeLog) && $scrapeLog->isPosted()){
+				if(!empty($scrapeLog)){
 					continue;
 				}
 				
@@ -67,7 +67,7 @@ class PostController extends Controller
 			
 			$scrapePage = \app\components\scrapper\ScrapperPageFactory::get($url);
 			$data = $scrapePage->get();
-
+			
 			//Skip if no content
 			if(empty($data['content'])){
 				$item['url']= $url;
