@@ -97,5 +97,34 @@ class Number
 		elseif ($x < 1000000000)
 			return self::toPhrase($x / 1000000) . " juta " . self::toPhrase($x % 1000000);
 	}
+	
+	private static function toCommaPhrase($x){
+		$x = stristr($x, '.');
+		$x = trim($x,'.');
+		
+		$number = self::base();
+		$length = strlen($x);
+
+		$result = ' koma ';
+		for ($pos = 0; $pos < $length; $pos++) {
+			$char = $x[$pos];
+			$result.= ' ' . $number[$char];
+		}
+		return $result;
+	}
+
+	public static function toNumberPhrase($x) {
+		if ($x < 0) {
+			$hasil = "minus ". trim(self::toPhrase($x));
+		} else {
+			$hasil = trim(self::toPhrase($x));
+		}
+		
+		if(strpos($x, '.')!==false){
+			$hasil .= self::toCommaPhrase($x);
+		}
+		
+		return $hasil;
+	}
 
 }

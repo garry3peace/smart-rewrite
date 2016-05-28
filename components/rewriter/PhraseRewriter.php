@@ -27,15 +27,23 @@ class PhraseRewriter extends Rewriter
 		$replacements = [];
 		$counter = 0;
 
-		$regexPattern = '%\b(\d{1,3}(?:\.\d{3})*|\d+)\b%';
+		//$regexPattern = '%\b(\d{1,3}(?:\.\d{3})*|\d+)\b%';
+		$regexPattern = '%\s([1-9]{1}[\d\.\,\-]+)\s%';
 		$sentence = preg_replace_callback($regexPattern, function ($match) use (&$replacements,&$counter,$sentence){
 			$alternateSentences = [];
 			$realSentence = $match[1];
 			
 			$alternateSentences[] = $realSentence;
 
+			//ganti titik jadi gak ada
 			$pureNumber = str_replace('.','',$match[1]);
-			$numberPhrase = trim(Number::toPhrase($pureNumber));
+			$pureNumber = str_replace(',','.',$pureNumber);
+			
+			if(!is_numeric($pureNumber)){	
+				return $realSentence;
+			}
+			
+			$numberPhrase = trim(Number::toNumberPhrase($pureNumber));
 			
 			//If the string is too long, we'd rather don't change it.
 			if(str_word_count($numberPhrase)>5){

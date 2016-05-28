@@ -7,9 +7,8 @@ class Muvila extends ScrapperPage
 {
 	public function get()
 	{
-		$html = $this->html;
-		$title =$this->find($html, '.detail-headline h1');
-		$content = $this->findAll($html, '.body-paragraph p', 'outertext');
+		$title =$this->find('.detail-headline h1');
+		$content = $this->findAll('.body-paragraph p', 'outertext');
 		$content = str_replace('Muvila.com &ndash; ','',$content);
 		return [$title, $content];
 	}

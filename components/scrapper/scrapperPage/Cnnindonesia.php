@@ -42,11 +42,17 @@ class Cnnindonesia extends ScrapperPage
 		
 		$this->removeElements();
 		
-		$content = $this->find('.text_detail','innertext');
+		//collecting content
+		$content = $this->find('.pic_artikel img','outertext');
+		$content .= '<br/><br/>';
+		$content .= $this->find('.text_detail','innertext');
+		
+		//Processing
 		$content = str_replace('<!--// -->','',$content);
 		$content = str_replace('-- ','',$content);
 		
-		$content = strip_tags($content, '<em><b><strong><p><i><br>');
+		
+		$content = \app\components\web\Html::blog($content);
 		
 		return ['title'=>$title, 'content'=>$content];
 		
