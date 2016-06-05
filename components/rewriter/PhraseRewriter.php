@@ -28,15 +28,16 @@ class PhraseRewriter extends Rewriter
 		$counter = 0;
 
 		//$regexPattern = '%\b(\d{1,3}(?:\.\d{3})*|\d+)\b%';
-		$regexPattern = '%\s([1-9]{1}[\d\.\,\-]+)\s%';
+		$regexPattern = '%\s(-?[1-9]{1}\d{0,2}(\.[\d]{3})*(\,\d+)?)\s%';
 		$sentence = preg_replace_callback($regexPattern, function ($match) use (&$replacements,&$counter,$sentence){
 			$alternateSentences = [];
 			$realSentence = $match[1];
 			
 			$alternateSentences[] = $realSentence;
-
+			
 			//ganti titik jadi gak ada
 			$pureNumber = str_replace('.','',$match[1]);
+			//ganti koma jadi titik
 			$pureNumber = str_replace(',','.',$pureNumber);
 			
 			if(!is_numeric($pureNumber)){	
@@ -57,7 +58,7 @@ class PhraseRewriter extends Rewriter
 			$replacements[$counterLabel] = $spinSentence;
 
 			$counter++;
-			return str_replace($realSentence,$counterLabel, $match[1]);
+			return ' '.str_replace($realSentence,$counterLabel, $match[1]).' ';
 			
 		},$sentence);
 		
@@ -194,7 +195,7 @@ class PhraseRewriter extends Rewriter
 				$sentence = str_replace($phrase->name,$replace, $sentence);
 				
 				//store to cache, so it won't processed further
-				$sentence = Yii::$app->wordCache->store($replace, $sentence);
+				$sentence = Yii::$app->wordCache->storeInPlace($replace, $sentence);
 			}
 		}
 		

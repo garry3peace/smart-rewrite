@@ -1,8 +1,11 @@
 <?php
 
-namespace app\components\sentence;
+namespace app\components\word;
 
-class Passive {
+/**
+ * class Verb using "me-kan" 
+ */
+class VerbMekan {
 	private static function isVerbStartWith($base,$character)
 	{
 		$verbA = [
@@ -119,11 +122,16 @@ class Passive {
 	 * Passive me-kan form
 	 * @param type $affix
 	 */
-	public static function toPassiveMekan($affix)
+	public static function toPassive($affix)
 	{
 		//Certain mekan musn't passified
 		if(in_array($affix, self::exclusionMekan())){
 			return $affix;
+		}
+		
+		//Exception, it is not me-kan, but it could possibly enter here
+		if($affix=='memakan'){
+			return 'dimakan';
 		}
 		
 		//finding "meny-kan", eg: menyertakan, menyatakan

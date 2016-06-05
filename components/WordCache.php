@@ -24,7 +24,7 @@ class WordCache extends Component
 	 * @param string $sentence the whole sentences
 	 * @return type
 	 */
-	public function store($data, $sentence, $caseSensitive=true)
+	public function storeInPlace($data, $sentence, $caseSensitive=true)
 	{
 		$counter = $this->counter;
 		$label = "#cache$counter#";
@@ -38,6 +38,18 @@ class WordCache extends Component
 		}
 		return $sentence;
 	}
+	
+	
+	public function store($data)
+	{
+		$counter = $this->counter;
+		$label = "#cache$counter#";
+		$this->cache[$label] = $data;
+		$this->counter++;
+		
+		return $label;
+	}
+		
 	
 	public function getAll()
 	{

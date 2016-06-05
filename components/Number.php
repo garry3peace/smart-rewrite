@@ -99,9 +99,6 @@ class Number
 	}
 	
 	private static function toCommaPhrase($x){
-		$x = stristr($x, '.');
-		$x = trim($x,'.');
-		
 		$number = self::base();
 		$length = strlen($x);
 
@@ -114,15 +111,23 @@ class Number
 	}
 
 	public static function toNumberPhrase($x) {
+		$hasil = '';
+		
+		//Cek minus atau bukan
 		if ($x < 0) {
-			$hasil = "minus ". trim(self::toPhrase($x));
-		} else {
-			$hasil = trim(self::toPhrase($x));
+			$hasil = "minus ";
+		} 
+		
+		$decimal=explode('.', $x);
+		
+		//Main number
+		$hasil .= trim(self::toPhrase($decimal[0]));
+		
+		//Decimal number
+		if(isset($decimal[1]) && $decimal[1]!=''){
+			$hasil .= self::toCommaPhrase($decimal[1]);
 		}
 		
-		if(strpos($x, '.')!==false){
-			$hasil .= self::toCommaPhrase($x);
-		}
 		
 		return $hasil;
 	}

@@ -36,11 +36,13 @@ class WordpressPoster
 		$configValue = [
 			'unique'=>true,
 			'paragraph'=>true,
-			'paragraph_exclude'=>'1,2,-2,-1',
+			'paragraph_exclude'=>'1,2,3,-2,-1',
 		];
 		$config = new Config($configValue);
 		
-		$spinTax = Sentence::parse($content, $config);
+		$sentence = new Sentence($content, $config);
+		$sentence->rewrite();
+		$spinTax = $sentence->getRewriteSentence();
 		$this->content = SpinFormat::parse($spinTax);
 	}
 	

@@ -85,4 +85,29 @@ class WordHelper
 		
 		return false;
 	}
+	
+	/**
+	 * Check whether the given word, is the last word in the sentence
+	 * if the word last character is '.'
+	 */
+	public static function isLast($word)
+	{
+		if(substr($word,-1)=='.'){
+			return true;
+		}
+		return false;
+	}
+	
+	/**
+	 * Check if the given word is a name.(which has capital at the first character)
+	 * @param type $word
+	 * @return boolean
+	 */
+	public static function isName($word)
+	{
+		if(ucfirst($word)==$word){
+			return true;
+		}
+		return false;
+	}
 }
