@@ -76,6 +76,7 @@ class SentenceRewriter extends Rewriter
 	{
 		$sentences = $sentenceItem->getAllSentence();
 		
+		//Every sentence alternate must be run.
 		foreach($sentences as $sentence){
 			$regexPattern = $rule['rule'];
 			if (preg_match($regexPattern, $sentence, $match)){
@@ -97,6 +98,8 @@ class SentenceRewriter extends Rewriter
 		
 		$items = [];
 		foreach($list as $item){
+			
+			//Execute each Rule onto each sentence
 			$listRules = \app\components\SentenceRewriterRule::rules();
 			foreach($listRules as $rule){
 				self::runRule($item, $rule);

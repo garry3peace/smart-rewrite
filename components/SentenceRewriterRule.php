@@ -22,7 +22,7 @@ class SentenceRewriterRule{
 
 		return [
 			[
-				'rule'=>self::SENTENCE_OPENING.'([\w\s`-]*) '.$ifWord .' ([\w\s`-]*)maka([\w\s`-]*)'.self::SENTENCE_CLOSING,
+				'rule'=>self::SENTENCE_OPENING.'([\w\s`-]*) '.$ifWord .' ([\w\s`-]*) maka ([\w\s`-]*)'.self::SENTENCE_CLOSING,
 				'process'=>':match1|ucfirst,:match4 :match2 :match3|trim|lcfirst',
 			],
 			[
@@ -35,7 +35,7 @@ class SentenceRewriterRule{
 			],
 			[
 				'rule'=>self::SENTENCE_OPENING.'([\w\s-`,]+) (dikarenakan|karena|sebab|supaya|agar) ([\w\s`-]*)'.self::SENTENCE_CLOSING,
-				'process'=>':match2|trim|ucfirst :match3|ucfirst|trim :match1|lcfirst',
+				'process'=>':match2|trim|ucfirst :match3|trim, :match1|lcfirst',
 			],
 			[
 				'rule'=>self::SENTENCE_OPENING.'([\w\s-`]+) '.$timeWord.' ([\w\s-`]*)'.self::SENTENCE_CLOSING,
@@ -44,7 +44,7 @@ class SentenceRewriterRule{
 			[
 				'rule'=>\app\components\rules\PassiveRule::rule(),
 				'process'=>'func:\app\components\rules\PassiveRule::rewrite',
-			]
+			],
 		];
 	}
 }
