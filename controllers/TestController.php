@@ -72,7 +72,7 @@ Tapi tidak bisa dibantah, pengambilan gambar film ini terlihat bagus. Sudut gamb
 
 Penonton yang awam bakal dibingungkan oleh aneka karakter yang ahistori.
 
-Kedatangan orc ke Azeroth tidak membuat Kerajan Stormwind tinggal diam. Mereka mau membasmi Horde Manusia sebagai tawanan dijadikan yang menghancurkan kampung 1 per 1 dan. Tawanan manusia itu digunakan sebagai energi untuk memanggil seluruh orc ke Azeroth.
+Kedatangan orc ke Azeroth tidak membuat Kerajan Stormwind tinggal diam. Tawanan manusia itu digunakan sebagai energi untuk memanggil seluruh orc ke Azeroth.
 
 Duncan Jones sebagai direktur juga terlalu tidak sedikit menaruh adegan drama. Terkadang itu terasa tak masuk akal dan sungguh gampang ditebak.
 
@@ -168,7 +168,7 @@ Warcraft sudah bisa ditonton di bioskop-bioskop Indonesia semenjak Rabu (dua pul
 	
 	public function actionSentence()
 	{
-		$content = 'Itulah. Saya melanjutkan perjalanannya karena memang seharusnya.';
+		$content = $this->getString();//'Itulah. Kemudian kamu menemukan buah apel.';
 		$configValue = [
 			'unique'=>true,
 		];

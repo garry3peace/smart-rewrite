@@ -40,7 +40,7 @@ class WordpressPoster
 		];
 		$config = new Config($configValue);
 		
-		$sentence = new Sentence($content, $config);
+		$sentence = new SmartRewrite($content, $config);
 		$sentence->rewrite();
 		$spinTax = $sentence->getRewriteSentence();
 		$this->content = SpinFormat::parse($spinTax);

@@ -32,7 +32,14 @@ class SentenceItem
 	public function getSpin()
 	{
 		$spinList = $this->getAllSentence();
-		return SpinFormat::generate($spinList);
+		
+		//If there are alternates then return in spinformat, 
+		//if not then return the real sentence
+		if(count($spinList)>1){
+			return SpinFormat::generate($spinList);
+		}else{
+			return $this->real;
+		}
 	}
 	
 	/**

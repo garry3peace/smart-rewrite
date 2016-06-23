@@ -78,7 +78,7 @@ class SentenceList
 		
 		$result = '';
 		foreach($this->list as $item){
-			$result .= $item->getSpin();
+			$result .= $item->getSpin().' ';
 		}
 		
 		return $result;
