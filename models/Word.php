@@ -19,6 +19,12 @@ class Word extends \yii\db\ActiveRecord
 	const VERB = 'v';
 	const ADJECTIVE = 'a';
 	const NOUN = 'n';
+	const PRONOUN = 'p'; //he,she,it
+	const ADVERB = 'adv';
+	const NUMERAL = 'num';
+	const CONJUNCTION = 'c';
+	const PREPOSITION = 'pre';
+	const ARTICLE = 'art';
 	
 	const DEFULT_TYPE = 'a';
 	

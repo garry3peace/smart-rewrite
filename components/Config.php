@@ -37,6 +37,9 @@ class Config {
 		return [
 			'unique', //Ensuring the initial word won't show 
 			'exception', //Don't process synonym/antonym on these words
+			'paragraph',//to reorder paragraph or not
+			'paragraph_exclude',
+			'sentenceRewrite',
 		];
 	}
 	
@@ -97,6 +100,11 @@ class Config {
 		return $result;
 	}
 	
+	/**
+	 * Get text value based on semicolon to convert it into array
+	 * @param string $field name
+	 * @return array
+	 */
 	public function getArray($field)
 	{
 		$data = $this->get($field);

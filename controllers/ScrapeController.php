@@ -2,11 +2,10 @@
 
 namespace app\controllers;
 
-use Yii;
 use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii\filters\VerbFilter;
-use app\components\scrapper\Scrapper;
+use app\components\scrapper\ScrapperPage;
 use app\components\WordpressPoster;
 
 class ScrapeController extends Controller
@@ -49,17 +48,52 @@ class ScrapeController extends Controller
 	
 	public function actionIndex()
 	{
-		$list = ['http://www.wowkeren.com/berita/tampil/00109982.html',
-			'http://www.wowkeren.com/berita/tampil/00109860.html'
-			];
+		$content = '';
 		
-		foreach($list as $link){
-			$data = Scrapper::get($link);
-			$wp = new WordpressPoster($data['title'], $data['content']);
-			$wp->post();
+		if(isset($_POST['Scrape'])){
+			$content = $_POST['Scrape']['list'];
+			$list = explode(PHP_EOL, $content);
+			foreach($list as $link){
+				$data = ScrapperPage::get($link);
+				$wp = new WordpressPoster($data['title'], $data['content']);
+				$wp->post();
+			}
 		}
-		 		
-		//$wp = new WordpressPoster('judul', 'isi');
-		//$wp->post();
+		return $this->render('index',['content'=>$content]);
+	}
+	
+	public function actionTest()
+	{
+		$list = [
+			'menganulirkan','mengandalkan',
+			'mengabarkan',
+			'membacakan',
+			'mencucikan',
+			'mendakwakan',
+			'mengejankan','mengerjakan',
+			'memfitnahkan',
+			'menggunakan',
+			'mengharuskan',
+			'mengizinkan',
+			'menjajankan',
+			'menguncikan',
+			'melambangkan',
+			'menaikkan',
+			'mengoperasikan',
+			'memperhatikan',
+			'merasakan',
+			'menyampaikan',
+			'menandakan',
+			'mengudarakan',
+			'memvetokan',
+			'mewakilkan',
+			'meyakinkan',
+			'menobatkan',
+			'menyelesaikan',
+			'menyusahkan',
+		];
+		foreach($list as $affix){
+			echo \app\components\sentence\Passive::toPassiveMekan($affix).'<br/>';
+		}
 	}
 }

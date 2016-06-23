@@ -128,20 +128,25 @@ class SiteController extends Controller
 			'wordCount'=>$wordCount,
 		]);
     }
-	
-	public function actionImport()
+	public function actionSummarize()
 	{
-		if($_SERVER['HTTP_HOST']!='localhost:8080'){
-			die();
-		}
+		$content = '';
+		$summary = '';
+		$line = 5;
 		
-        if (Yii::$app->request->post()) {
-			$post = Yii::$app->request->post();
-			$data = $post['import']['data'];
-			Importer::import($data);
-            return $this->refresh();
-        }
-        return $this->render('import');
+		if(isset($_POST['Summarize'])){
+			$content = $_POST['Summarize']['content'];
+			$line = intval($_POST['Summarize']['line']);
+			$summarizer = new \app\components\summarizer\Summarizer($content);
+			$summarizer->setNumOfResult($line);
+			$summary = $summarizer->summarize();
+			
+		}
+		return $this->render('summarize',[
+			'content'=>$content,
+			'summary'=>$summary,
+			'line'=>$line]
+			);
 	}
-	
+
 }

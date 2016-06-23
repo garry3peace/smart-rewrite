@@ -2,6 +2,8 @@
 
 namespace app\components;
 
+use app\components\Curl;
+
 class WordpressPoster
 {
 	private $title;
@@ -25,11 +27,22 @@ class WordpressPoster
 	 */
 	private function rewriteContent()
 	{
-		$configValue = ['unique'=>true];
+		$content = $this->content;
+		
+		//for title, we use the summary of content
+//		$summarizer = new \app\components\summarizer\Summarizer($content, 1);
+//		$this->title = $summarizer->summarize();
+		
+		$configValue = [
+			'unique'=>true,
+			'paragraph'=>true,
+			'paragraph_exclude'=>'1,2,3,-2,-1',
+		];
 		$config = new Config($configValue);
 		
-		$content = $this->content;
-		$spinTax = Sentence::parse($content, $config);
+		$sentence = new SmartRewrite($content, $config);
+		$sentence->rewrite();
+		$spinTax = $sentence->getRewriteSentence();
 		$this->content = SpinFormat::parse($spinTax);
 	}
 	
@@ -65,39 +78,32 @@ class WordpressPoster
 	private function curl($url, $data)
 	{
 		$ch = curl_init();
-		curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 30);
-		curl_setopt($ch, CURLOPT_URL, $this->url($url));
-
+		curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 60);
+		
+		//DEBUG MODE
 		/*
-		$nonce = rand();
-		$timestamp = time();
-		$signature = $this->getSignature($url, $data);
-		$headers = array(
-			'authorization: OAuth oauth_consumer_key="'.self::CONSUMER_KEY.'",
-				oauth_token="'.self::OAUTH_TOKEN.'",
-				oauth_signature_method="HMAC-SHA1",
-				oauth_timestamp="'.$timestamp.'",
-				oauth_nonce="'.$nonce.'",
-				oauth_version="1.0",
-				oauth_signature="'.$signature.'"',
-			'cache-control: no-cache',
-			'content-type: multipart/form-data;',
-		);*/
-		//$headers = array('Content-Type: application/x-www-form-urlencoded');
-		$headers = array('Content-Type: multipart/form-data');
+		curl_setopt($ch, CURLOPT_VERBOSE, TRUE);
+		$fp =  fopen("curl.error","w");
+		curl_setopt($ch, CURLOPT_STDERR, $fp);		 
+		 */
+		
+		curl_setopt($ch, CURLOPT_URL, $this->url($url));
+		$headers = array('Content-Type: application/x-www-form-urlencoded');
 		curl_setopt($ch, CURLOPT_HEADER, $headers);
-
 		curl_setopt($ch, CURLOPT_POST, true);
 		curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
 		curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
-		curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
 		curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 		
-		$result = curl_exec($ch);
-		curl_close($ch);
-//		var_dump('%%%');var_dump($result);var_dump('%%%');
-		return $result;
+		$curl = new Curl;
+		$curl->maxRedirect =0;
+		$result = $curl->exec($ch);
+		$httpcode = $curl->getCode();
+		$error = $curl->getError();
+//		var_dump($error,$result);die();
+				
+		return ['result'=>$result, 'code'=>$httpcode];
 		
 	}
 
@@ -133,12 +139,13 @@ class WordpressPoster
 		uksort( $postData, 'strcmp' );
 		return $postData;
 	}
-
+	
 	public function post()
 	{
 		$this->rewriteContent();
 
-		var_dump($this->title, $this->content);
+//		print_r($this->title);
+//		print_r($this->content);
 
 		$postData = $this->getData();
 //		print_r($postData);
@@ -147,9 +154,6 @@ class WordpressPoster
 		$signature = $this->getSignature($this->url('wp/v2/posts'), $data);
 		$data .= '&oauth_signature='.$signature;
 
-//		var_dump($data);
-		$result = $this->curl('wp/v2/posts',$data);
-
-		var_dump($result);
+		return $this->curl('wp/v2/posts',$data);
 	}
 }

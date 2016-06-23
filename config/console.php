@@ -23,6 +23,9 @@ $config = [
             ],
         ],
         'db' => $db,
+		'wordCache' => [
+		   'class' => 'app\components\WordCache',
+		],
     ],
     'params' => $params,
     /*

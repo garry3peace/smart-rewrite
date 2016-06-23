@@ -3,10 +3,10 @@
  * SpinFormat to manage spin text format
  */
 
-namespace app\components;
+namespace app\components\rewriter;
 
 use app\components\SpinFormat;
-use app\components\Rewriter;
+use app\components\rewriter\Rewriter;
 use app\components\WordHelper;
 use app\components\Number;
 use Yii;
@@ -27,15 +27,24 @@ class PhraseRewriter extends Rewriter
 		$replacements = [];
 		$counter = 0;
 
-		$regexPattern = '%((?:[\d]+[\.]?[\d]*[\.]?)+)%';
+		//$regexPattern = '%\b(\d{1,3}(?:\.\d{3})*|\d+)\b%';
+		$regexPattern = '%\s(-?[1-9]{1}\d{0,2}(\.[\d]{3})*(\,\d+)?)\s%';
 		$sentence = preg_replace_callback($regexPattern, function ($match) use (&$replacements,&$counter,$sentence){
 			$alternateSentences = [];
 			$realSentence = $match[1];
 			
 			$alternateSentences[] = $realSentence;
-
+			
+			//ganti titik jadi gak ada
 			$pureNumber = str_replace('.','',$match[1]);
-			$numberPhrase = trim(Number::toPhrase($pureNumber));
+			//ganti koma jadi titik
+			$pureNumber = str_replace(',','.',$pureNumber);
+			
+			if(!is_numeric($pureNumber)){	
+				return $realSentence;
+			}
+			
+			$numberPhrase = trim(Number::toNumberPhrase($pureNumber));
 			
 			//If the string is too long, we'd rather don't change it.
 			if(str_word_count($numberPhrase)>5){
@@ -49,7 +58,7 @@ class PhraseRewriter extends Rewriter
 			$replacements[$counterLabel] = $spinSentence;
 
 			$counter++;
-			return str_replace($realSentence,$counterLabel, $match[1]);
+			return ' '.str_replace($realSentence,$counterLabel, $match[1]).' ';
 			
 		},$sentence);
 		
@@ -186,7 +195,7 @@ class PhraseRewriter extends Rewriter
 				$sentence = str_replace($phrase->name,$replace, $sentence);
 				
 				//store to cache, so it won't processed further
-				$sentence = Yii::$app->wordCache->store($replace, $sentence);
+				$sentence = Yii::$app->wordCache->storeInPlace($replace, $sentence);
 			}
 		}
 		
