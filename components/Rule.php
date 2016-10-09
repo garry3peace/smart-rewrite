@@ -6,6 +6,6 @@ namespace app\components;
  * Class Rule is for defining rewrite rule. 
  */
 abstract class Rule{
-	public abstract static function rewrite($match);
-	public abstract static function rule();
+	public static function rewrite($match){}
+	public static function rule(){}
 }
