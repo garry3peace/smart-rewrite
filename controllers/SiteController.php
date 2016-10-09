@@ -8,7 +8,7 @@ use yii\web\Controller;
 use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\ContactForm;
-use app\components\Sentence;
+use app\components\SmartRewrite;
 use app\components\Importer;
 use app\components\SpinFormat;
 use app\components\Config;
@@ -71,8 +71,10 @@ class SiteController extends Controller
 				$options = $config->optionsWithValue();
 				
 				//spinning result
-				$spinTax = Sentence::parse($content, $config);
-				
+				$sentence = new SmartRewrite($content, $config);
+				$sentence->rewrite();
+				$spinTax = $sentence->getRewriteSentence();
+
 				//randomly get one of the parsing spin result
 				$result = SpinFormat::parse($spinTax);
 				

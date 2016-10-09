@@ -8,9 +8,21 @@ $config = [
     'bootstrap' => ['log'],
     'components' => [
         'request' => [
-            // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
             'cookieValidationKey' => 'y1kB87_prXcWGfjAW5IlB2u1vMWYZfxB',
+			'hostInfo'=>'http://localhost:8080',
+            'parsers' => [
+                'application/json' => 'yii\web\JsonParser', // required for POST input via `php://input`
+            ]
         ],
+		'response' => [
+			'formatters' => [
+				\yii\web\Response::FORMAT_JSON => [
+					'class' => 'yii\web\JsonResponseFormatter',
+					'prettyPrint' => YII_DEBUG, // use "pretty" output in debug mode
+					'encodeOptions' => JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE,
+				],
+			],
+		],
         'cache' => [
             'class' => 'yii\caching\FileCache',
         ],
@@ -19,7 +31,7 @@ $config = [
             'enableAutoLogin' => true,
         ],
         'errorHandler' => [
-            'errorAction' => 'site/error',
+           // 'errorAction' => 'site/error',
         ],
         'mailer' => [
             'class' => 'yii\swiftmailer\Mailer',
@@ -29,6 +41,7 @@ $config = [
             'useFileTransport' => true,
         ],
         'log' => [
+			'logger' => Yii::createObject('yii\log\Logger'),
             'traceLevel' => YII_DEBUG ? 3 : 0,
             'targets' => [
                 [

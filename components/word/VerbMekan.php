@@ -24,7 +24,7 @@ class VerbMekan {
 		];
 		
 		$verbK = [
-			'kabar','kerja','kunci',
+			'kabar','kerja','kunci','kenal',
 		];
 		
 		$verbM = [

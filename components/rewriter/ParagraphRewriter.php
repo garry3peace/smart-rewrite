@@ -26,7 +26,7 @@ class ParagraphRewriter extends Rewriter
 	public function __construct($content, $config=null)
 	{
 		if($config==null){
-			$config = new Config(['paragraph_exclude'=>'1;2;-2;-1']);
+			$config = new Config(['paragraph_exclude_reorder'=>'1;2;-2;-1']);
 		}
 		
 		$this->content = $content;
@@ -56,7 +56,7 @@ class ParagraphRewriter extends Rewriter
 	
 	private function getExcludedParagraph()
 	{
-		$paragraphExclude = $this->config->getArray('paragraph_exclude');
+		$paragraphExclude = $this->config->getArray('paragraph_exclude_reorder');
 		$count = count($this->paragraph);
 
 		$result=[];
@@ -168,8 +168,8 @@ class ParagraphRewriter extends Rewriter
 	public function rearrange()
 	{
 		//if exclude front and last paragraph is enable, then must exclude them
-		if($this->config->is('paragraph_exclude')){
-			$this->exclude($this->config->getArray('paragraph_exclude'));
+		if($this->config->is('paragraph_exclude_reorder')){
+			$this->exclude($this->config->getArray('paragraph_exclude_reorder'));
 		}
 		
 		shuffle($this->shuffleParagraph);

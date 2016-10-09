@@ -2,8 +2,11 @@
 
 namespace app\components;
 
-class Number
+use yii\base\Component;
+
+class Number extends Component
 {
+	const AFTER_EXECUTE = 'after_execute';
 	
 	private static function base()
 	{
@@ -19,7 +22,9 @@ class Number
 			"delapan", 
 			"sembilan", 
 			"sepuluh",
-			"sebelas"];
+			"sebelas",
+			100=>"seratus",
+			1000=>"seribu"];
 	}
 	
 	/**
@@ -56,6 +61,32 @@ class Number
 				$count=0;
 				foreach($words as $key=>$word){
 					if($key%2==1){
+						continue;
+					}
+					$num[$count] = self::toNumeric($word);
+					$count++;
+				}
+				//because the filling to array cause the order of element change
+				ksort($num);
+				return implode('', $num);
+			}else if($words[0]=='seratus'||$words[0]=='seribu'){
+				$num = [];
+				
+				//filling the zeroes as the result
+				switch($words[0]){
+					case 'seratus': $num[2]=$num[1]=0;break;
+					case 'seribu': $num[3]=$num[2]=$num[1]=0;break;
+				}
+				//set the first position as "1"
+				$num[0]=1;
+				
+				//filling the number according to the text
+				$count=1;
+				foreach($words as $key=>$word){
+					if($key==0){
+						continue;
+					}
+					if($key%2==0){
 						continue;
 					}
 					$num[$count] = self::toNumeric($word);
@@ -130,6 +161,12 @@ class Number
 		
 		
 		return $hasil;
+	}
+	
+	public function execute()
+	{
+		echo 'jalani Number execute<br/>';
+		$this->trigger(self::AFTER_EXECUTE);
 	}
 
 }

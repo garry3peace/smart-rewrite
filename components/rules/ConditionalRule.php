@@ -1,6 +1,6 @@
 <?php
 
-namespace app\components;
+namespace app\components\rules;
 
 /**
  * Class Rule is for defining rewrite rule. 

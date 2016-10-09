@@ -113,6 +113,10 @@ class Word extends \yii\db\ActiveRecord
 		return $result;
 	}
 	
+	public function test()
+	{
+		echo 'Word: Test!<br/>';
+	}
 }
 
 class WordQuery extends ActiveQuery

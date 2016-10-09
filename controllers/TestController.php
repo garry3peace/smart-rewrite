@@ -12,6 +12,9 @@ use app\components\Sentence;
 use app\components\Importer;
 use app\components\SpinFormat;
 use app\components\Config;
+use app\components\Number;
+use app\models\Word;
+use yii\base\Event;
 
 class TestController extends Controller
 {
@@ -194,6 +197,38 @@ Warcraft sudah bisa ditonton di bioskop-bioskop Indonesia semenjak Rabu (dua pul
 	
 	public function actionTest3()
 	{
+		$configValue = [
+			'unique'=>true,
+		];
+		$config = new Config($configValue);
+		$smartRewrite = new \app\components\SmartRewrite('', $config) ;
+	}
+	
+	public function init()
+	{
+//		Event::on('\app\components\Number', Number::AFTER_EXECUTE, function () {
+//			echo 'hohoho<br/>';
+//		});
+	}
+	
+	public function actionTest4()
+	{
+		echo 'Mulai Eksekusi<br/>';
+		$number = new Number;
 		
+		$word = new Word;
+		//$number->on(Number::AFTER_EXECUTE, [$word,'test']);
+		Event::on('app\components\Number', Number::AFTER_EXECUTE, [$word, 'test']);
+		
+		$number->execute();
+		
+		echo '################<br/>';
+		$number2 = new Number;
+		$number2->execute();
+		
+		
+		
+		//$number->on(Number::AFTER_EXECUTE,['\app\models\Word','test']);
+		///$number->execute();
 	}
 }

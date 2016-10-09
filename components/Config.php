@@ -37,8 +37,8 @@ class Config {
 		return [
 			'unique', //Ensuring the initial word won't show 
 			'exception', //Don't process synonym/antonym on these words
-			'paragraph',//to reorder paragraph or not
-			'paragraph_exclude',
+			'paragraph_reorder',//to reorder paragraph or not
+			'paragraph_exclude_reorder',//exclude reorder paragraph
 			'sentenceRewrite',
 		];
 	}

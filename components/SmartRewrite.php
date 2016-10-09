@@ -58,6 +58,7 @@ class SmartRewrite
 			$paragraphWriter = new ParagraphRewriter($this->sentence ,$this->config);
 			$this->sentence = $paragraphWriter->rearrange();
 		}
+		
 		//processing rewrite sentence
 		$this->sentence = SentenceRewriter::rewrite($this->sentence);
 		//processing phrase
@@ -189,5 +190,4 @@ class SmartRewrite
 		$this->finalizeRemoveInitial();
 		
 	}
-	
 }
