@@ -81,20 +81,33 @@ class SmartRewrite
 	 */
 	private function excludeName()
 	{
+		//Find per word to check whether it is name word 
 		$token = strtok($this->sentence, ' ');
 		$lastWordFound = true;
 		$tempSentence = '';
 		while($token !==false){
 			
 			if(!$lastWordFound && WordHelper::isName($token)){
-				$token = Yii::$app->wordCache->store($token);
+				//Give flag if this is last word, so next loop we must skip it.
+				if(WordHelper::isLast($token)){
+					$lastWordFound = true;
+				}else{
+					$lastWordFound = false;
+				}
+				
+				//trim the dot at the end. Because most probably this is the 
+				//end sentence. And dot must not included into cache, so the 
+				//sentence will preserved.
+				if($lastWordFound){
+					$token = rtrim($token, '.');
+					$token = Yii::$app->wordCache->store($token).'.';
+				}else{
+
+					//store to the cache
+					$token = Yii::$app->wordCache->store($token);
+				}
 			}
 			
-			if(WordHelper::isLast($token)){
-				$lastWordFound = true;
-			}else{
-				$lastWordFound = false;
-			}
 			
 			$tempSentence .= $token.' ';
 

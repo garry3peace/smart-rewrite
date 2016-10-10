@@ -97,6 +97,7 @@ class SentenceRewriter extends Rewriter
 		$list = $sentenceList->getList();
 		
 		$items = [];
+		$result = $sentence;
 		foreach($list as $item){
 			
 			//Execute each Rule onto each sentence
@@ -105,11 +106,13 @@ class SentenceRewriter extends Rewriter
 				self::runRule($item, $rule);
 			}
 			
-			$items[] = $item;
+			//Spin each of the sentence
+			$spinnedItem = $item->getSpin();
+			
+			//now, replace the real sentence with the spinned sentence 
+			$result = str_replace($item->real, $spinnedItem, $result);
+			
 		}
-		
-		$newSentenceList = new SentenceList($items);
-		$result = $newSentenceList->getSpin();
 		
 		return $result;
 	}

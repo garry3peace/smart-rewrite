@@ -8,6 +8,7 @@ namespace app\components;
  */
 class SentenceList
 {
+	//The source text
 	private $sentence;
 	
 	//list of SentenceItem objects
