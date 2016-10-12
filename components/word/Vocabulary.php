@@ -1,6 +1,8 @@
 <?php
 namespace app\components\word;
 
+use app\components\SpinFormat;
+
 class Vocabulary
 {
 	public static function conjunctions()
@@ -30,5 +32,27 @@ class Vocabulary
 	{
 		return ['akan','sudah','telah','belum','masih','sedang','lagi','tetap',
 			'langsung','malah','bisa','dapat','mampu','mau','ingin','tidak','enggak','gak','tak'];
+	}
+	
+	public static function pronoun()
+	{
+		return ['saya','aku','gw','gua','gue','ane','diriku',
+			'kamu','anda','dikau','dirimu','engkau','kau',
+			'dia','ia',
+			'mereka','mereka semua',
+			'kalian','kalian semua',
+			'kami','kita','kami semua','kita semua'
+		];
+	}
+	
+	/**
+	 * Return the list of text in spintax format
+	 * @param string $type (e.g: 'pronoun', 'auxialiaries')
+	 * @return string result of string
+	 */
+	public static function spintax($type)
+	{
+		$list = self::$type();
+		return SpinFormat::generate($list);
 	}
 }

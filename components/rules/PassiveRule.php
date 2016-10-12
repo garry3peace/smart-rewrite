@@ -3,12 +3,11 @@
 namespace app\components\rules;
 
 use app\components\word\Vocabulary;
+use app\components\RegexElement;
 use app\components\Rule;
 
 class PassiveRule extends Rule
 {
-	const SENTENCE_OPENING = '%(^|\. |[\w\s-`#]+\, )';//symbols for opening sentence
-	const SENTENCE_CLOSING = '($|\.)%i'; //symbols for closing sentence
 	
 	private static function tokenizeWord($words)
 	{
@@ -79,7 +78,11 @@ class PassiveRule extends Rule
 	
 	public static function rule()
 	{
-		return self::SENTENCE_OPENING.'([\w\s-`#]+) (\w+) (me(?:[a-z]+)kan) ([\w\s-`#]*)'.self::SENTENCE_CLOSING;
+		$word = RegexElement::word();
+		$phrase = RegexElement::phrase();
+		$opening = RegexElement::opening();
+		$closing = RegexElement::closing();
+		return $opening."($phrase+) ($word) (me(?:[a-z]+)kan) ($phrase*)".$closing;
 	}
 	
 	

@@ -45,6 +45,10 @@ class SentenceRewriterRule{
 				'rule'=>\app\components\rules\PassiveRule::rule(),
 				'process'=>'func:\app\components\rules\PassiveRule::rewrite',
 			],
+			[
+				'rule'=>\app\components\rules\DirectRule::rule(),
+				'process'=>'func:\app\components\rules\DirectRule::rewrite',
+			]
 		];
 	}
 }
