@@ -5,6 +5,7 @@ namespace app\components\rules;
 use app\components\Rule;
 use app\components\RegexElement;
 use app\components\word\Pronoun;
+use app\components\SpinFormat;
 
 /**
  * Rule to translate direct sentence to indirect sentence
@@ -110,6 +111,12 @@ class DirectRule extends Rule
 		];
 	}
 	
+	/**
+	 * Converting the pronoun based on the point of view of the speaker
+	 * @param int $speaker
+	 * @param string $text
+	 * @return string
+	 */
 	private static function replacePointOfView($speaker, $text)
 	{
 		$list = self::mapping();
@@ -123,7 +130,7 @@ class DirectRule extends Rule
 				$sourcePerspective = Pronoun::getPerspective($token);
 				//find the mapping and save it to target perspective
 				$targetPerspective = $selectedList[$sourcePerspective];
-				$word = Pronoun::getPronounList()[$targetPerspective];
+				$word = SpinFormat::generate(Pronoun::getList()[$targetPerspective]);
 			}else{
 				$word = $token;
 			}
@@ -133,6 +140,12 @@ class DirectRule extends Rule
 		return implode(' ', $result);
 	}
 	
+	/**
+	 * processin the speech text. 
+	 * @param int $speaker
+	 * @param string $text
+	 * @return string
+	 */
 	private static function processSpeech($speaker, $text)
 	{
 		return self::replacePointOfView($speaker, $text);
@@ -153,9 +166,9 @@ class DirectRule extends Rule
 		//Sentence part
 		$parts = [];
 		
-		$parts[0] = $match[1];
-		$parts[1] = 'bahwa';
-		$directSpeech = $match[2];
+		$parts[0] = $match[2];
+		$parts[1] = ' bahwa ';
+		$directSpeech = lcfirst($match[3]);
 		
 		//Find speaker from the first part of sentence
 		$speaker = self::findSpeaker($parts[0]);

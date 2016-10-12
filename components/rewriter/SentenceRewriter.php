@@ -76,7 +76,7 @@ class SentenceRewriter extends Rewriter
 	{
 		$sentences = $sentenceItem->getAllSentence();
 		
-		//Every sentence alternate must be run.
+		//Every sentence alternate must be processed.
 		foreach($sentences as $sentence){
 			$regexPattern = $rule['rule'];
 			if (preg_match($regexPattern, $sentence, $match)){

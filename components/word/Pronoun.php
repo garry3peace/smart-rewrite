@@ -49,7 +49,7 @@ class Pronoun {
 	
 	
 	public static function getPerspective($pronoun){
-		$list = self::getPronounList();
+		$list = self::getList();
 		
 		foreach($list as $pointOfView => $pronouns){
 			if(in_array(strtolower($pronoun), $pronouns)){
