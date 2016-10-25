@@ -8,6 +8,15 @@ class Number extends Component
 {
 	const AFTER_EXECUTE = 'after_execute';
 	
+	private static function power()
+	{
+		return [
+			10=>'puluh',
+			100=>'ratus',
+			1000=>'ribu'
+		];
+	}
+	
 	private static function base()
 	{
 		return $basicNum = [
@@ -37,67 +46,45 @@ class Number extends Component
 	public static function toNumeric($x)
 	{
 		$x = strtolower(trim($x));
+		
+		//to simplified process, we will change seratus to satu ratus, seribu to satu ribu
+		$x = str_replace('seratus', 'satu ratus', $x);
+		$x = str_replace('seribu', 'satu ribu', $x);
+		
 		$base = self::base();
 		
+		//split all the words into tokens
+		$words = explode(' ', $x);
+		
+		//If it is single word
 		if(str_word_count($x)==1){
 			$number = array_search($x, $base);
 			return $number;
-		}else{
-			$words = explode(' ',$x);
+		}
+		
+		
+		//if it is two word
+		if(str_word_count($x)==2){
+			$number = array_search($words[0], $base);
 			
 			if($words[1]=='belas'){
-				return '1'.self::toNumeric($words[0]);
-			}else if(in_array($words[1],['puluh','ratus','ribu'])){
-				$num = [];
-				
-				//filling the zeroes as the result
-				switch($words[1]){
-					case 'puluh': $num[1]=0;break;
-					case 'ratus': $num[2]=$num[1]=0;break;
-					case 'ribu': $num[3]=$num[2]=$num[1]=0;break;
-				}
-				
-				//filling the number according to the text
-				$count=0;
-				foreach($words as $key=>$word){
-					if($key%2==1){
-						continue;
-					}
-					$num[$count] = self::toNumeric($word);
-					$count++;
-				}
-				//because the filling to array cause the order of element change
-				ksort($num);
-				return implode('', $num);
-			}else if($words[0]=='seratus'||$words[0]=='seribu'){
-				$num = [];
-				
-				//filling the zeroes as the result
-				switch($words[0]){
-					case 'seratus': $num[2]=$num[1]=0;break;
-					case 'seribu': $num[3]=$num[2]=$num[1]=0;break;
-				}
-				//set the first position as "1"
-				$num[0]=1;
-				
-				//filling the number according to the text
-				$count=1;
-				foreach($words as $key=>$word){
-					if($key==0){
-						continue;
-					}
-					if($key%2==0){
-						continue;
-					}
-					$num[$count] = self::toNumeric($word);
-					$count++;
-				}
-				//because the filling to array cause the order of element change
-				ksort($num);
-				return implode('', $num);
+				return $number + 10;
+			}else{
+				$power = self::power();
+				$multiplier = array_search($words[1], $power);
+				return $number * $multiplier;
 			}
-				
 		}
+		
+		//slicing the words
+		if($words[0] != 'belas' && $words[0] != 'seratus' && $words[0]!= 'seribu'){
+			$processWord = $words[0] .' '. $words[1];
+		}else{
+			$processWord = $words[0];
+		}
+		$remainingWord = trim(str_replace($processWord, '',$x));
+		
+		return self::toNumeric($processWord) + self::toNumeric($remainingWord);
 	}
 	
 	/**

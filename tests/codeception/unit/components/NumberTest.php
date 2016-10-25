@@ -8,11 +8,14 @@ class NumberTest extends \Codeception\Test\Unit
 		$result = Number::toNumeric('satu');
 		$this->assertEquals(1,$result);
 		
-		$result = Number::toNumeric('tiga puluh satu');
-		$this->assertEquals(31, $result);
+		$result = Number::toNumeric('lima puluh');
+		$this->assertEquals(50, $result);
 		
 		$result = Number::toNumeric('tiga ratus');
 		$this->assertEquals(300, $result);
+		
+		$result = Number::toNumeric('tiga puluh satu');
+		$this->assertEquals(31, $result);
 		
 		$result = Number::toNumeric('tiga ratus lima puluh satu');
 		$this->assertEquals(351, $result);
@@ -26,8 +29,14 @@ class NumberTest extends \Codeception\Test\Unit
 		$result = Number::toNumeric('tiga ratus lima');
 		$this->assertEquals(305, $result);
 		
+		$result = Number::toNumeric('seratus dua belas');
+		$this->assertEquals(112, $result);
+		
 		$result = Number::toNumeric('seratus');
 		$this->assertEquals(100, $result);
+		
+		$result = Number::toNumeric('seratus lima puluh tiga');
+		$this->assertEquals(153, $result);
 		
 		$result = Number::toNumeric('seratus lima');
 		$this->assertEquals(105, $result);

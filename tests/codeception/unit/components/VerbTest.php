@@ -30,6 +30,6 @@ class VerbTest extends \Codeception\Test\Unit
 		$this->assertEquals($result,'diteruskan');
 		
 		$result = VerbMekan::toPassive('memperkenalkan');
-		$this->assertEquals($result,'dikenalkan');
+		$this->assertEquals($result,'diperkenalkan');
     }
 }

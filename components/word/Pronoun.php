@@ -34,9 +34,9 @@ class Pronoun {
 			self::FIRST_PERSON => ['saya','aku','gw','gua','gue','ane','diriku'],
 			self::SECOND_PERSON => ['kamu','anda','dikau','dirimu','engkau','kau'],
 			self::THIRD_PERSON => ['dia','ia'],
-			self::FIRST_PERSON_PLURAL=>['mereka','mereka semua'],
+			self::FIRST_PERSON_PLURAL=>['kami','kita','kami semua','kita semua'],
 			self::SECOND_PERSON_PLURAL=>['kalian','kalian semua'],
-			self::THIRD_PERSON_PLURAL=>['kami','kita','kami semua','kita semua']
+			self::THIRD_PERSON_PLURAL=>['mereka','mereka semua'],
 		];
 	}
 	
