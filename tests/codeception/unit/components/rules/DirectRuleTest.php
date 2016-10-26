@@ -1,25 +1,18 @@
 <?php
 
+use app\tests\codeception\unit\components\rules\RulesTest;
 
-use app\components\rules\DirectRule;
+class DirectRuleTest extends RulesTest {
+	
+	function __construct() {
+		return parent::__construct('\app\components\rules\DirectRule');
+	}
 
-class DirectRuleTest extends \Codeception\Test\Unit {
-	private function getRule()
-	{
-		return DirectRule::rule();
-	}
 	
-	protected function read($sentence)
-	{
-		$rule = $this->getRule();
-		preg_match($rule, $sentence, $match);
-		return $match;
-	}
-	
-	public function testSentence()
+	public function getList()
 	{
 		
-		$list = [
+		return [
 			'Saya langsung berkata, "Kalian segera pergi dari sini."'=>
 				'Saya langsung berkata bahwa {mereka|mereka semua} segera pergi dari sini.',
 			
@@ -33,12 +26,6 @@ class DirectRuleTest extends \Codeception\Test\Unit {
 				'Dia berkata bahwa {mereka|mereka semua} sudah tidak bisa pergi dari sini.'
 			
 		];
-		
-		foreach($list as $direct=>$indirect){
-			$matches = $this->read($direct);
-			$result = DirectRule::rewrite($matches);
-			$this->assertEquals($indirect,$result);
-		}
 	}
 	
 	
