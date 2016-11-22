@@ -12,7 +12,19 @@ class HomeAsset extends AssetBundle
 		'clipboard/dist/clipboard.min.js',
 		'/js/mel-spintax.js',
 		'/js/app.js',
-		'/js/services.js',
 	];
     
+	public function init()
+	{
+		if (\app\components\Debug::isLocal()){
+			$this->js[] = '/js/dev-params.js';
+		}else{
+			$this->js[] = '/js/prod-params.js';
+		}
+		
+		//we must include the params first before include other js
+		$this->js[] = '/js/services.js';
+		
+		return parent::init();
+	}
 }

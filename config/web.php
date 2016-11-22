@@ -1,4 +1,5 @@
 <?php
+use app\components\Debug;
 
 $params = require(__DIR__ . '/params.php');
 
@@ -35,10 +36,15 @@ $config = [
         ],
         'mailer' => [
             'class' => 'yii\swiftmailer\Mailer',
-            // send all mails to a file by default. You have to set
-            // 'useFileTransport' to false and configure a transport
-            // for the mailer to send real emails.
-            'useFileTransport' => true,
+            'useFileTransport' => false,
+			'transport' => [
+				'class' => 'Swift_SmtpTransport',
+				'host' => 'belphegor.in-hell.com',
+				'username' => 'no-reply@smartrewrite.com',
+				'password' => 'appl4b00k',
+				'port' => '465',
+				'encryption' => 'ssl',
+			],
         ],
         'log' => [
 			'logger' => Yii::createObject('yii\log\Logger'),
@@ -50,8 +56,6 @@ $config = [
                 ],
             ],
         ],
-        'db' => require(__DIR__ . '/db.php'),
-        
 		'wordCache' => [
 		   'class' => 'app\components\WordCache',
 		],
@@ -65,6 +69,9 @@ $config = [
     ],
     'params' => $params,
 ];
+
+require_once(__DIR__.'/../components/Debug.php');
+$config['components']['db'] = require(__DIR__ .'/'. (Debug::isLocal()?'dev-db.php':'prod-db.php'));
 
 if (YII_ENV_DEV) {
     // configuration adjustments for 'dev' environment
