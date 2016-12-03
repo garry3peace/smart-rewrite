@@ -13,6 +13,12 @@ class Debug {
 	 */
 	public static function isLocal()
 	{
+		//Tanpa adanya HTTP_HOST hanya terjadi saat akses via command line
+		//atau testing codeception. 
+		if(!isset($_SERVER['HTTP_HOST'])){
+			return true;
+		}
+		
 		if(strpos($_SERVER['HTTP_HOST'],'localhost')!==false){
 			return true;
 		}

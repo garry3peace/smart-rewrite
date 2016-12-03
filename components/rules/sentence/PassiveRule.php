@@ -1,6 +1,6 @@
 <?php
 
-namespace app\components\rules;
+namespace app\components\rules\sentence;
 
 use app\components\word\Vocabulary;
 use app\components\RegexElement;
@@ -67,6 +67,11 @@ class PassiveRule extends Rule
 		return [];
 	}
 	
+	/**
+	 * List of words that people seldom use it in passive form
+	 * @param type $passive
+	 * @return boolean
+	 */
 	private static function isNoPassiveForm($passive)
 	{
 		$exception = ['merupakan','memunculkan', 'mengenaskan'];

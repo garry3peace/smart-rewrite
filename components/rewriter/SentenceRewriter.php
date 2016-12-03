@@ -96,7 +96,6 @@ class SentenceRewriter extends Rewriter
 		$sentenceList = new SentenceList($sentence);
 		$list = $sentenceList->getList();
 		
-		$items = [];
 		$result = $sentence;
 		foreach($list as $item){
 			

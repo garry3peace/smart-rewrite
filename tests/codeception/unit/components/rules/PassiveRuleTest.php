@@ -14,10 +14,14 @@ class PassiveRuleTest extends RulesTest {
 		return [
 			
 			'Dia sedang mengerjakan PR.'=>
-				'Pr sedang dikerjakan dia.',
+				'Pr sedang dikerjakan {|oleh} dia.',
 			
+			//Tidak dikonvert kalau dua verba berdempetan
 			'Beberapa hari ini dia pergi memperkenalkan produk baru."'=>
-				'Produk baru diperkenalkan beberapa hari ini dia pergi.',
+				'Beberapa hari ini dia pergi memperkenalkan produk baru.',
+			
+			'Kami bisa mengerjakan tugas tersebut."'=>
+				'Tugas tersebut bisa dikerjakan {|oleh} kami.',
 			
 		];
 	}

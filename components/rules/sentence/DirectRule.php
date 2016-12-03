@@ -1,6 +1,6 @@
 <?php
 
-namespace app\components\rules;
+namespace app\components\rules\sentence;
 
 use app\components\Rule;
 use app\components\RegexElement;

@@ -23,8 +23,10 @@ class DirectRuleTest extends RulesTest {
 				'Dia berkata pada mereka bahwa {mereka|mereka semua} sudah tidak bisa pergi dari sini.',
 			
 			'Dia berkata, "Kalian sudah tidak bisa pergi dari sini."'=>
-				'Dia berkata bahwa {mereka|mereka semua} sudah tidak bisa pergi dari sini.'
+				'Dia berkata bahwa {mereka|mereka semua} sudah tidak bisa pergi dari sini.',
 			
+			'Dia tadi bilang ke aku, "Kalian sudah tidak bisa pergi dari sini."'=>
+				'Dia tadi bilang ke aku bahwa {mereka|mereka semua} sudah tidak bisa pergi dari sini.'
 		];
 	}
 	
