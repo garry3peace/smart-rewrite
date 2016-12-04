@@ -5,7 +5,7 @@ use app\tests\codeception\unit\components\rules\RulesTest;
 class DirectRuleTest extends RulesTest {
 	
 	function __construct() {
-		return parent::__construct('\app\components\rules\DirectRule');
+		return parent::__construct('\app\components\rules\sentence\DirectRule');
 	}
 
 	

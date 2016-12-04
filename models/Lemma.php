@@ -60,7 +60,7 @@ class Lemma extends \yii\db\ActiveRecord
 	 */
 	public static function is($name, $type)
 	{
-		$count = self::find(['name'=>$name,'type'=>$type])->count();
+		$count = self::find()->where(['name'=>$name,'type'=>$type])->count();
 		if($count>0){
 			return true;
 		}else{
@@ -71,6 +71,11 @@ class Lemma extends \yii\db\ActiveRecord
 	public static function isAdjective($name)
 	{
 		return self::is($name, self::ADJECTIVE);
+	}
+	
+	public static function isVerb($name)
+	{
+		return self::is($name, self::VERB);
 	}
 
 }

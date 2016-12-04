@@ -2,9 +2,11 @@
 
 namespace app\components\rules\sentence;
 
-use app\components\word\Vocabulary;
 use app\components\RegexElement;
 use app\components\Rule;
+use app\components\word\VerbMekan;
+use app\components\word\Vocabulary;
+use app\models\Lemma;
 
 class PassiveRule extends Rule
 {
@@ -103,23 +105,28 @@ class PassiveRule extends Rule
 			return '';
 		}
 		
-		$passive = \app\components\word\VerbMekan::toPassive($rawPassive);
+		$passive = VerbMekan::toPassive($rawPassive);
 		
 		//Sentence part
 		$parts = [];
+		
+		//if match[3] is verb, then stop it immediately
+		if(Lemma::isVerb($match[3]) && $match[3]!='bisa' && $match[3]!='dapat'){
+			return '';
+		}
 		
 		//Is containing auxiliaries
 		$auxiliaries = Vocabulary::auxialiaries();
 		if(in_array($match[3], $auxiliaries)){
 			$parts[0] = $match[5];
 			$parts[1]= $match[3]. ' '.$passive;
-			$parts[2] = $match[2];
+			$parts[2] = '{|oleh} '. $match[2];
 			$parts[3]= '';
 		}else{
 			$parts[0] = $match[5];
 			$parts[1]= $passive;
 			$parts[2] = $match[2];
-			$parts[3]= $match[3];
+			$parts[3]= '{|oleh} '.$match[3];
 		}
 		
 		//Break Adverb in front

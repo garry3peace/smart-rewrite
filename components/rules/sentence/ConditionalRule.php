@@ -5,6 +5,7 @@ use app\components\Rule;
 
 /**
  * Class Rule is for defining rewrite rule. 
+ * This is only parent class. 
  */
 class ConditionalRule extends Rule{
 	
@@ -16,7 +17,7 @@ class ConditionalRule extends Rule{
 		
 	}
 	
-	private static function ifWords()
+	protected static function ifWords()
 	{
 		return "(seandainya|andaikan|jika|kalau|jikalau|kalaupun|sungguhpun|asal|asalkan|manakala)";
 	}
@@ -26,22 +27,5 @@ class ConditionalRule extends Rule{
 		//Conditional still under development
 		return '/./';
 		
-		
-		$ifWord = self::ifWords();
-		
-		return [
-			[
-				'rule'=>self::SENTENCE_OPENING.'([\w\s`-]*) '.$ifWord .' ([\w\s`-]*)maka([\w\s`-]*)'.self::SENTENCE_CLOSING,
-				'process'=>':match1|ucfirst,:match4 :match2 :match3|trim|lcfirst',
-			],
-			[
-				'rule'=>self::SENTENCE_OPENING.'([\w\s`-]*) '.$ifWord .' ([\w\s`-]*)'.self::SENTENCE_CLOSING,
-				'process'=>':match2|trim|ucfirst :match3, :match1|lcfirst|trim',
-			],
-			[
-				'rule'=>self::SENTENCE_OPENING.$ifWord.' ([\w\s`-]*), ([\w\s`-]*)'.self::SENTENCE_CLOSING,
-				'process'=>':match3|trim|ucfirst :match1|lcfirst :match2',
-			]
-		];
 	}
 }
