@@ -76,7 +76,7 @@ $this->registerJs("
 
 <footer class="footer">
     <div class="container">
-        <p class="pull-left">&copy; Smart Spinner <?= date('Y') ?></p>
+        <p class="pull-left">&copy; Smart Rewrite Indonesia <?= date('Y') ?></p>
 
         <p class="pull-right">Semua hak cipta dilindungi undang-undang</p>
     </div>

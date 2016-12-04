@@ -44,8 +44,8 @@ class PassiveRule extends Rule
 		}
 		
 		if($lastAdverbPosition!==false){
-			$adverb  = implode(' ',array_slice($tokens,0,$lastAdverbPosition+1));
-//						var_dump(get_defined_vars());
+			$adverb  = implode(' ',array_slice($tokens,0,$lastAdverbPosition));
+//						var_dump(get_defined_vars(), $adverb);die();
 			return $adverb;
 		}
 		
@@ -60,10 +60,10 @@ class PassiveRule extends Rule
 	 */
 	private static function breakAdverb($words)
 	{
-		$adverb = self::getAdverb($words);
-		if($adverb){
-			$phrase = str_ireplace($adverb, '', $words);
-			return [$adverb, $phrase];
+		$noun = self::getAdverb($words);
+		if($noun){
+			$adverb = trim(str_ireplace($noun, '', $words));
+			return [$noun, $adverb];
 		}
 		
 		return [];
@@ -100,53 +100,57 @@ class PassiveRule extends Rule
 			return '';
 		}
 		
-		//If the end part has adverb, rather don't passive, because it is too hard
-		if(self::getAdverb($match[5])){
-			return '';
-		}
-		
 		$passive = VerbMekan::toPassive($rawPassive);
 		
 		//Sentence part
 		$parts = [];
 		
 		//if match[3] is verb, then stop it immediately
+		//this type of verb can't changed to passive form
+		//"saya pergi mengerjakan PR" can't changed to passive voice
 		if(Lemma::isVerb($match[3]) && $match[3]!='bisa' && $match[3]!='dapat'){
 			return '';
 		}
 		
-		//Is containing auxiliaries
+		//set each sentence component
+		$object = $match[5];
+		$predicate = $passive;
+		$subject = '{|oleh} '.lcfirst($match[2]);
+		$complement = '';
+		
+		//in case the end of part has adverbs, we will split it, so we only get the object
+		//for example: 
+		//"Dia membaca buku dengan teliti", "buku" should be object, while "dengan teliti" is complement
+		$arrPhrases = self::breakAdverb($object);
+		if($arrPhrases){
+			$object = $arrPhrases[0];
+			$complement = $arrPhrases[1];
+		}
+		
+		//Is the word before predicate auxiliaries?
+		//If yes, we should keep it before predicate
+		//eg: "Dia bisa membaca buku", should make to "Buku bisa dibaca dia"
 		$auxiliaries = Vocabulary::auxialiaries();
 		if(in_array($match[3], $auxiliaries)){
-			$parts[0] = $match[5];
-			$parts[1]= $match[3]. ' '.$passive;
-			$parts[2] = '{|oleh} '. $match[2];
-			$parts[3]= '';
+			$predicate = $match[3].' '.$predicate;
 		}else{
-			$parts[0] = $match[5];
-			$parts[1]= $passive;
-			$parts[2] = $match[2];
-			$parts[3]= '{|oleh} '.$match[3];
+			//if it is not auxiliaries then, this is part of subject
+			$subject = $subject.' '.$match[3];
 		}
 		
-		//Break Adverb in front
-		$listAdverb = self::breakAdverb($match[2]);
-		if($listAdverb){
-			$parts[0] = $listAdverb[0].' '.$parts[0];
-			$parts[1] = $parts[1]. ' '.$listAdverb[1];
-			$parts[2] = '';
+		//Is there is adverb before predicate
+		//if yes, we should take the adverb to complement
+		//"Dia dengan rajin membaca buku itu", "buku itu dibaca dia dengan rajin"
+		$arrPhrases = self::breakAdverb($subject);
+		if($arrPhrases){
+			$subject = $arrPhrases[0];
+			$complement = trim($complement.' '.$arrPhrases[1]);
 		}
 		
-		//combining part
-		$sentence = '';
-		foreach($parts as $part){
-			if(empty($part)){
-				continue;
-			}
-			$sentence .= $part.' ';
-		}
+		//combining to become a sentence
+		$passiveSentence = $object.' '.$predicate.' '.$subject.' '.$complement;
 		
-		$sentence = ucfirst($match[1].strtolower(trim($sentence)).$match[6]);
+		$sentence = ucfirst($match[1].trim($passiveSentence).$match[6]);
 		return $sentence; 
 	}
 }

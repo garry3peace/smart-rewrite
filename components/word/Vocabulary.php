@@ -16,7 +16,7 @@ class Vocabulary
 			'umpama', 'umpamanya', 'sekiranya', 'biar', 'biarpun', 'walau', 
 			'walaupun', 'sekalipun', 'sungguhpun', 'kendati', 'kendatipun', 
 			'seakan', 'seakan-akan', 'seolah', 'seolah-olah', 'sebagaimana', 
-			'seperti', 'sebagai', 'laksana', 'ibarat', 'daripada', 'alih-alih', 
+			'seperti', 'laksana', 'ibarat', 'daripada', 'alih-alih', 
 			'sebab', 'karena', 'lantaran', 'gara-gara', 'akibat', 'oleh karena', 
 			'oleh sebab', 'sehingga', 'sampai', 'maka', 'makanya', 'dengan', 'tanpa', 
 			'bahwa','kemudian','lalu','mula-mula','kecuali','selain','misal','misalkan',

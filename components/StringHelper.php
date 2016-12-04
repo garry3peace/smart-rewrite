@@ -16,4 +16,14 @@ class StringHelper {
 		$split = explode(" ", $string);
 		return $split[count($split)-1];
 	}
+	
+	/**
+	 * Count the number of words
+	 * @param string $string
+	 * @return int
+	 */
+	public static function countWord($string)
+	{
+		return str_word_count($string);
+	}
 }
