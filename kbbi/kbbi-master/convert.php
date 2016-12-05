@@ -18,7 +18,7 @@ function insert($name, $type, $note)
 	$name= mysqli_real_escape_string($conn,$name);
 	$type = mysqli_real_escape_string($conn,$type);
 	$note = mysqli_real_escape_string($conn,$note);
-	$sql = "INSERT INTO lemma (name, type, note) VALUES ('$name', '$type', '$note')";
+	$sql = "INSERT INTO kbbi (name, type, note) VALUES ('$name', '$type', '$note')";
 	
 	if ($conn->query($sql) === TRUE) {
 		echo "New record created successfully";
@@ -102,8 +102,8 @@ function process($data)
 
 //////////////////////////////////////////////////////////////////
 ini_set('max_execution_time', 0);
-die('DISTOP. Lwat code die() ini akan import data KBBI ke database');
-for($i=66; $i<=90;$i++){
+die('DISTOP. Uncomment code die() ini akan import data KBBI ke database');
+for($i=65; $i<=90;$i++){
 	$r = fopen('teks/'.chr($i).'.txt','r');
 
 	$count = 0;
