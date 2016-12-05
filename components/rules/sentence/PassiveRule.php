@@ -115,7 +115,7 @@ class PassiveRule extends Rule
 		//set each sentence component
 		$object = $match[5];
 		$predicate = $passive;
-		$subject = '{|oleh} '.lcfirst($match[2]);
+		$subject = '{|oleh }'.lcfirst($match[2]);
 		$complement = '';
 		
 		//in case the end of part has adverbs, we will split it, so we only get the object
