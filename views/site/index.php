@@ -31,7 +31,7 @@ $this->params['breadcrumbs'][] = $this->title;
 	<hr/>
 	<h2>
 		Spintax 
-		<button ng-click="copy()" data-clipboard-target="#Spin_spinTax" class="btn btn-success">Copy</button></h2>
+	</h2>
 	<div class="row">
 		<div class="col-lg-12 result">
 			<?= Html::textarea('Spin[spinTax]',$spinTax,[
@@ -45,7 +45,6 @@ $this->params['breadcrumbs'][] = $this->title;
 	<h2>
 		Hasil
 		<button class="btn btn-primary" ng-click="regenerate()">Re-generate</button>
-		<button ng-click="copy()" data-clipboard-target="#Spin_result" class="btn btn-success">Copy</button>
 	</h2>
 	
 	<div class="row" >
