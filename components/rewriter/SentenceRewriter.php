@@ -78,6 +78,10 @@ class SentenceRewriter extends Rewriter
 		
 		//Every sentence alternate must be processed.
 		foreach($sentences as $sentence){
+			if($rule['rule']===false){
+				continue;
+			}
+			
 			$regexPattern = $rule['rule'];
 			if (preg_match($regexPattern, $sentence, $match)){
 				$process = $rule['process'];
@@ -112,7 +116,7 @@ class SentenceRewriter extends Rewriter
 			$result = str_replace($item->real, $spinnedItem, $result);
 			
 		}
-		
+
 		return $result;
 	}
 

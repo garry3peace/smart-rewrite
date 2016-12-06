@@ -25,7 +25,7 @@ class ConditionalRule extends Rule{
 	public static function rule()
 	{
 		//Conditional still under development
-		return '/./';
+		return false;
 		
 	}
 }
