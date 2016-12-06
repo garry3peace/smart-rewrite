@@ -3,6 +3,9 @@ use app\components\Debug;
 
 $params = require(__DIR__ . '/params.php');
 
+require_once(__DIR__ . '/theme.php');
+$theme = new ThemeConfig('lumino');
+
 $config = [
     'id' => 'basic',
     'basePath' => dirname(__DIR__),
@@ -66,6 +69,9 @@ $config = [
             'rules' => [
             ],
         ],
+		'view' => [
+            'theme' => $theme->getConfig(),
+		],
     ],
     'params' => $params,
 ];
