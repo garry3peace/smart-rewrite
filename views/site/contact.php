@@ -27,8 +27,8 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php else: ?>
 
         <p>
-            Apabila anda memiliki masukan, saran atau pertanyaan seputar Smart Spinner 
-			Silahkan kirimkan pesan di bawah ini.
+            Apabila anda memiliki masukan, saran atau pertanyaan seputar Smart Rewrite,
+			silahkan kirimkan pesan di bawah ini.
             Terima kasih
         </p>
 
@@ -46,7 +46,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     <?= $form->field($model, 'body')->textArea(['rows' => 6]) ?>
 
                     <?= $form->field($model, 'verifyCode')->widget(Captcha::className(), [
-                        'template' => '<div class="row"><div class="col-lg-3">{image}</div><div class="col-lg-6">{input}</div></div>',
+                        'template' => '<div class="row"><div class="col-sm-3">{image}</div>><div class="col-sm-offset-1 col-sm-8">{input}</div></div>',
                     ]) ?>
 
                     <div class="form-group">
