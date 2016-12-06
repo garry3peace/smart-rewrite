@@ -29,7 +29,9 @@ $this->params['breadcrumbs'][] = $this->title;
 		</div>
 	</div>
 	<hr/>
-	<h2>Spintax</h2>
+	<h2>
+		Spintax 
+		<button ng-click="copy()" data-clipboard-target="#Spin_spinTax" class="btn btn-success">Copy</button></h2>
 	<div class="row">
 		<div class="col-lg-12 result">
 			<?= Html::textarea('Spin[spinTax]',$spinTax,[
@@ -38,27 +40,20 @@ $this->params['breadcrumbs'][] = $this->title;
 				'rows'=>10]); ?>
 			<p class="small">Spintax biasanya dipakai di aplikasi seperti GSA Search Engine Ranker atau Scrapebox</p>
 		</div>
-		
-		<div class="col-lg-12">
-			<br/>
-			<button ng-click="copy()" data-clipboard-target="#Spin_spinTax" class="btn btn-success">Copy</button>
-		</div>
 	</div>
 	<hr/>
-	<h2>Hasil</h2>
+	<h2>
+		Hasil
+		<button class="btn btn-primary" ng-click="regenerate()">Re-generate</button>
+		<button ng-click="copy()" data-clipboard-target="#Spin_result" class="btn btn-success">Copy</button>
+	</h2>
 	
 	<div class="row" >
 		<div class="col-lg-12 result">
-			<button class="btn btn-primary" ng-click="regenerate()">Re-generate</button>
-			<br/><br/>
 			<?= Html::textarea('Spin[result]',$result,[
 				'id'=>'Spin_result', 
 				'class'=>'form-control',
 				'rows'=>10]); ?>
-		</div>
-		<div class="col-lg-12">
-			<br/>
-			<button ng-click="copy()" data-clipboard-target="#Spin_result" class="btn btn-success">Copy</button>
 		</div>
 	</div>
 </div>
