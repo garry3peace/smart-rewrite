@@ -1,11 +1,5 @@
 var app = angular.module('app', []);
 
-app.run( function run($http){
-    $http.defaults.headers.post['X-CSRF-Token'] = $('meta[name="csrf-token"]').attr("content");
-    //$http.defaults.headers.post['content-type'] = 'application/json';
-    //$http.defaults.headers.post['Accept'] = 'application/json';
-});
-
 app.controller('SpintaxController',function ($scope, ApiService, SpintaxService, ErrorService){
 		
 	$scope.regenerate = function()
@@ -21,7 +15,7 @@ app.controller('SpintaxController',function ($scope, ApiService, SpintaxService,
 			"Spin":$scope.Spin,
 			"Options":$scope.Options
 		};
-
+		
 		promise = ApiService.rewrite(data);
 		promise.then(function(result){
 			$scope.Spin.spinTax = result;

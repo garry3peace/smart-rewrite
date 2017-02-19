@@ -31,22 +31,9 @@ $config = [
                         ]
             ],
         ],
-        'request' => [
-            'cookieValidationKey' => 'y1kB87_prXcWGfjAW5IlB2u1vMWYZfxB',
-			'hostInfo'=>'http://localhost:8080',
-            'parsers' => [
-                'application/json' => 'yii\web\JsonParser', // required for POST input via `php://input`
-            ]
+		'request' => [
+            'cookieValidationKey' => 'IVMLLeG2LiF02R9xioXAowX5TiDGqJ-p',
         ],
-		'response' => [
-			'formatters' => [
-				\yii\web\Response::FORMAT_JSON => [
-					'class' => 'yii\web\JsonResponseFormatter',
-					'prettyPrint' => YII_DEBUG, // use "pretty" output in debug mode
-					'encodeOptions' => JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE,
-				],
-			],
-		],
         'cache' => [
             'class' => 'yii\caching\FileCache',
         ],
@@ -92,8 +79,35 @@ $config = [
 		'view' => [
             'theme' => $theme->getConfig(),
 		],
-    ],
-    'params' => $params,
+		'authManager' => [
+			'class' => 'yii\rbac\DbManager',
+			'defaultRoles' => ['user'], //role biasa
+		],
+	],
+	'modules'=>[
+		'user' => [
+            'class' => 'dektrium\user\Module',
+            'admins'=>['suadmin'],
+			'modelMap' => [
+				'User' => 'app\models\User',
+			],
+		],
+        'admin' => [
+			'class' => 'mdm\admin\Module',
+            'layout' => '@app/themes/layouts/main',
+		],
+        'api' => [
+            'class' => 'app\modules\api\Module',
+        ],
+	],
+	'as access' => [
+		'class' => 'mdm\admin\components\AccessControl',
+		'allowActions' => [
+			'api/*',
+			'site/*',
+		]
+	],
+	'params' => $params,
 ];
 
 require_once(__DIR__.'/../components/Debug.php');
