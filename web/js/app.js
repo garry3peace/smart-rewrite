@@ -1,13 +1,18 @@
 var app = angular.module('app', []);
 
-app.run( function run($http){
-    $http.defaults.headers.post['X-CSRF-Token'] = $('meta[name="csrf-token"]').attr("content");
-    //$http.defaults.headers.post['content-type'] = 'application/json';
-    //$http.defaults.headers.post['Accept'] = 'application/json';
-});
-
 app.controller('SpintaxController',function ($scope, ApiService, SpintaxService, ErrorService){
-		
+	
+	$scope.configurationStatus = "down";
+	
+	$scope.toggleConfigurationPanel = function()
+	{
+		if($scope.configurationStatus==="down"){
+			$scope.configurationStatus = "up";
+		}else{
+			$scope.configurationStatus = "down";
+		}
+	};
+	
 	$scope.regenerate = function()
 	{
 		var content = $scope.Spin.spinTax;
@@ -21,7 +26,7 @@ app.controller('SpintaxController',function ($scope, ApiService, SpintaxService,
 			"Spin":$scope.Spin,
 			"Options":$scope.Options
 		};
-
+		
 		promise = ApiService.rewrite(data);
 		promise.then(function(result){
 			$scope.Spin.spinTax = result;

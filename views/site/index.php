@@ -25,7 +25,7 @@ $this->params['breadcrumbs'][] = $this->title;
 				'class'=>'form-control',
 				'rows'=>10]); ?>
 			<?= Yii::$app->controller->renderPartial('_option-form', ['options'=>$options]); ?>
-			<button ng-click="rewrite()" class="btn btn-success">Submit</button>
+			<button ng-click="rewrite()" class="btn btn-success">Rewrite!</button>
 		</div>
 	</div>
 	<hr/>
@@ -57,3 +57,5 @@ $this->params['breadcrumbs'][] = $this->title;
 	</div>
 </div>
 </div>
+<br/>
+<span class="copyright">Hak Cipta Dilindungi Undang-Undang &copy; SmartRewrite 2016-<?= date('Y') ?></span>

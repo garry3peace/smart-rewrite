@@ -28,7 +28,11 @@ $config = [
 		'wordCache' => [
 		   'class' => 'app\components\WordCache',
 		],
-    ],
+		'authManager' => [
+			'class' => 'yii\rbac\DbManager', // or use 							'yii\rbac\PhpManager'
+			'defaultRoles' => ['user'], //role biasa
+		],
+	],
     'params' => $params,
     /*
     'controllerMap' => [

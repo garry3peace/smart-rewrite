@@ -8,10 +8,12 @@ class HomeAsset extends AssetBundle
 {
 	public $sourcePath = '@bower/'; 
 	public $js = [
-		'angular/angular.js',
-		'clipboard/dist/clipboard.min.js',
+		'angular/angular.min.js',
 		'/js/mel-spintax.js',
 		'/js/app.js',
+	];
+	public $css =[
+		'/css/site.css',
 	];
     
 	public function init()

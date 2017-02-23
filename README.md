@@ -5,6 +5,8 @@ Aplikasi ini tidak sekedar mengganti kata per kata. Tetapi juga menulis ulang se
 
 Sistem ini dibangun dengan Yii 2, framework yang sangat powerful untuk level web.
 
+Theme menggunakan Lumino (https://medialoot.com/preview/frame/lumino.html)
+
 Yii 2 Basic Project Template
 ============================
 

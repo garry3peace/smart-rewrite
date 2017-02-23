@@ -11,22 +11,29 @@ $config = [
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
     'components' => [
-        'request' => [
-            'cookieValidationKey' => 'y1kB87_prXcWGfjAW5IlB2u1vMWYZfxB',
-			'hostInfo'=>'http://localhost:8080',
-            'parsers' => [
-                'application/json' => 'yii\web\JsonParser', // required for POST input via `php://input`
-            ]
+		'assetManager' => [
+            'class' => 'yii\web\AssetManager',
+            'bundles' => [
+                        'yii\web\JqueryAsset' => [
+                            'js' => [
+                                YII_ENV_DEV ? 'jquery.js' : 'jquery.min.js'
+                            ]
+                        ],
+                        'yii\bootstrap\BootstrapAsset' => [
+                            'css' => [
+                                YII_ENV_DEV ? 'css/bootstrap.css' : 'css/bootstrap.min.css',
+                            ]
+                        ],
+                        'yii\bootstrap\BootstrapPluginAsset' => [
+                            'js' => [
+                                YII_ENV_DEV ? 'js/bootstrap.js' : 'js/bootstrap.min.js',
+                            ]
+                        ]
+            ],
         ],
-		'response' => [
-			'formatters' => [
-				\yii\web\Response::FORMAT_JSON => [
-					'class' => 'yii\web\JsonResponseFormatter',
-					'prettyPrint' => YII_DEBUG, // use "pretty" output in debug mode
-					'encodeOptions' => JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE,
-				],
-			],
-		],
+		'request' => [
+            'cookieValidationKey' => 'IVMLLeG2LiF02R9xioXAowX5TiDGqJ-p',
+        ],
         'cache' => [
             'class' => 'yii\caching\FileCache',
         ],
@@ -72,8 +79,36 @@ $config = [
 		'view' => [
             'theme' => $theme->getConfig(),
 		],
-    ],
-    'params' => $params,
+		'authManager' => [
+			'class' => 'yii\rbac\DbManager',
+			'defaultRoles' => ['guest'], //role biasa
+		],
+	],
+	'modules'=>[
+		'user' => [
+            'class' => 'dektrium\user\Module',
+            'admins'=>['bisto890'],
+			'modelMap' => [
+				'User' => 'app\models\User',
+			],
+		],
+        'admin' => [
+			'class' => 'mdm\admin\Module',
+            'layout' => '@app/themes/layouts/main',
+		],
+        'api' => [
+            'class' => 'app\modules\api\Module',
+        ],
+	],
+	'as access' => [
+		'class' => 'mdm\admin\components\AccessControl',
+		'allowActions' => [
+			'api/*',
+			'site/*',
+			'user/*'
+		]
+	],
+	'params' => $params,
 ];
 
 require_once(__DIR__.'/../components/Debug.php');
