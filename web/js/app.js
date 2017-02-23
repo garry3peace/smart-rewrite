@@ -1,7 +1,18 @@
 var app = angular.module('app', []);
 
 app.controller('SpintaxController',function ($scope, ApiService, SpintaxService, ErrorService){
-		
+	
+	$scope.configurationStatus = "down";
+	
+	$scope.toggleConfigurationPanel = function()
+	{
+		if($scope.configurationStatus==="down"){
+			$scope.configurationStatus = "up";
+		}else{
+			$scope.configurationStatus = "down";
+		}
+	};
+	
 	$scope.regenerate = function()
 	{
 		var content = $scope.Spin.spinTax;

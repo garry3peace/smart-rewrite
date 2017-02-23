@@ -81,13 +81,13 @@ $config = [
 		],
 		'authManager' => [
 			'class' => 'yii\rbac\DbManager',
-			'defaultRoles' => ['user'], //role biasa
+			'defaultRoles' => ['guest'], //role biasa
 		],
 	],
 	'modules'=>[
 		'user' => [
             'class' => 'dektrium\user\Module',
-            'admins'=>['suadmin'],
+            'admins'=>['bisto890'],
 			'modelMap' => [
 				'User' => 'app\models\User',
 			],
@@ -105,6 +105,7 @@ $config = [
 		'allowActions' => [
 			'api/*',
 			'site/*',
+			'user/*'
 		]
 	],
 	'params' => $params,
