@@ -1,14 +1,16 @@
 <?php
 
-use app\themes\lumino\assets\AppAsset;
+use app\assets\AppAsset;
+use app\themes\lumino\assets\AppAsset as LuminoAsset;
 use app\themes\lumino\assets\IEAsset;
 use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\widgets\Menu;
 $this->title = $this->title . (empty($this->title) ? '' : ' | ') . Yii::$app->name;
 
-AppAsset::register($this);
+LuminoAsset::register($this);
 IEAsset::register($this);
+AppAsset::register($this);
 
 ?>
 <?php $this->beginPage() ?>
@@ -34,6 +36,7 @@ IEAsset::register($this);
 					<span class="icon-bar"></span>
 				</button>
 				<a class="navbar-brand" href="<?= Url::home();?>"><span>Smart</span>Rewrite</a>
+				<?php echo Yii::$app->controller->renderPartial('//layouts/_user-menu') ?>
 			</div>
 							
 		</div><!-- /.container-fluid -->
