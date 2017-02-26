@@ -136,6 +136,11 @@ class SiteController extends Controller
 		return $this->render('plugin');
 	}
 	
+	public function actionPluginDocumentation()
+	{
+		return $this->render('plugin-documentation');
+	}
+	
 	public function actionSummarize()
 	{
 		$content = '';
