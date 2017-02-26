@@ -1,3 +1,12 @@
+.user-menu li{
+	display:inline-block;
+	margin: 0 10px;
+}
+
+.user-menu li:last-child{
+	margin-right: 0; 
+}
+
 .panel-heading .close{
 	margin-top:10px
 }
@@ -16,4 +25,9 @@
 .copyright{
 	color: #888;
 	font-size:0.9em;
+}
+
+.btn-large{
+	font-size:1.3em;
+	padding:10px 20px;
 }

@@ -34,7 +34,7 @@ use yii\web\UploadedFile;
  */
 class User extends BaseUser implements IdentityInterface
 {
-	const ROLE_TENANT = 'tenant';
+	const ROLE_USER = 'user';
     
     public $file;
 
@@ -50,18 +50,6 @@ class User extends BaseUser implements IdentityInterface
     {
         return 'user';
     }
-
-    public function rules()
-	{	
-		$rules = parent::rules();
-		unset ($rules['usernameMatch']);
-        unset ($rules['emailUnique']);
-		unset ($rules['emailPattern']);
-		
-		$rules['emailPattern']=['email', 'match', 'pattern'=> '/^[a-zA-Z0-9!#$%&\'*+\\/=?^_`{|}~-]+(?:\.[a-zA-Z0-9!#$%&\'*+\\/=?^_`{|}~-]+)*@(?:[a-zA-Z0-9](?:[a-zA-Z0-9-_]*[a-zA-Z0-9])?\.)+[a-zA-Z0-9](?:[a-zA-Z0-9-_]*[a-zA-Z0-9])?$/'];
-		$rules['usernameMatch'] = ['username', 'match', 'pattern' => '/^[-a-zA-Z0-9_\.@\/]+$/'];
-		return $rules;
-	}
 
     /**
      * @inheritdoc
@@ -84,29 +72,7 @@ class User extends BaseUser implements IdentityInterface
         ];
     }
 
-    /**
-     * @return ActiveQuery
-     */
-    public function getProfile()
-    {
-//        return $this->hasOne(Profile::className(), ['user_id' => 'id']);
-    }
-
-    /**
-     * @return ActiveQuery
-     */
-    public function getSocialAccounts()
-    {
-        return $this->hasMany(SocialAccount::className(), ['user_id' => 'id']);
-    }
-
-    /**
-     * @return ActiveQuery
-     */
-    public function getTokens()
-    {
-        return $this->hasMany(Token::className(), ['user_id' => 'id']);
-    }
+    
     
     public function getUser() 
     {
@@ -116,24 +82,15 @@ class User extends BaseUser implements IdentityInterface
         }
     }
     
-    public function getProfileName()
-	{
-		$profile = $this->profile;
-		if(!$profile) {
-			return null;
-		}
-		
-		if($profile->name==null || $profile=='') {
-			return null;
-		}
-		
-		return $profile->name;
-	}
 	
 	public function afterCreate()
 	{
-		$this->assignAccess([self::ROLE_TENANT]);
-		return true;
+		//Automatically assign role User 
+		$this->assignAccess([self::ROLE_USER]);
+		
+		//calling getAccessaccess token 
+		$accessToken = $this->generateAccessToken();
+		return $accessToken;
 	}
 	
 	/**
@@ -150,46 +107,35 @@ class User extends BaseUser implements IdentityInterface
 		
 		return true;
 	}
-    
-    public function beforeValidate() 
-    {
-        if(preg_match('/\s/', $this->username))
-        {
-            $this->username = str_replace(' ', '/', $this->username);
-        }
-        
-//        $model = User::find()->column('email');
-//        var_dump($model); die;
-//        foreach($model as $data)
-//        {
-//            if($data->email == $this->email)
-//            {
-//                return $this->email = 'xxx'.strtolower($this->username).'@ltc-glodok.com';
-//            }
-//        }
-        
-        if(empty($this->email))
-        {
-            $this->email = 'xxx'.uniqid().'@ltc-glodok.com';
-        }
-        $this->password_hash = '$2y$10$Vsaa3i65tmk3YBXPcJO2oe3TzQ0YS8dq44eGWkerAjf2we2RD54sy';
-        $this->auth_key = 'L566e1eTfo--gZBLKXHnd09kKiH8aI8l';
-        $this->confirmed_at = '1486967246';
-        $this->unconfirmed_email = '';
-        $this->blocked_at = '';
-        $this->registration_ip = '::1';
-        $this->created_at = '1486967245';
-        $this->updated_at = '1486967245';
-        $this->flags = '0';
-//        var_dump($this); die;
-        return parent::beforeValidate();
-    }
-        
-    public function processFile(){
+	
+	private function generateAccessToken()
+	{
+		$this->access_token = sha1(uniqid());
+		$this->save();
 		
-		$this->file = UploadedFile::getInstance($this, 'file');
-        
-		return UserMap::getData();
+		return $this->access_token;
 	}
-    
+	
+	/**
+	 * Get Access Token. Access token will be used as API KEY
+	 * If the access token still empty
+	 * create the new access token
+	 * @return string
+	 */
+	public function getAccessToken()
+	{
+		//only can be accessed if there is user
+		if($this->id == false){
+			return false;
+		}
+		
+		// if the access token is not null than access it
+		if($this->access_token != false){
+			return $this->access_token;
+		}
+		
+		// else, generate the new one and save it. Then return it.
+		return $this->generateAccessToken();
+	}
+
 }

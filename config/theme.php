@@ -33,10 +33,11 @@ class ThemeConfig
                 // if requested file is not available, Yii will try to search it in default view directory (@app/view)
                 // for example when we call render('index') in SiteController, Yii search for @app/themes/v1/views/site/index.php file
                 // but if that file doesn't exist, then Yii will use @app/views/site/index.php instead
-                //
+                
+				'@dektrium/user/views' => '@app/views/user',
                 // so, your theme specific view files MUST be placed here.
                 // your shared view files SHOULD be placed in @app/view
-                '@app/views' => '@app/themes/' . $this->theme . '/views',
+                '@app/views' => '@app/themes/' . $this->theme . '/views',				
 
                 // theming modules
                 // rules for @app/views above apply, so theme specific files MUST be placed here,

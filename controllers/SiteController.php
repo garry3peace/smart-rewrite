@@ -130,6 +130,12 @@ class SiteController extends Controller
 			'wordCount'=>$wordCount,
 		]);
     }
+	
+	public function actionPlugin()
+	{
+		return $this->render('plugin');
+	}
+	
 	public function actionSummarize()
 	{
 		$content = '';

@@ -12,9 +12,7 @@ class HomeAsset extends AssetBundle
 		'/js/mel-spintax.js',
 		'/js/app.js',
 	];
-	public $css =[
-		'/css/site.css',
-	];
+	
     
 	public function init()
 	{

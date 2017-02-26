@@ -1,14 +1,16 @@
 <?php
 
-use app\themes\lumino\assets\AppAsset;
+use app\assets\AppAsset;
+use app\themes\lumino\assets\AppAsset as LuminoAsset;
 use app\themes\lumino\assets\IEAsset;
 use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\widgets\Menu;
 $this->title = $this->title . (empty($this->title) ? '' : ' | ') . Yii::$app->name;
 
-AppAsset::register($this);
+LuminoAsset::register($this);
 IEAsset::register($this);
+AppAsset::register($this);
 
 ?>
 <?php $this->beginPage() ?>
@@ -34,6 +36,7 @@ IEAsset::register($this);
 					<span class="icon-bar"></span>
 				</button>
 				<a class="navbar-brand" href="<?= Url::home();?>"><span>Smart</span>Rewrite</a>
+				<?php echo Yii::$app->controller->renderPartial('//layouts/_user-menu') ?>
 			</div>
 							
 		</div><!-- /.container-fluid -->
@@ -47,6 +50,7 @@ IEAsset::register($this);
 				['label' => '<svg class="glyph stroked home"><use xlink:href="#stroked-home"></use></svg> Beranda', 'url' => ['/site/index'],'encode'=>false],
 				['label' => '<svg class="glyph stroked star"><use xlink:href="#stroked-star"></use></svg> Tentang Smart Rewrite', 'url' => ['/site/about'],'encode'=>false],
 				['label' => '<svg class="glyph stroked pencil"><use xlink:href="#stroked-pencil"></use></svg>Hubungi Kami', 'url' => ['/site/contact'],'encode'=>false],
+				['label' => '<svg class="glyph stroked paperclip"><use xlink:href="#stroked-paperclip"/></svg>Plugin WordPress', 'url' => ['/site/plugin'],'encode'=>false],
 			],
 		]);?>
 
