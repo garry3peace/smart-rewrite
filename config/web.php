@@ -91,6 +91,11 @@ $config = [
 			'modelMap' => [
 				'User' => 'app\models\User',
 			],
+			'controllerMap'=>[
+				'profile' => [
+					'class' => 'app\controllers\user\ProfileController',//::className(),
+				],
+			]
 		],
         'admin' => [
 			'class' => 'mdm\admin\Module',

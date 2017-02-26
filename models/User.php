@@ -85,8 +85,12 @@ class User extends BaseUser implements IdentityInterface
 	
 	public function afterCreate()
 	{
+		//Automatically assign role User 
 		$this->assignAccess([self::ROLE_USER]);
-		return true;
+		
+		//calling getAccessaccess token 
+		$accessToken = $this->generateAccessToken();
+		return $accessToken;
 	}
 	
 	/**
@@ -102,6 +106,36 @@ class User extends BaseUser implements IdentityInterface
 		$model->assign($items);
 		
 		return true;
+	}
+	
+	private function generateAccessToken()
+	{
+		$this->access_token = sha1(uniqid());
+		$this->save();
+		
+		return $this->access_token;
+	}
+	
+	/**
+	 * Get Access Token. Access token will be used as API KEY
+	 * If the access token still empty
+	 * create the new access token
+	 * @return string
+	 */
+	public function getAccessToken()
+	{
+		//only can be accessed if there is user
+		if($this->id == false){
+			return false;
+		}
+		
+		// if the access token is not null than access it
+		if($this->access_token != false){
+			return $this->access_token;
+		}
+		
+		// else, generate the new one and save it. Then return it.
+		return $this->generateAccessToken();
 	}
 
 }

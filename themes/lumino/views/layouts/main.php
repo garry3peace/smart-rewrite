@@ -50,6 +50,7 @@ AppAsset::register($this);
 				['label' => '<svg class="glyph stroked home"><use xlink:href="#stroked-home"></use></svg> Beranda', 'url' => ['/site/index'],'encode'=>false],
 				['label' => '<svg class="glyph stroked star"><use xlink:href="#stroked-star"></use></svg> Tentang Smart Rewrite', 'url' => ['/site/about'],'encode'=>false],
 				['label' => '<svg class="glyph stroked pencil"><use xlink:href="#stroked-pencil"></use></svg>Hubungi Kami', 'url' => ['/site/contact'],'encode'=>false],
+				['label' => '<svg class="glyph stroked paperclip"><use xlink:href="#stroked-paperclip"/></svg>Plugin WordPress', 'url' => ['/site/plugin'],'encode'=>false],
 			],
 		]);?>
 

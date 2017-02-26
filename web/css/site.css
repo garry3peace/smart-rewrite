@@ -26,3 +26,8 @@
 	color: #888;
 	font-size:0.9em;
 }
+
+.btn-large{
+	font-size:1.3em;
+	padding:10px 20px;
+}
