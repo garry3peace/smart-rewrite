@@ -3,6 +3,7 @@
 /* @var $this yii\web\View */
 
 use yii\helpers\Html;
+use yii\helpers\Url;
 
 $this->title = 'Plugin WordPress - Smart Rewrite';
 Yii::$app->view->params['metaKeyword'] = 'spinner, rewriter, auto spin, spun, wordpress, plugin';
@@ -30,19 +31,22 @@ $this->params['breadcrumbs'][] = $this->title;
 		Kelebihan menggunakan WP-SmartRewrite: 
 	</p>
 	<ul>
-		<li> Sederhana. Satu klik langsung rewrite.</li>
+		<li> Sederhana & gampang digunakan. Satu klik langsung rewrite.</li>
 		<li> Bisa mengatur konfigurasi sesuai kebutuhan.</li>
 		<li> Ada opsi revert untuk mengembalikan ke teks semula.</li>		
 		<li> Mendukung rewrite untuk teks maupun rich text.</li>		
 	</ul>
 	<p>
-		<?= Html::img('/img/wordpress-smartrewrite-plugin-1.png', ['alt'=>'WordPress Plugin SmartRewrite: Rewrite Button']) ?>
+		<?= Html::img('/img/wordpress-smartrewrite-plugin-1.jpg', ['alt'=>'WordPress Plugin SmartRewrite: Rewrite Button']) ?>
 	</p>
 	<p>
-		<?= Html::img('/img/wordpress-smartrewrite-plugin-2.png', ['alt'=>'WordPress Plugin SmartRewrite: Configuration Form']) ?>
+		<?= Html::img('/img/wordpress-smartrewrite-plugin-2.jpg', ['alt'=>'WordPress Plugin SmartRewrite: Configuration Form']) ?>
 	</p>
 	
 	<p>
-		<a href="<?= yii\helpers\Url::to('/plugins/wp-smartrewrite.zip')?>" class="btn btn-primary btn-large"> Download <strong>WP-SmartRewrite</strong> Sekarang</a>
+		<a href="<?= Url::to('/plugins/wp-smartrewrite.zip')?>" class="btn btn-primary btn-large"> Download <strong>WP-SmartRewrite</strong> Sekarang</a>
 	</p>
+	<br/>
+	<br/>
+	<p>Untuk petunjuk penggunaan silahkan cek di halaman <a href="<?= Url::to('/site/plugin-documentation') ?>">Petunjuk Penggunaan WP-SmartRewrite</a>.</p>
 	<br/><br/><br/><br/><br/><br/>
