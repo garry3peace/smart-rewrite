@@ -77,5 +77,23 @@ class Lemma extends \yii\db\ActiveRecord
 	{
 		return self::is($name, self::VERB);
 	}
+	
+	/**
+	 * Get the basic form of the word
+	 * For example: Mengerjakan => Kerja
+	 * @param string $name
+	 * @return string basic form
+	 */
+	public static function stem($name)
+	{
+		// create stemmer
+		// cukup dijalankan sekali saja, biasanya didaftarkan di service container
+		$stemmerFactory = new \Sastrawi\Stemmer\StemmerFactory();
+		$stemmer = $stemmerFactory->createStemmer();
+
+		// stem
+		return $stemmer->stem($name);
+
+	}
 
 }
