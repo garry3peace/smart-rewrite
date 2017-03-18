@@ -10,7 +10,7 @@ class Verb{
 	/**
 	 * Add the affix "me-" to the verb 
 	 */
-	public function me($baseVerb)
+	public static function me($baseVerb)
 	{
 		if(in_array($baseVerb[0], ['a','i','u','e','o'])){
 			return 'meng'.$baseVerb;
