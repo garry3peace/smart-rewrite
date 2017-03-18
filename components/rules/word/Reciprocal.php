@@ -29,28 +29,19 @@ class Reciprocal extends Rule{
 	 * This is to generate negation phrase
 	 * For example "saling menyerang" will return the "serang-menyerang"
 	 * @param string $word, "serang"
-	 * @param string $exaggeration, "saling"
+	 * @param string $pronoun, "saling"
 	 * @return string {saling menyerang|serang menyerang}
 	 */
-	private static function process($word, $exaggeration)
+	private static function process($word, $pronoun)
 	{
-		$baseWord = Lemma::getBase($word);
-		
-		//If word is not adjective, then we can't change it
-		if (!Lemma::isVerb($baseWord)){
-			return '';
-		}
-		
-		
-		
-		//convert to 
 		$result = [];
-		$result[] = $word.' sekali';
+		$baseWord = Lemma::stem($word);
 		
+		$result[] = $baseWord.' '.\app\components\word\Verb::me($baseWord);
 		//add the initial word
-		array_unshift($result, "$exaggeration `$word`");
-		
+		array_unshift($result, "$pronoun `$word`");
 
 		return SpinFormat::generate($result);
+
 	}
 }
