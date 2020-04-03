@@ -124,7 +124,7 @@ class PhraseRewriter extends Rewriter
 		
 		
 		//only at the beginning of text, the "banyak" make sense
-		$regexPattern = '%(?:^|\.)([\w]*)-([\w]*)%i';
+		$regexPattern = '%(?:^|\.)([\w]*)\-([\w]*)%i';
 		if (preg_match_all($regexPattern, $sentence, $matches,  PREG_SET_ORDER)){
 			foreach($matches as $match){
 				$alternateSentences = [];

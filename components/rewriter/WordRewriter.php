@@ -112,7 +112,7 @@ class WordRewriter extends Rewriter
 	 */
 	private static function spinWord($word)
 	{
-		$pattern = '/([\w-`]+)/i';
+		$pattern = '/([\w\-`]+)/i';
 		
 		//The regex is for ignoring the symbol, so the system will
 		//only see the word.
@@ -133,7 +133,7 @@ class WordRewriter extends Rewriter
 	private static function finalize($word)
 	{
 		//remove marked from the word
-		$pattern = '/`[\w\s-]+`/i';
+		$pattern = '/`[\w\s\-]+`/i';
 		
 		//The regex is for ignoring the symbol, so the system will
 		//only see the word.

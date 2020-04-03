@@ -16,7 +16,7 @@ namespace app\components;
 class RegexElement {
 	public static function opening()
 	{
-		return '%(^|\. |[\w\s-`#]+\, )';
+		return '%(^|\. |[\w\s\-`#]+\, )';
 	}
 	
 	public static function closing()
@@ -26,7 +26,7 @@ class RegexElement {
 	
 	public static function phrase()
 	{
-		return '[\w\s-`#]';
+		return '[\w\s\-`#]';
 	}
 	
 	public static function sentence()
