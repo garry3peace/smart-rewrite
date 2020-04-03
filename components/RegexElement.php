@@ -31,7 +31,7 @@ class RegexElement {
 	
 	public static function sentence()
 	{
-		return '[\w\s-`#.,]';
+		return '[\w\s\-`#.,]';
 	}
 	
 	public static function word()
