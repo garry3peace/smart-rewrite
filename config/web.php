@@ -121,7 +121,7 @@ $config['components']['db'] = require(__DIR__ .'/'. (Debug::isLocal()?'dev-db.ph
 
 if (YII_ENV_DEV) {
     // configuration adjustments for 'dev' environment
-    $config['bootstrap'][] = 'debug';
+    /*$config['bootstrap'][] = 'debug';
     $config['modules']['debug'] = [
         'class' => 'yii\debug\Module',
     ];
@@ -129,7 +129,7 @@ if (YII_ENV_DEV) {
     $config['bootstrap'][] = 'gii';
     $config['modules']['gii'] = [
         'class' => 'yii\gii\Module',
-    ];
+    ];*/
 }
 
 return $config;
