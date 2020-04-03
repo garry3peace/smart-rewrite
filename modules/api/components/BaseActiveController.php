@@ -21,7 +21,7 @@ class BaseActiveController extends ActiveController {
 		$behaviors['corsFilter'] = [
 			'class' => Cors::className(),
 			'cors' => [
-				'Origin' => ['*'],
+				'Origin' => ['localhost:8080','smart-rewrite.herokuapp.com'],
 				'Access-Control-Request-Method' => ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'HEAD', 'OPTIONS'],
 				'Access-Control-Request-Headers' => ['*'],
 				'Access-Control-Allow-Credentials' => true,
