@@ -29,6 +29,6 @@ class Conditional4 extends ConditionalRule{
 			selagi|selama|sambil|demi|setelah|sesudah|sebelum|sehabis|selesai|seusai|
 			hingga)';
 		
-		return self::SENTENCE_OPENING.'([\w\s-`]+) '.$timeWord.' ([\w\s-`]*)'.self::SENTENCE_CLOSING;
+		return self::SENTENCE_OPENING.'([\w\s\-\`]+) '.$timeWord.' ([\w\s\-\`]*)'.self::SENTENCE_CLOSING;
 	}
 }
