@@ -128,7 +128,7 @@ class SmartRewrite
 	{
 		
 		//Excluding text that is html link/img
-		$regex = '%(<(?i:img|a)[\w\s-\.\"\=\<\>\:./]*?>)%';
+		$regex = '%(<(?i:img|a)[\w\s\-\.\"\=\<\>\:./]*?>)%';
 		$this->sentence = preg_replace_callback($regex,function ($match){
 			$word = $match[0];
 			$target = $match[1];
