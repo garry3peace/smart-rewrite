@@ -23,7 +23,8 @@
 		"bower-asset/pace": "*",
 		"mdmsoft/yii2-admin": "~2.0",
         "dektrium/yii2-user": "0.9.*@dev",
-        "sastrawi/sastrawi": "^1"
+        "sastrawi/sastrawi": "^1",
+        "fxp/composer-asset-plugin": "^1.2.0"
     },
     "require-dev": {
         "yiisoft/yii2-codeception": "*",
