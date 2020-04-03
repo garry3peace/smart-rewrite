@@ -24,6 +24,6 @@ class Causality extends ConditionalRule{
 	
 	public static function rule()
 	{
-		return self::SENTENCE_OPENING.'([\w\s\-\`,]+) (dikarenakan|karena|sebab|supaya|agar) ([\w\s\`\-]*)'.self::SENTENCE_CLOSING;
+		return self::SENTENCE_OPENING.'([\w\s\-\`\,]+) (dikarenakan|karena|sebab|supaya|agar) ([\w\s\`\-]*)'.self::SENTENCE_CLOSING;
 	}
 }

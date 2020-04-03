@@ -26,6 +26,6 @@ class Conditional3 extends ConditionalRule{
 	public static function rule()
 	{
 		$ifWord = self::ifWords();
-		return self::SENTENCE_OPENING.$ifWord.' ([\w\s\`\-]*), ([\w\s\`\-]*)'.self::SENTENCE_CLOSING;
+		return self::SENTENCE_OPENING.$ifWord.' ([\w\s\`\-]*)\, ([\w\s\`\-]*)'.self::SENTENCE_CLOSING;
 	}
 }
