@@ -1,3 +1,3 @@
 var Params = {
-	'apiBaseUrl': 'http://www.smartrewrite.com/api',
+	'apiBaseUrl': 'https://smart-rewrite.herokuapp.com/api',
 };
